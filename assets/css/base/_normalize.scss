@@ -1,0 +1,403 @@
+/*TEXT AND PARAGRAPH*/
+
+@for $i from 5 through 60 {
+    .fs-#{$i} {
+        font-size: 0px + $i $imp;
+    }
+}
+
+@for $i from 1 through 5 {
+    .ls-#{$i} {
+        letter-spacing: 0px + $i $imp;
+    }
+    
+    .h-#{$i}{
+        height: 10px * $i 
+    }
+    
+    .w-#{$i}{
+        width: 10px * $i 
+    }
+    
+    .w#{$i*25} {
+        width: 25% * $i $imp;
+    }
+}
+
+@for $i from 1 through 3 {
+    .lh#{$i} {
+        line-height: 0px + $i $imp;
+    }
+}
+
+@for $i from 3 through 10 {
+    .fw-#{$i *100} {
+        font-weight: 100 * $i $imp;
+    }
+}
+
+h1{
+    @extend .fs-30;
+}
+
+h2{
+    @extend .fs-25;
+}
+
+h3{
+    @extend .fs-20;
+}
+
+h4{
+    @extend .fs-15;
+}
+
+h5{
+    @extend .fs-12;
+}
+
+h6{
+    @extend .fs-9;
+}
+
+h1, h2, h3, h4, h5, h6{
+    @extend .m-0;
+}
+
+.alignr{
+    text-align: right
+}
+
+.alignl{
+    text-align: left
+}
+
+.alignc{
+    text-align: center
+}
+
+.alignj{
+    text-align: justify
+}
+
+.fw{
+    font-weight: bold
+}
+
+.tfnone{
+    text-transform: none $imp
+}
+
+.tdnone{
+    text-decoration: none $imp
+}
+
+.upper{
+    text-transform: uppercase $imp
+}
+
+.capital{
+    text-transform: capitalize$imp
+}
+
+
+/* MARGIN AND PADDING */
+
+.t0{
+    top: 0 $imp
+}
+
+.b0{
+    bottom: 0 $imp
+}
+
+.r0{
+    right: 0 $imp
+}
+
+.l0{
+    left: 0 $imp
+}
+
+@for $i from 0 through 20 {
+    .m-#{$i * 5} {
+        margin: $i * 5px $imp
+    }
+    .mt-#{$i * 5} {
+        margin-top: $i * 5px $imp
+    }
+    .mb-#{$i * 5} {
+        margin-bottom: $i * 5px $imp
+    }
+    .mr-#{$i * 5} {
+        margin-right: $i * 5px $imp
+    }
+    .ml-#{$i * 5} {
+        margin-left: $i * 5px $imp
+    }
+    .p-#{$i * 5} {
+        padding: $i * 5px $imp
+    }
+    .pt-#{$i * 5} {
+        padding-top: $i * 5px $imp
+    }
+    .pb-#{$i * 5} {
+        padding-bottom: $i * 5px $imp
+    }
+    .pr-#{$i * 5} {
+        padding-right: $i * 5px $imp
+    }
+    .pl-#{$i * 5} {
+        padding-left: $i * 5px $imp
+    }
+}
+
+/*INPUT AND BUTTON*/
+
+input{
+  outline: inherit; }
+
+button {
+  outline: inherit; }
+
+
+button:focus {
+  outline: none $imp;
+}
+
+button:disabled,
+button[disabled]{
+    background: #f3f3f3; 
+    border: 2px solid #d2d2d2; 
+    color: #303030;
+}
+
+/*WIDTH AND HEIGHT*/
+
+.h-100{
+    height: 100%
+}
+
+.hscreen{
+    height: 100vh
+}
+
+.w-100{
+    width: 100%
+}
+
+.wscreen{
+    width: 100vw
+}
+
+/* POSITION */
+
+.rel{
+    position: relative
+}
+
+.abs{
+    position: absolute
+}
+
+.fix{
+    position: fixed $imp
+}
+
+.floatl{
+    float: left $imp
+}
+
+.floatr{
+    float: right $imp
+}
+
+.floatn{
+    float: none $imp;
+}
+
+.hcenter{
+    float: none $imp;
+    margin: auto;
+    clear: both;
+}
+
+.vcenter{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%)
+}
+
+.z9{
+    z-index: 999 $imp
+}
+
+.cb{
+    clear:both
+}
+
+.block{
+    display: block;
+}
+
+.pbottom{
+    position: absolute;
+    bottom: 0; 
+    left: 0px;
+    right: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*BORDER*/
+
+.noborder{
+    border: $nn $imp
+}
+
+.bl-0{
+    border-left: $nn $imp
+}
+
+.br-0{
+    border-right: $nn $imp
+}
+
+.bt-0{
+    border-top: $nn $imp
+}
+
+.bb-0{
+    border-bottom: $nn $imp
+}
+
+.nobr{
+    border-radius: 0 $imp
+}
+
+.sideradius{
+    border-radius: 30px $imp
+}
+
+.br-5{
+    border-radius: 5px $imp
+}
+
+.br-10{
+    border-radius: 10px $imp
+}
+
+.circle{
+   border-radius: 50% $imp
+}
+
+.no-bs{
+    box-shadow: none $imp
+}
+
+/*.box-shadow-5{
+   -webkit-box-shadow:0px 0px 5px 0px #eee;
+    -moz-box-shadow:0px 0px 5px 0px #eee;
+    -o-box-shadow:0px 0px 5px 0px #eee;
+}
+
+.box-shadow-10{
+   -webkit-box-shadow:0px 10px 0px 0px #ccc;
+    -moz-box-shadow:0px 100px 0px 0px #ccc;
+    -o-box-shadow:0px 100px 0px 0px #ccc;
+}*/
+
+/* SCROLLBAR */
+
+body::scrollbar{
+    width: 6px;background-color: #F5F5F5;
+}
+
+body::scrollbar-track{
+    background-color: transparent;
+}
+
+body::scrollbar-thumb{
+    background-color: #ccc;
+}
+
+body::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar{
+    width: 6px;	background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: #b6b6b6;
+}
+
+.scroll{
+    overflow: scroll
+}
+
+.noscroll{
+    overflow: hidden
+}
+
+.scroll-x{
+    overflow-y: scroll
+}
+
+.scroll-y{
+    overflow-y: scroll
+}
+
+.scroll-noy{
+    overflow-y: hidden
+}
+
+.scroll-nox{
+    overflow-x: hidden
+}
+
+/* SELECTION */
+
+.pointer{
+    cursor: pointer;
+}
+ 
+::selection, ::-ms-selection, ::-moz-selection, ::-o-selection, ::-webkit-selection {
+    background: #14A689;
+    color: #fff
+}
+
+/* ANIMATION */
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}   

@@ -1,0 +1,21 @@
+@mixin theme($name, $color) {
+    .bg-#{$name} {
+        background: $color $imp
+    }
+    .text-#{$name} {
+        color: $color
+    }
+    .border-#{$name}{
+        border: 1px solid $color $imp
+    }
+    .hr-#{$name}{
+        border-top: 1px solid $color $imp
+    }
+    .br-#{$name}{
+        border-right: 1px solid $color $imp
+    }
+}
+
+@each $key, $value in $warna {
+    @include theme($key, $value);
+}
