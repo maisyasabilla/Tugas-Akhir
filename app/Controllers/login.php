@@ -1,59 +1,33 @@
 <?php namespace App\Controllers;
 
 use CodeIgniter\Controller;
-
+use CodeIgniter\Config\Config;
 use App\Models\UserModel;
+use App\Models\sistem_model;
 
-
-class Users extends BaseController
+class Login extends BaseController
 {
-	public function index()
+	public function actionlogin()
 	{
-		$data = [];
-		helper(['form']);
+		$session = session();
+		$sistem_model = new sistem_model();
+		$username = $this->request->getPost('username');
+		$password = md5($this->request->getPost('password'));
 
-
-		if ($this->request->getMethod() == 'post') {
-			//let's do the validation here
-			$rules = [
-				'username' => 'required|min_length[6]|max_length[30]',
-				'password' => 'required|validateUser[username,password]',
-			];
-
-			$errors = [
-				'password' => [
-					'validateUser' => 'Email or Password don\'t match'
-				]
-			];
-
-			if (! $this->validate($rules, $errors)) {
-				$data['validation'] = $this->validator;
-			}else{
-				$model = new UserModel();
-
-				$user = $model->where('username', $this->request->getVar('username'))
-											->first();
-
-				$this->setUserSession($user);
-				//$session->setFlashdata('success', 'Successful Registration');
-				return redirect()->to('dashboard');
-
-			}
+		$data = $sistem_model->getUsersToLogin($username, $password);
+		if (!empty($data)) {
+			$session->set('username', $username);
+			return redirect()->to(base_url('/perjalanan_dinas/dashboard'));
+		} else{
+			$session->setFlashdata('gagal','Login gagal, silahkan isi data dengan benar.');
+			return redirect()->to(base_url('/perjalanan_dinas'));
 		}
-
 	}
 
-	private function setUserSession($user){
-		$data = [
-			'id' => $user['id'],
-			'firstname' => $user['firstname'],
-			'lastname' => $user['lastname'],
-			'email' => $user['email'],
-			'isLoggedIn' => true,
-		];
-
-		session()->set($data);
-		return true;
+	public function logout(){
+		$session = session();
+		$session->remove('username');
+		return redirect()->to(base_url('/perjalanan_dinas'));
 	}
 
 	public function register(){

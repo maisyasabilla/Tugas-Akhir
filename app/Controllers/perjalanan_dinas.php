@@ -1,59 +1,23 @@
 <?php namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\UserModel;
+use App\Models\Page;
+use App\Models\Sistem_model;
+
 /*use App\Models\perjalanan_dinas_model;*/
 
 class Perjalanan_Dinas extends Controller
 {
-    public function index()
-    {
-        $data = [];
-		helper(['form']);
- 
-		if ($this->request->getMethod() == 'post') {
-			//let's do the validation here
-			$rules = [
-				'username' => 'required|min_length[6]|max_length[30]',
-				'password' => 'required|validateUser[username,password]',
-			];
-
-			$errors = [
-				'password' => [
-					'validateUser' => 'Email or Password don\'t match'
-				]
-			];
-
-			if (! $this->validate($rules, $errors)) {
-				$data['validation'] = $this->validator;
-			}else{
-				$model = new UserModel();
-
-				$user = $model->where('username', $this->request->getVar('username'))
-											->first();
-				print_r($user);die;
-
-				$this->setUserSession($user);
-				//$session->setFlashdata('success', 'Successful Registration');
-				return redirect()->to(base_url('/perjalanan_dinas/dashboard'));
-
-			}
+	public function index()
+	{
+		$session = session();
+		if(isset($_SESSION['username'])){ 
+			echo view ('dashboard');
+		} else{
+			echo view ('login');
 		}
-
-        echo view ('index');
-    }
-
-    private function setUserSession($user){
-		$data = [
-			'username' => $user['username'],
-			'password' => $user['password'],
-			'isLoggedIn' => true,
-		];
-
-		session()->set($data);
-		return true;
 	}
-
+	
 	/*public function register(){
 		$data = [];
 		helper(['form']);
@@ -93,10 +57,43 @@ class Perjalanan_Dinas extends Controller
 		echo view('templates/footer');
 	}*/
 
-
     public function dashboard()
     {
-        echo view (base_url('dashboard'));
+		$session = session();
+		if(isset($_SESSION['username'])){ 
+			//$this->selectCount('perjalanan'); 
+			//$res = $this->query("Select * from perjalanan");
+			//return $res->num_rows();
+			echo view ('layout/header');
+			echo view ('home');
+			echo view ('layout/footer');
+		} else{
+			return redirect()->to(base_url('/perjalanan_dinas'));
+		}
+	}
+	
+	public function data_karyawan()
+    {
+		$session = session();
+		if(isset($_SESSION['username'])){ 
+			echo view ('layout/header');
+			echo view ('data_karyawan');
+			echo view ('layout/footer');
+		} else{
+			return redirect()->to(base_url('/perjalanan_dinas'));
+		}
+	}
+	
+	public function tambah_karyawan()
+    {
+		$session = session();
+		if(isset($_SESSION['username'])){ 
+			echo view ('layout/header');
+			echo view ('tambah_karyawan');
+			echo view ('layout/footer');
+		} else{
+			return redirect()->to(base_url('/perjalanan_dinas'));
+		}
     }
 }
 
