@@ -1,28 +1,32 @@
 <?php namespace App\Controllers;
 
-use CodeIgniter\Controller;
 use App\Models\Page;
+use CodeIgniter\Controller;
 use App\Models\Sistem_model;
+use App\Repository\JabatanRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
 class Perjalanan_Dinas extends Controller
 {
-	public function index()
-	{
-		$session = session();
-		if(isset($_SESSION['username'])){ 
-			echo view ('layout/header');
-			echo view ('karyawan/data_karyawan');
-			echo view ('layout/footer');
-		} else{
-			echo view ('login');
-		}
-	}
-	
-	/*public function register(){
-		$data = [];
-		helper(['form']);
+    public function __construct() {
+        $session = session();
+    }
+
+    public function index()
+    {
+        if(isset($_SESSION['username'])){ 
+            echo view ('layout/header');
+            echo view ('karyawan/data_karyawan');
+            echo view ('layout/footer');
+        } else{
+            echo view ('login');
+        }
+    }
+    
+    /*public function register(){
+        $data = [];
+        helper(['form']);
 
         if ($this->request->getMethod() == 'post') {
             //let's do the validation here
@@ -61,9 +65,8 @@ class Perjalanan_Dinas extends Controller
 
     public function dashboard()
     {
-        $session = session();
-        if(isset($_SESSION['username'])){ 
-            //$this->selectCount('perjalanan'); 
+        if(isset($_SESSION['username'])){
+            //$this->selectCount('perjalanan');
             //$res = $this->query("Select * from perjalanan");
             //return $res->num_rows();
             echo view ('layout/header');
@@ -73,45 +76,30 @@ class Perjalanan_Dinas extends Controller
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
     }
-    
+
     public function data_karyawan()
     {
-<<<<<<< HEAD
-		$session = session();
-		if(isset($_SESSION['username'])){ 
-			echo view ('layout/header');
-			echo view ('karyawan/data_karyawan');
-			echo view ('layout/footer');
-		} else{
-			return redirect()->to(base_url('/perjalanan_dinas'));
-		}
-	}
-	
-	public function tambah_karyawan()
+        if(isset($_SESSION['username'])){ 
+            echo view ('layout/header');
+            echo view ('karyawan/data_karyawan');
+            echo view ('layout/footer');
+        } else{
+            return redirect()->to(base_url('/perjalanan_dinas'));
+        }
+    }
+    
+    public function edit_karyawan()
     {
-		$session = session();
-		if(isset($_SESSION['username'])){ 
-			echo view ('layout/header');
-			echo view ('karyawan/tambah_karyawan');
-			echo view ('layout/footer');
-		} else{
-			return redirect()->to(base_url('/perjalanan_dinas'));
-		}
-	}
-	
-	public function edit_karyawan()
-    {
-		$session = session();
-		if(isset($_SESSION['username'])){ 
-			echo view ('layout/header');
-			echo view ('karyawan/edit_karyawan');
-			echo view ('layout/footer');
-		} else{
-			return redirect()->to(base_url('/perjalanan_dinas'));
-		}
-=======
         $session = session();
         if(isset($_SESSION['username'])){ 
+            echo view ('layout/header');
+            echo view ('karyawan/edit_karyawan');
+            echo view ('layout/footer');
+        } else{
+            return redirect()->to(base_url('/perjalanan_dinas'));
+        }
+
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('data_karyawan');
             echo view ('layout/footer');
@@ -119,18 +107,22 @@ class Perjalanan_Dinas extends Controller
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
     }
-    
+
     public function tambah_karyawan()
     {
-        $session = session();
-        if(isset($_SESSION['username'])){ 
+        $jabatanRepo = new JabatanRepository();
+
+        $param = [
+            'jabatan' => $jabatanRepo->find(0, 0)
+        ];
+
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
-            echo view ('tambah_karyawan');
+            echo view ('karyawan/tambah_karyawan', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
->>>>>>> feat(code): update from 1 tab to 4 space
     }
 }
 

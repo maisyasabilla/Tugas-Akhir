@@ -34,9 +34,13 @@
                             <label class="col-sm-2 col-form-label">Jabatan</label>
                             <div class="col-sm-10">
                             <select class="custom-select mr-sm-2" name="jabatan" required>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <?php foreach($jabatan as $item): ?>
+                                <option
+                                    value="<?= $item->id_jabatan ?>"
+                                >
+                                    <?= $item->jabatan ?>
+                                </option>
+                                <?php endforeach ?>
                             </select>
                             </div>
                         </div>

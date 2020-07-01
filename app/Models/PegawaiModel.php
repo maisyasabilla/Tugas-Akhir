@@ -9,6 +9,6 @@ class JabatanModel extends Model
     protected $primaryKey = 'nip';
     protected $returnType = '\App\Entities\Pegawai';
 
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
     protected $skipValidation = true;
 }

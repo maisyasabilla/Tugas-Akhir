@@ -9,7 +9,7 @@ class GolonganModel extends Model
     protected $primaryKey = 'id_golongan';
     protected $returnType = '\App\Entities\Golongan';
 
-    protected $useSoftDeletes = true;
+    protected $useSoftDeletes = false;
     protected $skipValidation = true;
 
 }
