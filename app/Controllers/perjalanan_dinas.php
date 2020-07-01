@@ -12,7 +12,9 @@ class Perjalanan_Dinas extends Controller
 	{
 		$session = session();
 		if(isset($_SESSION['username'])){ 
-			echo view ('dashboard');
+			echo view ('layout/header');
+			echo view ('data_karyawan');
+			echo view ('layout/footer');
 		} else{
 			echo view ('login');
 		}

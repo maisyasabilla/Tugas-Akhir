@@ -119,23 +119,23 @@
 }
 
 .bg-hijau, .btn-primary {
-  background: #98bb47 !important;
+  background: #32be8f !important;
 }
 
 .text-hijau, #navbar a, #navbar #logo {
-  color: #98bb47;
+  color: #32be8f;
 }
 
 .border-hijau {
-  border: 1px solid #98bb47 !important;
+  border: 1px solid #32be8f !important;
 }
 
 .hr-hijau {
-  border-top: 1px solid #98bb47 !important;
+  border-top: 1px solid #32be8f !important;
 }
 
 .br-hijau {
-  border-right: 1px solid #98bb47 !important;
+  border-right: 1px solid #32be8f !important;
 }
 
 .bg-hijaumuda {
@@ -600,7 +600,7 @@
   margin-left: 0px !important;
 }
 
-.p-0, .log {
+.p-0, .log, .dataTables_wrapper {
   padding: 0px !important;
 }
 
@@ -680,7 +680,7 @@
   margin-left: 10px !important;
 }
 
-.p-10, .form-rb {
+.p-10, input[type=search], .form-rb {
   padding: 10px !important;
 }
 
@@ -1659,12 +1659,11 @@ body::-webkit-scrollbar-thumb {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 .poppins {
   font-family: "Poppins", sans-serif !important;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .montserrat {
@@ -1675,6 +1674,11 @@ body::-webkit-scrollbar-thumb {
 .log {
   padding-left: 40px;
   padding-right: 40px;
+}
+
+input[type=search] {
+  height: 40px !important;
+  width: 250px !important;
 }
 
 @media screen and (max-width: 1024px) {
