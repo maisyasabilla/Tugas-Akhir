@@ -238,6 +238,7 @@ class Exceptions
 	 */
 	protected function determineView(Throwable $exception, string $template_path): string
 	{
+        print_r($exception);die();
 		// Production environments should have a custom exception file.
 		$view          = 'production.php';
 		$template_path = rtrim($template_path, '/ ') . '/';
