@@ -13,7 +13,7 @@ class Perjalanan_Dinas extends Controller
 		$session = session();
 		if(isset($_SESSION['username'])){ 
 			echo view ('layout/header');
-			echo view ('data_karyawan');
+			echo view ('karyawan/data_karyawan');
 			echo view ('layout/footer');
 		} else{
 			echo view ('login');
@@ -79,7 +79,7 @@ class Perjalanan_Dinas extends Controller
 		$session = session();
 		if(isset($_SESSION['username'])){ 
 			echo view ('layout/header');
-			echo view ('data_karyawan');
+			echo view ('karyawan/data_karyawan');
 			echo view ('layout/footer');
 		} else{
 			return redirect()->to(base_url('/perjalanan_dinas'));
@@ -91,7 +91,19 @@ class Perjalanan_Dinas extends Controller
 		$session = session();
 		if(isset($_SESSION['username'])){ 
 			echo view ('layout/header');
-			echo view ('tambah_karyawan');
+			echo view ('karyawan/tambah_karyawan');
+			echo view ('layout/footer');
+		} else{
+			return redirect()->to(base_url('/perjalanan_dinas'));
+		}
+	}
+	
+	public function edit_karyawan()
+    {
+		$session = session();
+		if(isset($_SESSION['username'])){ 
+			echo view ('layout/header');
+			echo view ('karyawan/edit_karyawan');
 			echo view ('layout/footer');
 		} else{
 			return redirect()->to(base_url('/perjalanan_dinas'));

@@ -29,9 +29,31 @@ input[type=search] {
 }
 
 .dataTables_wrapper{
-    @extend .p-0
+    @extend .p-0;
 }
 
+.card{
+    label{
+        @extend .text-hitam ;
+    }
+}
+
+select{
+    @extend .text-hitam, .fs-13, .fw-600;
+}
+
+.card-body{
+    .form-control{
+        color: #0c0c0c !important;
+        @extend .fw-600;
+    }
+}
+
+.page-item.active{
+    .page-link{
+        @extend .bg-hijau, .border-abumuda;
+    }
+}
 @media screen and (max-width: 1024px) {
     body{
         background-size: 45%, 18%;
