@@ -18,33 +18,33 @@
 </head>
 <body class="bg-putih"> 
 <img class="wave" src="<?php echo base_url('assets/img/wave.png');?>">
-	<div class="container">
-		<div class="img">
-			<img src="<?php echo base_url('assets/img/travel.svg');?>">
-		</div>
-		<div class="login-content">
-			<form action="<?= base_url() ?>/login/actionlogin" method="post">
-				<img src="<?php echo base_url('assets/img/perhutani.png');?>">
+    <div class="container">
+        <div class="img">
+            <img src="<?php echo base_url('assets/img/travel.svg');?>">
+        </div>
+        <div class="login-content">
+            <form action="<?= base_url() ?>/login/actionlogin" method="post">
+                <img src="<?php echo base_url('assets/img/perhutani.png');?>">
                 <h2 class="title montserrat">SDM KBM ECOTOURISM</h2>
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Username</h5>
-           		   		<input type="text" class="input" name="username" id="username">
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password" class="input" name="password" id="password">
-            	   </div>
-            	</div>
-            	<input type="submit" class="btn-login" value="Login">
+                <div class="input-div one">
+                   <div class="i">
+                        <i class="fas fa-user"></i>
+                   </div>
+                   <div class="div">
+                        <h5>Username</h5>
+                        <input type="text" class="input" name="username" id="username">
+                   </div>
+                </div>
+                <div class="input-div pass">
+                   <div class="i"> 
+                        <i class="fas fa-lock"></i>
+                   </div>
+                   <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" class="input" name="password" id="password">
+                   </div>
+                </div>
+                <input type="submit" class="btn-login" value="Login">
             </form>
         </div>
     </div>
