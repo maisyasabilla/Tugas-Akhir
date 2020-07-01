@@ -4,6 +4,7 @@ use App\Models\Page;
 use CodeIgniter\Controller;
 use App\Models\Sistem_model;
 use App\Repository\JabatanRepository;
+use App\Repository\GolonganRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
@@ -23,7 +24,7 @@ class Perjalanan_Dinas extends Controller
             echo view ('login');
         }
     }
-    
+
     /*public function register(){
         $data = [];
         helper(['form']);
@@ -111,9 +112,11 @@ class Perjalanan_Dinas extends Controller
     public function tambah_karyawan()
     {
         $jabatanRepo = new JabatanRepository();
+        $golonganRepo = new GolonganRepository();
 
         $param = [
-            'jabatan' => $jabatanRepo->find(0, 0)
+            'jabatan' => $jabatanRepo->find(0, 0),
+            'golongan' => $golonganRepo->find(0, 0)
         ];
 
         if(isset($_SESSION['username'])){

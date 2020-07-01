@@ -9,7 +9,7 @@ use App\Repository\Repository;
 class JabatanRepository extends Repository
 {
     /**
-     * Cari Jabatan Berdasrkan Limit & Offset
+     * Cari Jabatan Berdasarkan Limit & Offset
      * @param {integer} $limit - limit pengambilan data
      * @param {integer} $offset - jumlah maksimal pengambilan data
      * @return {JabatanEntities[]}
@@ -58,7 +58,6 @@ class JabatanRepository extends Repository
     /**
      * Delete Data Jabatan
      * @param {integer} $id - jabatan id
-     * @return {boolean}
      */
     public function delete($id) {
         $model = new JabatanModel();

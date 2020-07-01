@@ -1,9 +1,9 @@
 <?php
 namespace App\Entities;
 
-use App\Entities\Entities;
+use CodeIgniter\Entity;
 
-class GolonganEntities extends Entities
+class GolonganEntities extends Entity
 {
     protected $attributes = [
         'id_golongan' => null,

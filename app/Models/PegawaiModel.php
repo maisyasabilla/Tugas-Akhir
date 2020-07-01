@@ -7,7 +7,7 @@ class JabatanModel extends Model
 {
     protected $table = 'pegawai';
     protected $primaryKey = 'nip';
-    protected $returnType = '\App\Entities\Pegawai';
+    protected $returnType = '\App\Entities\PegawaiEntities';
 
     protected $useSoftDeletes = false;
     protected $skipValidation = true;
