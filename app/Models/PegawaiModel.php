@@ -5,9 +5,9 @@ use CodeIgniter\Model;
 
 class JabatanModel extends Model
 {
-    protected $table = 'golongan';
-    protected $primaryKey = 'id_golongan';
-    protected $returnType = '\App\Entities\Jabatan';
+    protected $table = 'pegawai';
+    protected $primaryKey = 'nip';
+    protected $returnType = '\App\Entities\Pegawai';
 
     protected $useSoftDeletes = true;
     protected $skipValidation = true;
