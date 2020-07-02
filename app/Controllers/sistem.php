@@ -76,6 +76,17 @@ class Sistem extends Controller
         return redirect()->to(base_url('/perjalanan_dinas/data_karyawan'));
     }
 
+    public function hapuskaryawan($id)
+    {
+        $pegawaiRepo = new PegawaiRepository();
+
+        if (isset($_SESSION['username']) && $id != '') {
+            $pegawaiRepo->delete($id);
+        }
+
+        return redirect()->to(base_url('/perjalanan_dinas/data_karyawan'));
+    }
+
     /*public function edit($id)
     {
         $model = new Transportasi_model();
