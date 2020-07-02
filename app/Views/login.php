@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
     <link href="https://fonts.googleapis.com/css?family=Archivo|Montserrat|Poppins" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-    
+
 </head>
-<body class="bg-putih"> 
+<body class="bg-putih">
 <img class="wave" src="<?php echo base_url('assets/img/wave.png');?>">
     <div class="container">
         <div class="img">
@@ -36,7 +36,7 @@
                    </div>
                 </div>
                 <div class="input-div pass">
-                   <div class="i"> 
+                   <div class="i">
                         <i class="fas fa-lock"></i>
                    </div>
                    <div class="div">

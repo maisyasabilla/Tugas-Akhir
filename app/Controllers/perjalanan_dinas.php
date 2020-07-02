@@ -4,8 +4,8 @@ use App\Models\Page;
 use CodeIgniter\Controller;
 use App\Models\Sistem_model;
 use App\Repository\JabatanRepository;
-use App\Repository\GolonganRepository;
 use App\Repository\PegawaiRepository;
+use App\Repository\GolonganRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
@@ -98,19 +98,22 @@ class Perjalanan_Dinas extends Controller
         }
     }
 
-    public function edit_karyawan()
+    public function edit_karyawan($id)
     {
-        if(isset($_SESSION['username'])){
-            echo view ('layout/header');
-            echo view ('karyawan/edit_karyawan');
-            echo view ('layout/footer');
-        } else{
-            return redirect()->to(base_url('/perjalanan_dinas'));
-        }
+        $jabatanRepo = new JabatanRepository();
+        $pegawaiRepo = new PegawaiRepository();
+        $golonganRepo = new GolonganRepository();
+        $model = $pegawaiRepo->findById($id);
 
-        if(isset($_SESSION['username'])){
+        if ($model && isset($_SESSION['username'])) {
+            $param = [
+                'model' => $model,
+                'jabatan' => $jabatanRepo->find(0, 0),
+                'golongan' => $golonganRepo->find(0, 0),
+            ];
+
             echo view ('layout/header');
-            echo view ('data_karyawan');
+            echo view ('karyawan/edit_karyawan', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));

@@ -16,4 +16,16 @@ class ArrayHelper
 
         return implode(', ', $dataAttributes);
     }
+
+    public static function arrayKeyExist($object, $listKey) {
+        $notExist = 0;
+
+        foreach($listKey as $item) {
+            if (!array_key_exists($item, $object)) {
+                $notExist += 1;
+            }
+        }
+
+        return $notExist == 0;
+    }
 }

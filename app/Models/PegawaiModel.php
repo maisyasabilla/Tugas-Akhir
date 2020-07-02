@@ -8,6 +8,7 @@ class PegawaiModel extends Model
     protected $table = 'pegawai';
     protected $primaryKey = 'nip';
     protected $returnType = '\App\Entities\PegawaiEntities';
+    protected $allowedFields = ['nip', 'nama', 'jabatan', 'golongan'];
 
     protected $useSoftDeletes = false;
     protected $skipValidation = true;

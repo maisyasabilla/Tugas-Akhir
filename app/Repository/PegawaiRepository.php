@@ -34,7 +34,7 @@ class PegawaiRepository extends Repository
     /**
      * Entry Data Jabatan
      * @param {array} $object - data array jabatan
-     * @return {boolean}
+     * @return {void}
      */
     public function insert($object) {
         $item = new PegawaiEntities();
@@ -42,21 +42,27 @@ class PegawaiRepository extends Repository
         $item->nama = $object['nama'];
         $item->jabatan = $object['jabatan'];
         $item->golongan = $object['golongan'];
-        $item->foto = $object['foto'];
+        // $item->foto = $object['foto']; // just in case we can uncomment this field
 
         $model = new PegawaiModel();
-        return $model->insert($item);
+
+        if (!$this->isExistEmployee($id)) {
+            $model->insert($item);
+        }
     }
 
     /**
      * Update Data Pegawai
      * @param {integer} $id - nip
      * @param {array} $object - data array pegawai
-     * @return {boolean}
+     * @return {void}
      */
     public function update($id, $object) {
         $model = new PegawaiModel();
-        return $model->update($id, $object);
+
+        if ($this->isExistEmployee($id)) {
+            $model->update($id, $object);
+        }
     }
 
     /**
@@ -65,7 +71,24 @@ class PegawaiRepository extends Repository
      */
     public function delete($id) {
         $model = new PegawaiModel();
-        $model->delete($id);
+
+        if ($this->isExistEmployee($id)) {
+            $model->delete($id);
+        }
+    }
+
+    /**
+     * Is Exist Employee According NIP and Name
+     * @param {id} $id - employee ID
+     * @return {boolean}
+     */
+    public function isExistEmployee($id) {
+        $model = new PegawaiModel();
+        $employeeList = $model
+            ->where('nip', $id)
+            ->findAll();
+
+        return count($employeeList) >= 1;
     }
 
     /**
