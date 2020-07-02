@@ -1,9 +1,10 @@
 <?php
 namespace App\Repository;
 
+use Config\Database;
 use App\Models\PegawaiModel;
-use App\Entities\PegawaiEntities;
 use App\Repository\Repository;
+use App\Entities\PegawaiEntities;
 
 
 class PegawaiRepository extends Repository
@@ -64,5 +65,26 @@ class PegawaiRepository extends Repository
     public function delete($id) {
         $model = new PegawaiModel();
         $model->delete($id);
+    }
+
+    /**
+     * Find Employee Formatted
+     * @return {mixed}
+     */
+    public function findEmployeeFormatted() {
+        $db = Database::connect();
+        $field = [
+            'pegawai.nip' => 'pegawai_nip',
+            'pegawai.nama' => 'pegawai_nama',
+            'pegawai.jabatan' => 'pegawai_jabatan',
+            'pegawai.golongan' => 'pegawai_golongan',
+        ];
+
+        return $db
+            ->table('pegawai')
+            ->select(["pegawai.nama as pegawai_nama", "pegawai.nama as pegawais_nama"])
+            ->join('jabatan', 'jabatan.id_jabatan = pegawai.jabatan')
+            ->join('golongan', 'golongan.id_golongan = pegawai.golongan')
+            ->get();
     }
 }

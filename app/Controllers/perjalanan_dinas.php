@@ -17,7 +17,7 @@ class Perjalanan_Dinas extends Controller
 
     public function index()
     {
-        if(isset($_SESSION['username'])){ 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/data_karyawan');
             echo view ('layout/footer');
@@ -83,13 +83,18 @@ class Perjalanan_Dinas extends Controller
     {
         $pegawaiRepo = new PegawaiRepository();
         $jabatanRepo = new JabatanRepository();
-        
+
+        echo "<pre>";
+
+        print_r($pegawaiRepo->findEmployeeFormatted()->getResultArray());
+        die();
+
         $param = [
             'pegawai' => $pegawaiRepo->find(0, 0),
             'jabatan' => $jabatanRepo->findById($pegawai['jenjang']),
         ];
 
-        if(isset($_SESSION['username'])){ 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/data_karyawan', $param);
             echo view ('layout/footer');
@@ -97,11 +102,10 @@ class Perjalanan_Dinas extends Controller
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
     }
-    
+
     public function edit_karyawan()
     {
-        $session = session();
-        if(isset($_SESSION['username'])){ 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/edit_karyawan');
             echo view ('layout/footer');
