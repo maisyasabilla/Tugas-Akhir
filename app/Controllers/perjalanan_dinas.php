@@ -4,8 +4,8 @@ use App\Models\Page;
 use CodeIgniter\Controller;
 use App\Models\Sistem_model;
 use App\Repository\JabatanRepository;
-use App\Repository\GolonganRepository;
 use App\Repository\PegawaiRepository;
+use App\Repository\GolonganRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
@@ -17,7 +17,7 @@ class Perjalanan_Dinas extends Controller
 
     public function index()
     {
-        if(isset($_SESSION['username'])){ 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/data_karyawan');
             echo view ('layout/footer');
@@ -83,13 +83,13 @@ class Perjalanan_Dinas extends Controller
     {
         $pegawaiRepo = new PegawaiRepository();
         $jabatanRepo = new JabatanRepository();
-        
+
         $param = [
-            'pegawai' => $pegawaiRepo->find(0, 0),
+            'pegawai' => $pegawaiRepo->findEmployeeFormatted(),
             'jabatan' => $jabatanRepo->findById($pegawai['jenjang']),
         ];
 
-        if(isset($_SESSION['username'])){ 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/data_karyawan', $param);
             echo view ('layout/footer');
@@ -97,21 +97,23 @@ class Perjalanan_Dinas extends Controller
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
     }
-    
-    public function edit_karyawan()
-    {
-        $session = session();
-        if(isset($_SESSION['username'])){ 
-            echo view ('layout/header');
-            echo view ('karyawan/edit_karyawan');
-            echo view ('layout/footer');
-        } else{
-            return redirect()->to(base_url('/perjalanan_dinas'));
-        }
 
-        if(isset($_SESSION['username'])){
+    public function edit_karyawan($id)
+    {
+        $jabatanRepo = new JabatanRepository();
+        $pegawaiRepo = new PegawaiRepository();
+        $golonganRepo = new GolonganRepository();
+        $model = $pegawaiRepo->findById($id);
+
+        if ($model && isset($_SESSION['username'])) {
+            $param = [
+                'model' => $model,
+                'jabatan' => $jabatanRepo->find(0, 0),
+                'golongan' => $golonganRepo->find(0, 0),
+            ];
+
             echo view ('layout/header');
-            echo view ('data_karyawan');
+            echo view ('karyawan/edit_karyawan', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
