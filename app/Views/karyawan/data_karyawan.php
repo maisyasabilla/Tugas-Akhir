@@ -27,12 +27,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php foreach($pegawai as $item): ?>
                                 <tr>
-                                    <td>Agus Mashudi</td>
-                                    <td>PHT19690805199609100</td>
-                                    <td>IIB</td>
-                                    <td>IV/I</td>
-                                    <td>General Manager KBM Ecotourism</td>
+                                    <td><?= $item->nama ?></td>
+                                    <td><?= $item->nama ?></td>
+                                    <td><?= $item->jenjang ?></td>
+                                    <td><?= $item->golongan ?></td>
+                                    <td><?= $item->jabatan ?></td>
                                     <td style="width: 90px">
                                     <a href="<?php echo base_url('perjalanan_dinas/edit_karyawan');?>">
                                             <button class="bg-hijau floatl mr-5 text-putih p-5 pl-10 pr-10 br-5 noborder">
@@ -45,7 +46,8 @@
                                             </button>
                                         </a>
                                     </td>
-                                </tr>                  
+                                </tr>   
+                                <?php endforeach ?>               
                             </tbody>
                         </table>
                         </div>

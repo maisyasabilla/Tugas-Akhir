@@ -3,7 +3,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JabatanModel extends Model
+class PegawaiModel extends Model
 {
     protected $table = 'pegawai';
     protected $primaryKey = 'nip';

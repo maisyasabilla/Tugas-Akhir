@@ -5,6 +5,7 @@ use CodeIgniter\Controller;
 use App\Models\Sistem_model;
 use App\Repository\JabatanRepository;
 use App\Repository\GolonganRepository;
+use App\Repository\PegawaiRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
@@ -80,9 +81,17 @@ class Perjalanan_Dinas extends Controller
 
     public function data_karyawan()
     {
+        $pegawaiRepo = new PegawaiRepository();
+        $jabatanRepo = new JabatanRepository();
+        
+        $param = [
+            'pegawai' => $pegawaiRepo->find(0, 0),
+            'jabatan' => $jabatanRepo->findById($pegawai['jenjang']),
+        ];
+
         if(isset($_SESSION['username'])){ 
             echo view ('layout/header');
-            echo view ('karyawan/data_karyawan');
+            echo view ('karyawan/data_karyawan', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
