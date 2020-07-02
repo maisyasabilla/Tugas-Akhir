@@ -84,13 +84,8 @@ class Perjalanan_Dinas extends Controller
         $pegawaiRepo = new PegawaiRepository();
         $jabatanRepo = new JabatanRepository();
 
-        echo "<pre>";
-
-        print_r($pegawaiRepo->findEmployeeFormatted()->getResultArray());
-        die();
-
         $param = [
-            'pegawai' => $pegawaiRepo->find(0, 0),
+            'pegawai' => $pegawaiRepo->findEmployeeFormatted(),
             'jabatan' => $jabatanRepo->findById($pegawai['jenjang']),
         ];
 

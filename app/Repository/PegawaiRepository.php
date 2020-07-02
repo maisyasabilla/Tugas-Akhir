@@ -2,6 +2,7 @@
 namespace App\Repository;
 
 use Config\Database;
+use App\Helpers\ArrayHelper;
 use App\Models\PegawaiModel;
 use App\Repository\Repository;
 use App\Entities\PegawaiEntities;
@@ -73,18 +74,48 @@ class PegawaiRepository extends Repository
      */
     public function findEmployeeFormatted() {
         $db = Database::connect();
-        $field = [
+        $field = ArrayHelper::objectToFieldQuery([
             'pegawai.nip' => 'pegawai_nip',
             'pegawai.nama' => 'pegawai_nama',
             'pegawai.jabatan' => 'pegawai_jabatan',
             'pegawai.golongan' => 'pegawai_golongan',
-        ];
-
-        return $db
+            'golongan.id_golongan' => 'golongan_id_golongan',
+            'golongan.golongan' => 'golongan_golongan',
+            'jabatan.id_jabatan' => 'jabatan_id_jabatan',
+            'jabatan.jabatan' => 'jabatan_jabatan',
+            'jabatan.jenjang_jabatan' => 'jabatan_jenjang_jabatan'
+        ]);
+        $response = $db
             ->table('pegawai')
-            ->select(["pegawai.nama as pegawai_nama", "pegawai.nama as pegawais_nama"])
+            ->select($field)
             ->join('jabatan', 'jabatan.id_jabatan = pegawai.jabatan')
             ->join('golongan', 'golongan.id_golongan = pegawai.golongan')
-            ->get();
+            ->get()
+            ->getResultArray();
+
+        return array_map(
+            function($value) {
+                $result = new \stdClass();
+                $result->nip = $value['pegawai_nip'];
+                $result->nama = $value['pegawai_nama'];
+                $result->jabatan = $value['pegawai_jabatan'];
+                $result->golongan = $value['pegawai_golongan'];
+
+                $golongan = new \stdClass();
+                $golongan->id_golongan = $value['golongan_id_golongan'];
+                $golongan->golongan = $value['golongan_golongan'];
+
+                $jabatan = new \stdClass();
+                $jabatan->id_jabatan = $value['jabatan_id_jabatan'];
+                $jabatan->jabatan = $value['jabatan_jabatan'];
+                $jabatan->jenjang_jabatan = $value['jabatan_jenjang_jabatan'];
+
+                $result->golongan = $golongan;
+                $result->jabatan = $jabatan;
+
+                return $result;
+            },
+            $response
+        );
     }
 }

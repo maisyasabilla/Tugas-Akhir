@@ -30,10 +30,10 @@
                                 <?php foreach($pegawai as $item): ?>
                                 <tr>
                                     <td><?= $item->nama ?></td>
-                                    <td><?= $item->nama ?></td>
-                                    <td><?= $item->jenjang ?></td>
-                                    <td><?= $item->golongan ?></td>
-                                    <td><?= $item->jabatan ?></td>
+                                    <td><?= $item->nip ?></td>
+                                    <td><?= $item->jabatan->jenjang_jabatan ?></td>
+                                    <td><?= $item->golongan->golongan ?></td>
+                                    <td><?= $item->jabatan->jabatan ?></td>
                                     <td style="width: 90px">
                                     <a href="<?php echo base_url('perjalanan_dinas/edit_karyawan');?>">
                                             <button class="bg-hijau floatl mr-5 text-putih p-5 pl-10 pr-10 br-5 noborder">
