@@ -4,29 +4,47 @@
             <div class="card p-30">
                 <div class="card-header pl-0">
                     <h3 class="card-title upper fw-400 montserrat">Edit Karyawan</h3>
-                    <hr style="border-top: 3px solid #f16923; width: 3%">   
+                    <hr style="border-top: 3px solid #f16923; width: 3%">
                 </div>
                 <div class="card-body pl-0 pr-0 fs-15">
-                    <form class="w-100" action="<?= base_url() ?>/sistem/tambahkaryawan" method="post">
+                    <form class="w-100" action="<?= base_url() ?>/pegawaicontrol/edit" method="post">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">NIP</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control" required>
+                            <input
+                                required
+                                readonly
+                                name="nip"
+                                type="text"
+                                class="form-control"
+                                value="<?= $model->nip ?>"
+                            >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Nama Karyawan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="nama" required>
+                                <input
+                                    required
+                                    type="text"
+                                    name="nama"
+                                    class="form-control"
+                                    value="<?= $model->nama ?>"
+                                >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Golongan</label>
                             <div class="col-sm-10">
                             <select class="custom-select mr-sm-2" name="golongan" required>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <?php foreach($golongan as $item): ?>
+                                <option
+                                    value="<?= $item->id_golongan ?>"
+                                    <?= $model->golongan == $item->id_golongan ? 'selected' : '' ?>
+                                >
+                                    <?= $item->id_golongan ?> - <?= $item->golongan ?>
+                                </option>
+                                <?php endforeach ?>
                             </select>
                             </div>
                         </div>
@@ -34,9 +52,14 @@
                             <label class="col-sm-2 col-form-label">Jabatan</label>
                             <div class="col-sm-10">
                             <select class="custom-select mr-sm-2" name="jabatan" required>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <?php foreach($jabatan as $item): ?>
+                                <option
+                                    value="<?= $item->id_jabatan ?>"
+                                    <?= $model->jabatan == $item->id_jabatan ? 'selected' : '' ?>
+                                >
+                                    <?= $item->jabatan ?>
+                                </option>
+                                <?php endforeach ?>
                             </select>
                             </div>
                         </div>

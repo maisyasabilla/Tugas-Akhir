@@ -4,8 +4,10 @@ use App\Models\Page;
 use CodeIgniter\Controller;
 use App\Models\Sistem_model;
 use App\Repository\JabatanRepository;
-use App\Repository\GolonganRepository;
 use App\Repository\PegawaiRepository;
+use App\Repository\GolonganRepository;
+use App\Repository\JenjangRepository;
+use App\Repository\GolonganPerjalananRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
@@ -17,53 +19,14 @@ class Perjalanan_Dinas extends Controller
 
     public function index()
     {
-        if(isset($_SESSION['username'])){ 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
-            echo view ('karyawan/data_karyawan');
+            echo view ('home');
             echo view ('layout/footer');
         } else{
             echo view ('login');
         }
     }
-
-    /*public function register(){
-        $data = [];
-        helper(['form']);
-
-        if ($this->request->getMethod() == 'post') {
-            //let's do the validation here
-            $rules = [
-                'firstname' => 'required|min_length[3]|max_length[20]',
-                'lastname' => 'required|min_length[3]|max_length[20]',
-                'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
-                'password' => 'required|min_length[8]|max_length[255]',
-                'password_confirm' => 'matches[password]',
-            ];
-
-            if (! $this->validate($rules)) {
-                $data['validation'] = $this->validator;
-            }else{
-                $model = new UserModel();
-
-                $newData = [
-                    'firstname' => $this->request->getVar('firstname'),
-                    'lastname' => $this->request->getVar('lastname'),
-                    'email' => $this->request->getVar('email'),
-                    'password' => $this->request->getVar('password'),
-                ];
-                $model->save($newData);
-                $session = session();
-                $session->setFlashdata('success', 'Successful Registration');
-                return redirect()->to('/');
-
-            }
-        }
-
-
-        echo view('templates/header', $data);
-        echo view('register');
-        echo view('templates/footer');
-    }*/
 
     public function dashboard()
     {
@@ -83,13 +46,13 @@ class Perjalanan_Dinas extends Controller
     {
         $pegawaiRepo = new PegawaiRepository();
         $jabatanRepo = new JabatanRepository();
-        
+
         $param = [
-            'pegawai' => $pegawaiRepo->find(0, 0),
+            'pegawai' => $pegawaiRepo->findEmployeeFormatted(),
             'jabatan' => $jabatanRepo->findById($pegawai['jenjang']),
         ];
 
-        if(isset($_SESSION['username'])){ 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/data_karyawan', $param);
             echo view ('layout/footer');
@@ -97,21 +60,23 @@ class Perjalanan_Dinas extends Controller
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
     }
-    
-    public function edit_karyawan()
-    {
-        $session = session();
-        if(isset($_SESSION['username'])){ 
-            echo view ('layout/header');
-            echo view ('karyawan/edit_karyawan');
-            echo view ('layout/footer');
-        } else{
-            return redirect()->to(base_url('/perjalanan_dinas'));
-        }
 
-        if(isset($_SESSION['username'])){
+    public function edit_karyawan($id)
+    {
+        $jabatanRepo = new JabatanRepository();
+        $pegawaiRepo = new PegawaiRepository();
+        $golonganRepo = new GolonganRepository();
+        $model = $pegawaiRepo->findById($id);
+
+        if ($model && isset($_SESSION['username'])) {
+            $param = [
+                'model' => $model,
+                'jabatan' => $jabatanRepo->find(0, 0),
+                'golongan' => $golonganRepo->find(0, 0),
+            ];
+
             echo view ('layout/header');
-            echo view ('data_karyawan');
+            echo view ('karyawan/edit_karyawan', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
@@ -131,6 +96,27 @@ class Perjalanan_Dinas extends Controller
         if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/tambah_karyawan', $param);
+            echo view ('layout/footer');
+        } else{
+            return redirect()->to(base_url('/perjalanan_dinas'));
+        }
+    }
+
+    public function data_jabatan()
+    {
+        $jabatanRepo = new JabatanRepository();
+        $jenjangRepo = new JenjangRepository();
+        $golonganRepo = new GolonganPerjalananRepository();
+
+        $param = [
+            'jabatan' => $jabatanRepo->findJabatanFormatted(),
+            'jenjang' => $jenjangRepo->findById($jabatan['jenjang_jabatan']),
+            'golongan' => $golonganRepo->findById($jenjang['golongan_perjalanan']),
+        ];
+
+        if(isset($_SESSION['username'])){
+            echo view ('layout/header');
+            echo view ('jabatan/data_jabatan', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
