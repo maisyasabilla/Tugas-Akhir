@@ -1,6 +1,8 @@
 <?php
 namespace App\Repository;
 
+use Config\Database;
+use App\Helpers\ArrayHelper;
 use App\Models\JabatanModel;
 use App\Entities\JabatanEntities;
 use App\Repository\Repository;
@@ -62,5 +64,48 @@ class JabatanRepository extends Repository
     public function delete($id) {
         $model = new JabatanModel();
         $model->delete($id);
+    }
+
+    public function findJabatanFormatted() {
+        $db = Database::connect();
+        $field = ArrayHelper::objectToFieldQuery([
+            'jabatan.id_jabatan' => 'id_jabatan',
+            'jabatan.jenjang_jabatan' => 'jenjang_jabatan',
+            'jabatan.id_jabatan' => 'id_jabatan',
+            'jabatan.jenjang_jabatan' => 'jenjang',
+            'jabatan.jabatan' => 'jabatan',
+            'jenjang_jabatan.golongan_perjalanan' => 'id_golongan',
+            'golongan_perjalanan.golongan_perjalanan' => 'golongan_perjalanan'
+        ]);
+        $response = $db
+            ->table('jabatan')
+            ->select($field)
+            ->join('jenjang_jabatan', 'jenjang_jabatan.jenjang_jabatan = jabatan.jenjang_jabatan')
+            ->join('golongan_perjalanan', 'golongan_perjalanan.id_golongan_per = jenjang_jabatan.golongan_perjalanan')
+            ->get()
+            ->getResultArray();
+
+        return array_map(
+            function($value) {
+                $result = new \stdClass();
+                $result->id_jabatan = $value['id_jabatan'];
+                $result->jabatan = $value['jabatan'];
+                $result->jenjang_jabatan = $value['jabatan_jenjang'];
+
+                $jenjang = new \stdClass();
+                $jenjang->jenjang_jabatan = $value['jenjang'];
+                $jenjang->golongan_perjalanan = $value['id_golongan'];
+
+                $golongan = new \stdClass();
+                $golongan->id_golongan_per = $value['id_golongan'];
+                $golongan->golongan_perjalanan = $value['golongan_perjalanan'];
+
+                $result->jenjang_jabatan = $jenjang;
+                $result->golongan_perjalanan = $golongan;
+
+                return $result;
+            },
+            $response
+        );
     }
 }

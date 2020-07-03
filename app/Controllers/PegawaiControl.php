@@ -2,16 +2,15 @@
 
 use CodeIgniter\Controller;
 use App\Helpers\ArrayHelper;
-use App\Models\Transportasi_model;
 use App\Repository\PegawaiRepository;
 
-class Sistem extends Controller
+class PegawaiControl extends Controller
 {
     public function __construct() {
         $session = session();
     }
 
-    public function tambahkaryawan()
+    public function tambah()
     {
         $pegawaiRepo = new PegawaiRepository();
 
@@ -35,7 +34,7 @@ class Sistem extends Controller
         return redirect()->to(base_url('/perjalanan_dinas/tambah_karyawan'));
     }
 
-    public function editkaryawan()
+    public function edit()
     {
         $pegawaiRepo = new PegawaiRepository();
 
@@ -65,7 +64,7 @@ class Sistem extends Controller
         return redirect()->to(base_url('/perjalanan_dinas/data_karyawan'));
     }
 
-    public function hapuskaryawan($id)
+    public function hapus($id)
     {
         $pegawaiRepo = new PegawaiRepository();
 
@@ -75,32 +74,6 @@ class Sistem extends Controller
 
         return redirect()->to(base_url('/perjalanan_dinas/data_karyawan'));
     }
-
-    /*public function edit($id)
-    {
-        $model = new Transportasi_model();
-        $data['transportasi'] = $model->getProduct($id)->getRow();
-        echo view('edit_transportasi_view', $data);
-    }
-
-    public function update()
-    {
-        $model = new Transportasi_model();
-        $id = $this->request->getPost('transportasi_id');
-        $data = array(
-            'transportasi'  => $this->request->getPost('transportasi_name')
-        );
-        $model->updateProduct($data, $id);
-        return redirect()->to('/transportasi');
-    }
-
-    public function delete($id)
-    {
-        $model = new Transportasi_model();
-        $model->deleteProduct($id);
-        return redirect()->to('/transportasi');
-    }*/
-
 }
 
 ?>

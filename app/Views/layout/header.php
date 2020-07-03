@@ -16,8 +16,9 @@
     <link href="<?php echo base_url('assets/css/layouts/paper-dashboard.css');?>" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="<?php echo base_url('assets/js/core/popper.min.js');?>"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
@@ -56,9 +57,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./icons.html">
+                    <a href="<?php echo base_url('perjalanan_dinas/data_jabatan');?>">
                     <i class="nc-icon nc-settings-gear-65"></i>
-                    <p class="montserrat">Pengaturan</p>
+                    <p class="montserrat">Jabatan</p>
                     </a>
                 </li>
                 <li>
