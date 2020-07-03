@@ -33,7 +33,7 @@
                                 <td><?= $item->jenjang_jabatan->jenjang_jabatan ?></td>
                                 <td><?= $item->golongan_perjalanan->golongan_perjalanan ?></td>
                                 <td style="width: 90px">
-                                    <button class="bg-hijau floatl mr-5 text-putih p-5 pl-10 pr-10 br-5 noborder">
+                                    <button class="bg-hijau floatl mr-5 text-putih p-5 pl-10 pr-10 br-5 noborder" data-toggle="modal" data-target="#myModal">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                     <a href="<?= base_url("pegawaicontrol/hapus/$item->nip") ?>">
@@ -41,14 +41,96 @@
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </a>
+                                    <!-- The Modal -->
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        
+                                            <!-- Modal Header -->
+                                            <div class="modal-header bg-oranye p-20 alignc">
+                                                 <h4 class="modal-title text-putih alignc upper">Edit Jabatan</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <form class="w-100" action="<?= base_url() ?>/jabatancontrol/edit" method="post">
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-4 col-form-label">Jabatan</label>
+                                                        <div class="col-sm-8">
+                                                        <input type="text" name="nip" class="form-control" value="<?= $item->jabatan ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-4 col-form-label">Jenjang Jabatan</label>
+                                                        <div class="col-sm-8">
+                                                        <select class="custom-select mr-sm-2" name="golongan" required>
+                                                            <?php foreach($jenjang as $item2): ?>
+                                                                <option
+                                                                    value="<?= $item2->jenjang_jabatan ?>"
+                                                                    <?= $item->jenjang_jabatan->jenjang_jabatan == $item2->jenjang_jabatan ? 'selected' : '' ?>
+                                                                >
+                                                                    <?= $item2->jenjang_jabatan ?>
+                                                                </option>
+                                                            <?php endforeach ?>
+                                                        </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-4 col-form-label">Golongan</label>
+                                                        <div class="col-sm-8">
+                                                        <input type="text" class="form-control" value="<?= $item->golongan_perjalanan->golongan_perjalanan ?>" disabled>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+                                    
                                 </td>
                             </tr>
                             <?php endforeach ?>
                         </tbody>
                     </table>
-                    </div>
+                  </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#example').dataTable({
+            "dom": '<"col-sm-12 col-md-4 p-0 mb-10"<"top"f>>rt<"floatr bottom"p><"clear">',
+            "aLengthMenu": [[10, 25, 50, 100, 250, 500, -1], [10, 25, 50, 100, 250, 500, 'All']],
+            "lengthChange": false,
+            "language": {
+                "sProcessing":   "Sedang memproses...",
+                "sLengthMenu":   "_MENU_ per halaman",
+                "sZeroRecords":  "Tidak ditemukan data yang sesuai",
+                "sInfo":         "Menampilkan _START_ sampai _END_ data dari _TOTAL_ data",
+                "sInfoEmpty":    "",
+                "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+                "sInfoPostFix":  "",
+                "sSearch":       "",
+                "searchPlaceholder": "Pencarian",
+                "sUrl":          "",
+                "oPaginate": {
+                "sFirst":    "Pertama",
+                "sPrevious": "Sebelumnya",
+                "sNext":     "Selanjutnya",
+                "sLast":     "Terakhir"
+                }
+            }
+
+        });
+    } );
+
+</script>
