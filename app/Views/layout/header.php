@@ -56,9 +56,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./icons.html">
+                    <a href="<?php echo base_url('perjalanan_dinas/data_jabatan');?>">
                     <i class="nc-icon nc-settings-gear-65"></i>
-                    <p class="montserrat">Pengaturan</p>
+                    <p class="montserrat">Jabatan</p>
                     </a>
                 </li>
                 <li>

@@ -7,7 +7,7 @@
                     <hr style="border-top: 3px solid #f16923; width: 3%">
                 </div>
                 <div class="card-body pl-0 pr-0 fs-15">
-                    <form class="w-100" action="<?= base_url() ?>/sistem/tambahkaryawan" method="post">
+                    <form class="w-100" action="<?= base_url() ?>/pegawaicontrol/tambah" method="post">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">NIP</label>
                             <div class="col-sm-10">
@@ -28,7 +28,7 @@
                                 <option
                                     value="<?= $item->id_golongan ?>"
                                 >
-                                    <?= $item->golongan ?>
+                                    <?= $item->id_golongan ?> - <?= $item->golongan ?>
                                 </option>
                                 <?php endforeach ?>
                             </select>
