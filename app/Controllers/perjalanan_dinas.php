@@ -93,6 +93,7 @@ class Perjalanan_Dinas extends Controller
             'golongan' => $golonganRepo->find(0, 0)
         ];
 
+        if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('karyawan/tambah_karyawan', $param);
             echo view ('layout/footer');
@@ -107,11 +108,12 @@ class Perjalanan_Dinas extends Controller
         $jenjangRepo = new JenjangRepository();
         $golonganRepo = new GolonganPerjalananRepository();
 
+
         $param = [
             'jabatan' => $jabatanRepo->findJabatanFormatted(),
             'jenjang_jabatan' => $jenjangRepo->find(0,0),
-            'jenjang' => $jenjangRepo->findById($jabatan['jenjang_jabatan']),
-            'golongan' => $golonganRepo->findById($jenjang['golongan_perjalanan']),
+            'jenjang' => $jenjangRepo->find(0, 0),
+            'golongan' => $golonganRepo->find(0, 0),
         ];
 
         if(isset($_SESSION['username'])){

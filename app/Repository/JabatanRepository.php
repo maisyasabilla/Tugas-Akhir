@@ -69,13 +69,13 @@ class JabatanRepository extends Repository
     public function findJabatanFormatted() {
         $db = Database::connect();
         $field = ArrayHelper::objectToFieldQuery([
-            'jabatan.id_jabatan' => 'jabatan_id',
+            'jabatan.id_jabatan' => 'id_jabatan',
+            'jabatan.jenjang_jabatan' => 'jenjang_jabatan',
+            'jabatan.id_jabatan' => 'id_jabatan',
+            'jabatan.jenjang_jabatan' => 'jenjang',
             'jabatan.jabatan' => 'jabatan',
-            'jabatan.jenjang_jabatan' => 'jabatan_jenjang',
-            'jenjang_jabatan.jenjang_jabatan' => 'jenjang',
-            'jenjang_jabatan.golongan_perjalanan' => 'jenjang_golongan',
-            'golongan_perjalanan.id_golongan_per' => 'golongan_id',
-            'golongan_perjalanan.golongan_perjalanan' => 'golongan_perjalanan',
+            'jenjang_jabatan.golongan_perjalanan' => 'id_golongan',
+            'golongan_perjalanan.golongan_perjalanan' => 'golongan_perjalanan'
         ]);
         $response = $db
             ->table('jabatan')
@@ -88,16 +88,16 @@ class JabatanRepository extends Repository
         return array_map(
             function($value) {
                 $result = new \stdClass();
-                $result->id_jabatan = $value['jabatan_id'];
+                $result->id_jabatan = $value['id_jabatan'];
                 $result->jabatan = $value['jabatan'];
-                $result->jenjang_jabatan = $value['jenjang'];
-               
+                $result->jenjang_jabatan = $value['jabatan_jenjang'];
+
                 $jenjang = new \stdClass();
                 $jenjang->jenjang_jabatan = $value['jenjang'];
-                $jenjang->golongan_perjalanan = $value['jenjang_golongan'];
+                $jenjang->golongan_perjalanan = $value['id_golongan'];
 
                 $golongan = new \stdClass();
-                $golongan->id_golongan_per = $value['golongan_id'];
+                $golongan->id_golongan_per = $value['id_golongan'];
                 $golongan->golongan_perjalanan = $value['golongan_perjalanan'];
 
                 $result->jenjang_jabatan = $jenjang;

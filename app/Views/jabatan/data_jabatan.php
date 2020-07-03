@@ -33,25 +33,25 @@
                                 <td><?= $item->jenjang_jabatan->jenjang_jabatan ?></td>
                                 <td><?= $item->golongan_perjalanan->golongan_perjalanan ?></td>
                                 <td style="width: 90px">
-                                    <button class="bg-hijau floatl mr-5 text-putih p-5 pl-10 pr-10 br-5 noborder" data-toggle="modal" data-target="#myModal">
+                                    <button class="bg-hijau floatl mr-5 text-putih p-5 pl-10 pr-10 br-5 noborder" data-toggle="modal" data-target="#modal-id-<?= $item->id_jabatan ?>">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <a href="<?= base_url("pegawaicontrol/hapus/$item->nip") ?>">
+                                    <a href="<?= base_url("pegawaicontrol/hapus/$item->id_jabatan") ?>">
                                         <button class="bg-oranye floatl text-putih p-5 pl-10 pr-10 br-5 noborder">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </a>
                                     <!-- The Modal -->
-                                    <div class="modal fade" id="myModal">
+                                    <div class="modal fade" id="modal-id-<?= $item->id_jabatan ?>">
                                         <div class="modal-dialog">
                                         <div class="modal-content">
-                                        
+
                                             <!-- Modal Header -->
                                             <div class="modal-header bg-oranye p-20 alignc">
                                                  <h4 class="modal-title text-putih alignc upper">Edit Jabatan</h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <button type="button" class="close" data-dismiss="modal" data-target="#modal-id-<?= $item->id_jabatan ?>">&times;</button>
                                             </div>
-                                            
+
                                             <!-- Modal body -->
                                             <div class="modal-body">
                                                 <form class="w-100" action="<?= base_url() ?>/jabatancontrol/edit" method="post">
@@ -84,16 +84,16 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            
+
                                             <!-- Modal footer -->
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                             </div>
-                                            
+
                                         </div>
                                         </div>
                                     </div>
-                                    
+
                                 </td>
                             </tr>
                             <?php endforeach ?>
