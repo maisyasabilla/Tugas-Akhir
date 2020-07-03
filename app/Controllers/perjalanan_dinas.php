@@ -110,6 +110,7 @@ class Perjalanan_Dinas extends Controller
 
         $param = [
             'jabatan' => $jabatanRepo->findJabatanFormatted(),
+            'jenjang_jabatan' => $jenjangRepo->find(0,0),
             'jenjang' => $jenjangRepo->findById($jabatan['jenjang_jabatan']),
             'golongan' => $golonganRepo->findById($jenjang['golongan_perjalanan']),
         ];
