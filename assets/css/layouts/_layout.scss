@@ -45,8 +45,7 @@ select{
 
 .card-body{
     .form-control{
-        color: #0c0c0c !important;
-        @extend .fw-600;
+        color: #0c0c0c !important
     }
 }
 
@@ -197,7 +196,7 @@ select{
 }
 
 label{
-    @extend .fs-11, .fw-600
+    @extend .fs-11
 }
 
 .form-rb{

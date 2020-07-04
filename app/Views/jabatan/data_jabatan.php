@@ -56,7 +56,8 @@
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label">Jabatan</label>
                                                         <div class="col-sm-8">
-                                                        <input type="text" name="jabatan" class="form-control" value="<?= $item->jabatan ?>" required>
+                                                            <input type="hidden" name="id_jabatan" class="form-control" value="<?= $item->id_jabatan ?>" required>
+                                                            <input type="text" name="jabatan" class="form-control" value="<?= $item->jabatan ?>" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">

@@ -507,7 +507,7 @@
   font-weight: 500 !important;
 }
 
-.fw-600, select, .card-body .form-control, .btn-modal, label {
+.fw-600, select, .btn-modal {
   font-weight: 600 !important;
 }
 
