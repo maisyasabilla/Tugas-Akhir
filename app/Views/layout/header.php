@@ -9,10 +9,9 @@
     <title>Dashboard | KBM ECOTOURISM</title>
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
-
+    <link href="<?php echo base_url('assets/fonts/simple-line-icons.css');?>" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Archivo|Montserrat|Poppins" rel="stylesheet">
-    <!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
-
+    
     <link href="<?php echo base_url('assets/css/layouts/paper-dashboard.css');?>" rel="stylesheet" />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/main.css');?>">
 

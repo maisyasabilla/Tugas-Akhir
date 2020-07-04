@@ -2,6 +2,7 @@
 	padding: 0;
 	margin: 0;
     box-sizing: border-box;
+    font-weight: 400;
 }
 
 .poppins{
@@ -54,6 +55,32 @@ select{
         @extend .bg-hijau, .border-abumuda;
     }
 }
+
+.page-link{
+    color: #070707 $imp
+}
+
+
+.border-title{
+    border-top: 3px solid #f16923; 
+    width: 15%
+}
+
+.custom-btn{
+    @extend .floatr, .fs-12, .ls-3, .bg-hijau;
+    height: 35px $imp; 
+    width: 300px $imp;
+}
+
+.btn-modal{
+    @extend .floatr, .fs-12, .ls-3, .fw-600, .w-100;
+    height: 35px $imp;
+}
+
+.btn-action{
+    @extend .floatl, .mr-5, .text-putih, .p-5, .pl-10, .pr-10, .br-5, .noborder;
+}
+
 @media screen and (max-width: 1024px) {
     body{
         background-size: 45%, 18%;
@@ -259,7 +286,7 @@ form{
 }
 
 .i{
-	color: #d9d9d9;
+	color:  #7a7a7a;
 	display: flex;
 	justify-content: center;
     align-items: center;
@@ -326,7 +353,7 @@ form{
     background: none;
 	padding: 0.5rem 0.7rem;
 	font-size: 0.8rem;
-	color: #555;
+	color: #070707;
 }
 
 .input-div.pass{

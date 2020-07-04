@@ -39,7 +39,6 @@ class JabatanRepository extends Repository
     public function insert($object) {
         $item = new JabatanEntities();
         $item->jabatan = $object['jabatan'];
-        $item->id_jabatan = $object['id_jabatan'];
         $item->jenjang_jabatan = $object['jenjang_jabatan'];
 
         $model = new JabatanModel();

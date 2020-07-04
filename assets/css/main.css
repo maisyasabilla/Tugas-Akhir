@@ -82,7 +82,7 @@
   background: #f7f7f7 !important;
 }
 
-.text-putih, .btn-login {
+.text-putih, .btn-action, .btn-login {
   color: #f7f7f7;
 }
 
@@ -118,7 +118,7 @@
   border-right: 1px solid #f16923 !important;
 }
 
-.bg-hijau, .page-item.active .page-link, .btn-primary {
+.bg-hijau, .page-item.active .page-link, .custom-btn, .btn-primary {
   background: #32be8f !important;
 }
 
@@ -207,7 +207,7 @@
   font-size: 11px !important;
 }
 
-.fs-12, h5 {
+.fs-12, h5, .custom-btn, .btn-modal {
   font-size: 12px !important;
 }
 
@@ -435,7 +435,7 @@
   width: 50% !important;
 }
 
-.ls-3, .btn-login {
+.ls-3, .custom-btn, .btn-modal, .btn-login {
   letter-spacing: 3px !important;
 }
 
@@ -507,7 +507,7 @@
   font-weight: 500 !important;
 }
 
-.fw-600, select, .card-body .form-control, label {
+.fw-600, select, .card-body .form-control, .btn-modal, label {
   font-weight: 600 !important;
 }
 
@@ -632,7 +632,7 @@
   margin-bottom: 5px !important;
 }
 
-.mr-5 {
+.mr-5, .btn-action {
   margin-right: 5px !important;
 }
 
@@ -640,7 +640,7 @@
   margin-left: 5px !important;
 }
 
-.p-5 {
+.p-5, .btn-action {
   padding: 5px !important;
 }
 
@@ -692,11 +692,11 @@
   padding-bottom: 10px !important;
 }
 
-.pr-10 {
+.pr-10, .btn-action {
   padding-right: 10px !important;
 }
 
-.pl-10 {
+.pl-10, .btn-action {
   padding-left: 10px !important;
 }
 
@@ -1449,7 +1449,7 @@ button[disabled] {
   height: 100vh;
 }
 
-.w-100, .btn, .form-rb {
+.w-100, .btn-modal, .btn, .form-rb {
   width: 100%;
 }
 
@@ -1470,11 +1470,11 @@ button[disabled] {
   position: fixed !important;
 }
 
-.floatl {
+.floatl, .btn-action {
   float: left !important;
 }
 
-.floatr, .log {
+.floatr, .log, .custom-btn, .btn-modal {
   float: right !important;
 }
 
@@ -1517,7 +1517,7 @@ button[disabled] {
 }
 
 /*BORDER*/
-.noborder, .form-rb {
+.noborder, .btn-action, .form-rb {
   border: none !important;
 }
 
@@ -1545,7 +1545,7 @@ button[disabled] {
   border-radius: 30px !important;
 }
 
-.br-5 {
+.br-5, .btn-action {
   border-radius: 5px !important;
 }
 
@@ -1659,6 +1659,7 @@ body::-webkit-scrollbar-thumb {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-weight: 400;
 }
 
 .poppins {
@@ -1683,6 +1684,24 @@ input[type=search] {
 
 .card-body .form-control {
   color: #0c0c0c !important;
+}
+
+.page-link {
+  color: #070707 !important;
+}
+
+.border-title {
+  border-top: 3px solid #f16923;
+  width: 15%;
+}
+
+.custom-btn {
+  height: 35px !important;
+  width: 300px !important;
+}
+
+.btn-modal {
+  height: 35px !important;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1891,7 +1910,7 @@ form {
 }
 
 .i {
-  color: #d9d9d9;
+  color: #7a7a7a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1967,7 +1986,7 @@ form {
   background: none;
   padding: 0.5rem 0.7rem;
   font-size: 0.8rem;
-  color: #555;
+  color: #070707;
 }
 
 .input-div.pass {
