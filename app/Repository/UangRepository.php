@@ -1,78 +1,76 @@
 <?php
 namespace App\Repository;
 
-use Config\Database;
-use App\Helpers\ArrayHelper;
-use App\Models\JabatanModel;
-use App\Entities\JabatanEntities;
+use App\Models\UangModel;
+use App\Entities\UangEntities;
 use App\Repository\Repository;
 
 
-class JabatanRepository extends Repository
+class UangRepository extends Repository
 {
     /**
-     * Cari Jabatan Berdasarkan Limit & Offset
+     * Cari Uang Berdasarkan Limit & Offset
      * @param {integer} $limit - limit pengambilan data
      * @param {integer} $offset - jumlah maksimal pengambilan data
-     * @return {JabatanEntities[]}
+     * @return {UangEntities[]}
      */
     public function find($limit, $offset) {
-        $model = new JabatanModel();
+        $model = new UangModel();
         return $model->findAll($limit, $offset);
     }
 
     /**
-     * Cari Jabatan Berdasarkan ID
-     * @param {integer} $id - jabatan id
-     * @return {JabatanEntities | null}
+     * Cari Uang Berdasarkan ID
+     * @param {integer} $id - Uang id
+     * @return {UangEntities | null}
      */
     public function findById($id) {
-        $model = new JabatanModel();
+        $model = new UangModel();
         return $model->find($id);
     }
 
     /**
-     * Entry Data Jabatan
-     * @param {array} $object - data array jabatan
+     * Entry Data Uang
+     * @param {array} $object - data array Uang
      * @return {boolean}
      */
     public function insert($object) {
-        $item = new JabatanEntities();
-        $item->jabatan = $object['jabatan'];
-        $item->id_jabatan = $object['id_jabatan'];
-        $item->jenjang_jabatan = $object['jenjang_jabatan'];
+        $item = new UangEntities();
+        $item->golongan_perjalanan = $object['golongan_perjalanan'];
+        $item->wilayah = $object['wilayah'];
+        $item->biaya = $object['biaya'];
 
-        $model = new JabatanModel();
+        $model = new UangModel();
         return $model->insert($item);
     }
 
     /**
-     * Update Data Jabatan
-     * @param {integer} $id - jabatan id
-     * @param {array} $object - data array jabatan
+     * Update Data Uang
+     * @param {integer} $id - Uang id
+     * @param {array} $object - data array Uang
      * @return {boolean}
      */
     public function update($id, $object) {
-        $model = new JabatanModel();
+        $model = new UangModel();
         return $model->update($id, $object);
     }
 
     /**
-     * Delete Data Jabatan
-     * @param {integer} $id - jabatan id
+     * Delete Data Uang
+     * @param {integer} $id - Uang id
      */
     public function delete($id) {
-        $model = new JabatanModel();
+        $model = new UangModel();
         $model->delete($id);
     }
 
-    public function findJabatanFormatted() {
+    /*public function findUangFormatted() {
         $db = Database::connect();
         $field = ArrayHelper::objectToFieldQuery([
-            'jabatan.id_jabatan' => 'id_jabatan',
-            'jabatan.jenjang_jabatan' => 'jenjang_jabatan',
-            'jabatan.id_jabatan' => 'id_jabatan',
-            'jabatan.jenjang_jabatan' => 'jenjang',
+            'uang_harian.id_uang' => 'id_uang',
+            'uang_harian.golongan_perjalanan' => 'uang_golongan',
+            'uang_harian.wilayah' => 'uang_wilayah',
+            'uang_harian.biaya' => 'biaya',
             'jabatan.jabatan' => 'jabatan',
             'jenjang_jabatan.golongan_perjalanan' => 'id_golongan',
             'golongan_perjalanan.golongan_perjalanan' => 'golongan_perjalanan'
@@ -107,5 +105,5 @@ class JabatanRepository extends Repository
             },
             $response
         );
-    }
+    }*/
 }

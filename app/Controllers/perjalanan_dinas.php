@@ -102,28 +102,6 @@ class Perjalanan_Dinas extends Controller
         }
     }
 
-    public function data_jabatan()
-    {
-        $jabatanRepo = new JabatanRepository();
-        $jenjangRepo = new JenjangRepository();
-        $golonganRepo = new GolonganPerjalananRepository();
-
-
-        $param = [
-            'jabatan' => $jabatanRepo->findJabatanFormatted(),
-            'jenjang_jabatan' => $jenjangRepo->find(0,0),
-            'jenjang' => $jenjangRepo->find(0, 0),
-            'golongan' => $golonganRepo->find(0, 0),
-        ];
-
-        if(isset($_SESSION['username'])){
-            echo view ('layout/header');
-            echo view ('jabatan/data_jabatan', $param);
-            echo view ('layout/footer');
-        } else{
-            return redirect()->to(base_url('/perjalanan_dinas'));
-        }
-    }
 }
 
 ?>

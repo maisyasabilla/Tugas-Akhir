@@ -39,32 +39,44 @@
                 <ul class="nav alignc">
                 <li class="active">
                     <a href="<?php echo base_url('perjalanan_dinas/dashboard');?>">
-                    <i class="nc-icon nc-chart-bar-32"></i>
+                    <i class="icon-chart"></i>
                     <p class="montserrat">Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./map.html">
-                    <i class="nc-icon nc-pin-3"></i>
+                    <a href="<?php echo base_url('perjalanan_dinas/data');?>">
+                    <i class="icon-location-pin"></i>
                     <p class="montserrat">Perjalanan Dinas</p>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo base_url('perjalanan_dinas/data_karyawan');?>">
-                    <i class="nc-icon nc-single-02"></i>
-                    <p class="montserrat">Data Karyawan</p>
+                    <i class="icon-people"></i>
+                    <p class="montserrat">Karyawan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('perjalanan_dinas/data_jabatan');?>">
-                    <i class="nc-icon nc-settings-gear-65"></i>
-                    <p class="montserrat">Jabatan</p>
+                    <a href="<?php echo base_url('pengaturan/data_jabatan');?>">
+                    <i class="icon-organization"></i>
+                    <p class="montserrat">Jabatan Karyawan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./tables.html">
-                    <i class="nc-icon nc-tile-56"></i>
-                    <p class="montserrat">Lainnya</p>
+                    <a href="<?php echo base_url('pengaturan/transportasi_lokal');?>">
+                    <i class="icon-plane"></i>
+                    <p class="montserrat">Transportasi</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('pengaturan/data_akomodasi');?>">
+                    <i class="icon-home"></i>
+                    <p class="montserrat">Akomodasi</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('pengaturan/uang_harian');?>">
+                    <i class="icon-check"></i>
+                    <p class="montserrat">Uang Harian</p>
                     </a>
                 </li>
                 </ul>
@@ -105,10 +117,10 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-rotate" href="#pablo">
-                        <i class="nc-icon nc-settings-gear-65"></i>
+                        <a class="nav-link btn-rotate" href="<?= base_url() ?>/pengaturan/data_wilayah">
+                        <i class="icon-map"></i>
                         <p>
-                            <span class="d-lg-none d-md-block">Account</span>
+                            <span class="d-lg-none d-md-block">Wilayah</span>
                         </p>
                         </a>
                     </li>

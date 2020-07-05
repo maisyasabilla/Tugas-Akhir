@@ -507,7 +507,7 @@
   font-weight: 500 !important;
 }
 
-.fw-600, select, .btn-modal {
+.fw-600, select, .form-control, .custom-btn, .btn-modal {
   font-weight: 600 !important;
 }
 
@@ -1702,6 +1702,10 @@ input[type=search] {
 
 .btn-modal {
   height: 35px !important;
+}
+
+.col-form-label {
+  font-size: 15px !important;
 }
 
 @media screen and (max-width: 1024px) {

@@ -43,6 +43,10 @@ select{
     @extend .text-hitam, .fs-13, .fw-600;
 }
 
+.form-control{
+    @extend .fw-600
+}
+
 .card-body{
     .form-control{
         color: #0c0c0c !important
@@ -66,7 +70,7 @@ select{
 }
 
 .custom-btn{
-    @extend .floatr, .fs-12, .ls-3, .bg-hijau;
+    @extend .floatr, .fs-12, .ls-3, .bg-hijau, .fw-600;
     height: 35px $imp; 
     width: 300px $imp;
 }
@@ -78,6 +82,10 @@ select{
 
 .btn-action{
     @extend .floatl, .mr-5, .text-putih, .p-5, .pl-10, .pr-10, .br-5, .noborder;
+}
+
+.col-form-label{
+    font-size: 15px !important
 }
 
 @media screen and (max-width: 1024px) {

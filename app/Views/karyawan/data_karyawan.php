@@ -5,17 +5,19 @@
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-sm-12 col-md-3 p-0">
-                            <h3 class="card-title upper fw-300 montserrat">Data Karyawan</h3>
-                            <hr style="border-top: 3px solid #f16923; width: 15%">
+                            <h3 class="card-title upper">Data Karyawan</h3>
+                            <hr class="border-title">
                         </div>
                         <div class="col-sm-12 col-md-9 p-0">
-                        <a href="<?php echo base_url('perjalanan_dinas/tambah_karyawan');?>"><button class="col-sm-4 floatr fs-12 ls-3 bg-hijau btn-login no-br" style="height: 35px; width: 300px"><i class="fa fa-plus"></i> Tambah Karyawan</button></a>
+                            <a href="<?php echo base_url('perjalanan_dinas/tambah_karyawan');?>">
+                                <button class="col-sm-12 col-md-6 col-lg-5 btn-login custom-btn"><i class="icon-plus"></i> Tambah Karyawan</button>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body pl-0 pr-0">
                     <div class="table-responsive">
-                        <table id="example" class="table table-striped table-bordered w-100 fw-400 alignc">
+                        <table id="example" class="table table-striped table-bordered w-100 alignc">
                             <thead>
                                 <tr>
                                     <th>Nama</th>
@@ -34,17 +36,48 @@
                                     <td><?= $item->jabatan->jenjang_jabatan ?></td>
                                     <td><?= $item->golongan->golongan ?></td>
                                     <td><?= $item->jabatan->jabatan ?></td>
-                                    <td style="width: 90px">
+                                    <td style="width: 100px">
                                         <a href="<?php echo base_url("perjalanan_dinas/edit_karyawan/$item->nip");?>">
-                                            <button class="bg-hijau floatl mr-5 text-putih p-5 pl-10 pr-10 br-5 noborder">
-                                                <i class="fas fa-edit"></i>
+                                            <button class="btn-action bg-hijau">
+                                                <i class="icon-pencil"></i>
                                             </button>
                                         </a>
-                                        <a href="<?= base_url("pegawaicontrol/hapus/$item->nip") ?>">
-                                            <button class="bg-oranye floatl text-putih p-5 pl-10 pr-10 br-5 noborder">
-                                                <i class="fas fa-trash"></i>
+                                            <button class="btn-action bg-oranye" data-toggle="modal" data-target="#modalhapus-id-<?= $item->nip ?>">
+                                                <i class="icon-trash"></i>
                                             </button>
-                                        </a>
+                                        <!-- Modal Hapus -->
+                                        <div class="modal fade" id="modalhapus-id-<?= $item->nip ?>">
+                                            <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header bg-oranye p-20">
+                                                    <h3 class="modal-title text-putih upper"><i class="icon-pencil"></i> Hapus <b>Karyawan</b></h3>
+                                                    <button type="button" class="close" data-dismiss="modal" data-target="#modal-id-<?= $item->id_jabatan ?>">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body p-30 alignc">
+                                                    Anda yakin akan menghapus data?
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <div class="row w-100">
+                                                        <div class="col-sm-6 pr-0">
+                                                            <a href="<?= base_url("pegawaicontrol/hapus/$item->nip") ?>">
+                                                                <button class="btn-login btn-modal" value="simpan" ><i class="fa fa-check"></i> Hapus</button>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <button class="btn-login btn-modal bg-oranye" data-dismiss="modal" style="height: 35px;"><i class="fa fa-times"></i> Batal</button>
+                                                        </div>
+                                                    </div>
+                                            </div>
+
+                                            </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                                 <?php endforeach ?>

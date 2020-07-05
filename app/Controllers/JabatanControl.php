@@ -25,11 +25,11 @@ class JabatanControl extends Controller
 
             if ($isExist) {
                 $jabatanRepo->insert($this->request->getPost());
-                return redirect()->to(base_url('/perjalanan_dinas/data_jabatan'));
+                return redirect()->to(base_url('/pengaturan/data_jabatan'));
             }
         }
 
-        return redirect()->to(base_url('/perjalanan_dinas/data_jabatan'));
+        return redirect()->to(base_url('/pengaturan/data_jabatan'));
     }
 
     public function edit()
@@ -57,7 +57,7 @@ class JabatanControl extends Controller
             }
         }
 
-        return redirect()->to(base_url('/perjalanan_dinas/data_jabatan'));
+        return redirect()->to(base_url('/pengaturan/data_jabatan'));
     }
 
     public function hapus($id)
@@ -68,7 +68,7 @@ class JabatanControl extends Controller
             $jabatanRepo->delete($id);
         }
 
-        return redirect()->to(base_url('/perjalanan_dinas/data_jabatan'));
+        return redirect()->to(base_url('/pengaturan/data_jabatan'));
     }
 }
 

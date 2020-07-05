@@ -5,7 +5,7 @@
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-12 col-md-3 p-0">
-                        <h3 class="card-title upper fw-300 montserrat">Data Jabatan</h3>
+                        <h3 class="card-title upper">Data Jabatan</h3>
                         <hr class="border-title">
                     </div>
                     <div class="col-sm-12 col-md-9 p-0">
@@ -106,7 +106,7 @@
 
                                             <!-- Modal Header -->
                                             <div class="modal-header bg-oranye p-20">
-                                                 <h3 class="modal-title text-putih upper"><i class="icon-pencil"></i> Hapus <b>Jabatan</b></h3>
+                                                 <h3 class="modal-title text-putih upper"><i class="icon-trash"></i> Hapus <b>Jabatan</b></h3>
                                                 <button type="button" class="close" data-dismiss="modal" data-target="#modal-id-<?= $item->id_jabatan ?>">&times;</button>
                                             </div>
 
@@ -184,11 +184,11 @@
         <div class="modal-footer">
             <div class="row w-100">
                 <div class="col-sm-6 pr-0">
-                    <button class="fs-12 ls-3 fw-600 bg-hijau btn-login no-br w-100" style="height: 35px;" value="simpan" ><i class="fa fa-check"></i> Simpan</button>
+                    <button class="btn-login btn-modal" value="simpan" ><i class="fa fa-check"></i> Simpan</button>
                     </form>
                 </div>
                 <div class="col-sm-6">
-                    <button class="fs-12 ls-3 fw-600 bg-oranye btn-login no-br w-100" data-dismiss="modal" style="height: 35px;"><i class="fa fa-times"></i> Batal</button>
+                    <button class="btn-login btn-modal bg-oranye" data-dismiss="modal" style="height: 35px;"><i class="fa fa-times"></i> Batal</button>
                 </div>
             </div>
         </div>
