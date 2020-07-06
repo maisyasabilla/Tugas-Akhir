@@ -54,38 +54,38 @@
                                             <form class="w-100" action="<?= base_url() ?>/uangcontrol/edit" method="post">
                                             <div class="form-group row">
                                                 <input type="hidden" name="id_uang" value="<?= $item->id_uang ?>" required>
-                                                <label class="col-sm-4 col-form-label">Golongan Perjalanan</label>
-                                                <div class="col-sm-8">
+                                                <label class="col-sm-5 col-form-label">Golongan Perjalanan</label>
+                                                <div class="col-sm-7">
                                                 <select class="custom-select mr-sm-2" name="golongan_perjalanan" required>
-                                                    <?php foreach($golongan as $item2): ?>
+                                                    <?php foreach($golongan as $data): ?>
                                                         <option
-                                                            value="<?= $item2->id_golongan_per ?>"
-                                                            <?= $item->golongan_perjalanan->id_golongan_per == $item2->id_golongan_per ? 'selected' : '' ?>
+                                                            value="<?= $data->id_golongan_per ?>"
+                                                            <?= $item->golongan_perjalanan->id_golongan_per == $data->id_golongan_per ? 'selected' : '' ?>
                                                         >
-                                                            <?= $item2->golongan_perjalanan ?>
+                                                            <?= $data->golongan_perjalanan ?>
                                                         </option>
                                                     <?php endforeach ?>
                                                 </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">Wilayah</label>
-                                                <div class="col-sm-8">
+                                                <label class="col-sm-5 col-form-label">Wilayah</label>
+                                                <div class="col-sm-7">
                                                 <select class="custom-select mr-sm-2" name="wilayah" required>
                                                     <?php foreach($wilayah as $item3): ?>
                                                         <option
                                                             value="<?= $item3->id_wilayah ?>"
                                                             <?= $item->wilayah->id_wilayah == $item3->id_wilayah ? 'selected' : '' ?>
                                                         >
-                                                            <?= $item3->id_wilayah ?>
+                                                            <?= $item3->wilayah ?>
                                                         </option>
                                                     <?php endforeach ?>
                                                 </select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">Biaya</label>
-                                                <div class="col-sm-8">
+                                                <label class="col-sm-5 col-form-label">Biaya</label>
+                                                <div class="col-sm-7">
                                                 <input type="number" name="biaya" class="form-control" value="<?= $item->biaya ?>" required>
                                                 </div>
                                             </div>
@@ -165,9 +165,8 @@
         <div class="modal-body p-30 pt-40">
             <form class="w-100" action="<?= base_url() ?>/uangcontrol/tambah" method="post">
             <div class="form-group row">
-                <input type="hidden" name="id_uang" value="<?= $item->id_uang ?>" required>
-                <label class="col-sm-4 col-form-label">Golongan Perjalanan</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 col-form-label">Golongan Perjalanan</label>
+                <div class="col-sm-7">
                 <select class="custom-select mr-sm-2" name="golongan_perjalanan" required>
                     <?php foreach($golongan as $item5): ?>
                         <option
@@ -181,8 +180,8 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Wilayah</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 col-form-label">Wilayah</label>
+                <div class="col-sm-7">
                 <select class="custom-select mr-sm-2" name="wilayah" required>
                     <?php foreach($wilayah as $item4): ?>
                         <option
@@ -196,8 +195,8 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Biaya</label>
-                <div class="col-sm-8">
+                <label class="col-sm-5 col-form-label">Biaya</label>
+                <div class="col-sm-7">
                 <input type="number" name="biaya" class="form-control" required>
                 </div>
             </div>
@@ -206,11 +205,11 @@
         <!-- Modal footer -->
         <div class="modal-footer">
             <div class="row w-100">
-                <div class="col-sm-6 pr-0">
+                <div class="col-sm-5 pr-0">
                     <button class="btn-login btn-modal" value="simpan" ><i class="fa fa-check"></i> Simpan</button>
                     </form>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <button class="btn-login btn-modal bg-oranye" data-dismiss="modal" style="height: 35px;"><i class="fa fa-times"></i> Batal</button>
                 </div>
             </div>

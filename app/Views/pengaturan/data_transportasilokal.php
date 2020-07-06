@@ -60,7 +60,7 @@
                                                     <?php foreach($wilayah as $item2): ?>
                                                         <option
                                                             value="<?= $item2->id_wilayah ?>"
-                                                            <?= $item->wilayah->id_wilayah == $item2->id_wilayah ? 'selected' : '' ?>
+                                                            <?= $item->wilayah == $item2->wilayah ? 'selected' : '' ?>
                                                         >
                                                             <?= $item2->wilayah ?>
                                                         </option>

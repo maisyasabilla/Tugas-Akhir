@@ -1,6 +1,8 @@
 <?php
 namespace App\Repository;
 
+use Config\Database;
+use App\Helpers\ArrayHelper;
 use App\Models\UangModel;
 use App\Entities\UangEntities;
 use App\Repository\Repository;
@@ -64,46 +66,48 @@ class UangRepository extends Repository
         $model->delete($id);
     }
 
-    /*public function findUangFormatted() {
+    public function findUangFormatted() {
         $db = Database::connect();
         $field = ArrayHelper::objectToFieldQuery([
             'uang_harian.id_uang' => 'id_uang',
             'uang_harian.golongan_perjalanan' => 'uang_golongan',
             'uang_harian.wilayah' => 'uang_wilayah',
             'uang_harian.biaya' => 'biaya',
-            'jabatan.jabatan' => 'jabatan',
-            'jenjang_jabatan.golongan_perjalanan' => 'id_golongan',
+            'wilayah.id_wilayah' => 'id_wilayah',
+            'wilayah.wilayah' => 'wilayah',
+            'golongan_perjalanan.id_golongan_per' => 'id_golongan_per',
             'golongan_perjalanan.golongan_perjalanan' => 'golongan_perjalanan'
         ]);
         $response = $db
-            ->table('jabatan')
+            ->table('uang_harian')
             ->select($field)
-            ->join('jenjang_jabatan', 'jenjang_jabatan.jenjang_jabatan = jabatan.jenjang_jabatan')
-            ->join('golongan_perjalanan', 'golongan_perjalanan.id_golongan_per = jenjang_jabatan.golongan_perjalanan')
+            ->join('wilayah', 'wilayah.id_wilayah = uang_harian.wilayah')
+            ->join('golongan_perjalanan', 'golongan_perjalanan.id_golongan_per = uang_harian.golongan_perjalanan')
             ->get()
             ->getResultArray();
 
         return array_map(
             function($value) {
                 $result = new \stdClass();
-                $result->id_jabatan = $value['id_jabatan'];
-                $result->jabatan = $value['jabatan'];
-                $result->jenjang_jabatan = $value['jabatan_jenjang'];
+                $result->id_uang = $value['id_uang'];
+                $result->wilayah = $value['uang_wilayah'];
+                $result->golongan_perjalanan = $value['uang_golongan'];
+                $result->biaya = $value['biaya'];
 
-                $jenjang = new \stdClass();
-                $jenjang->jenjang_jabatan = $value['jenjang'];
-                $jenjang->golongan_perjalanan = $value['id_golongan'];
+                $wilayah = new \stdClass();
+                $wilayah->id_wilayah = $value['id_wilayah'];
+                $wilayah->wilayah = $value['wilayah'];
 
                 $golongan = new \stdClass();
                 $golongan->id_golongan_per = $value['id_golongan'];
                 $golongan->golongan_perjalanan = $value['golongan_perjalanan'];
 
-                $result->jenjang_jabatan = $jenjang;
+                $result->wilayah = $wilayah;
                 $result->golongan_perjalanan = $golongan;
 
                 return $result;
             },
             $response
         );
-    }*/
+    }
 }

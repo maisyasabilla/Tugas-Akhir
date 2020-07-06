@@ -18,7 +18,6 @@ class UangControl extends Controller
             $isExist = ArrayHelper::arrayKeyExist(
                 $this->request->getPost(),
                 [
-                    'uang',
                     'golongan_perjalanan',
                     'wilayah',
                     'biaya'

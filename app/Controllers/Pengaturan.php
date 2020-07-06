@@ -34,7 +34,6 @@ class Pengaturan extends Controller
 
         $param = [
             'jabatan' => $jabatanRepo->findJabatanFormatted(),
-            'jenjang_jabatan' => $jenjangRepo->find(0,0),
             'jenjang' => $jenjangRepo->find(0, 0),
             'golongan' => $golonganRepo->find(0, 0),
         ];
@@ -111,9 +110,9 @@ class Pengaturan extends Controller
         $wilayahRepo = new WilayahRepository();
 
         $param = [
-            /*'uang' => $jabatanRepo->findUangFormatted(),
+            'uang' => $uangRepo->findUangFormatted(),
             'golongan' => $golonganRepo->find(0, 0),
-            'wilayah' => $wilayahRepo->find(0,0),*/
+            'wilayah' => $wilayahRepo->find(0,0)
         ];
 
         if(isset($_SESSION['username'])){
