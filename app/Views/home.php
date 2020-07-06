@@ -6,7 +6,7 @@
                     <div class="row">
                     <div class="col-5 col-md-4">
                         <div class="icon-big text-center icon-warning">
-                        <i class="nc-icon nc-globe text-success"></i>
+                        <i class="icon-location-pin text-hijau"></i>
                         </div>
                     </div>
                     <div class="col-7 col-md-8">
@@ -32,7 +32,7 @@
                     <div class="row">
                     <div class="col-5 col-md-4">
                         <div class="icon-big text-center icon-warning">
-                        <i class="nc-icon nc-pin-3 text-warning"></i>
+                        <i class="icon-map text-oranye"></i>
                         </div>
                     </div>
                     <div class="col-7 col-md-8">
@@ -58,7 +58,7 @@
                     <div class="row">
                     <div class="col-5 col-md-4">
                         <div class="icon-big text-center icon-warning">
-                        <i class="nc-icon nc-single-copy-04 text-danger"></i>
+                        <i class="icon-list text-hijau"></i>
                         </div>
                     </div>
                     <div class="col-7 col-md-8">
@@ -84,7 +84,7 @@
                     <div class="row">
                     <div class="col-5 col-md-4">
                         <div class="icon-big text-center icon-warning">
-                        <i class="nc-icon nc-circle-10 text-primary"></i>
+                        <i class="icon-people text-oranye"></i>
                         </div>
                     </div>
                     <div class="col-7 col-md-8">
