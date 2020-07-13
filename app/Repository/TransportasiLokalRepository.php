@@ -89,7 +89,7 @@ class TransportasiLokalRepository extends Repository
                 $result->biaya = $value['biaya'];
 
                 $wilayah = new \stdClass();
-                $wilayah->id_wilayah = $value['jenjang'];
+                $wilayah->id_wilayah = $value['id_wilayah'];
                 $wilayah->wilayah = $value['wilayah'];
 
                 $result->wilayah = $wilayah;

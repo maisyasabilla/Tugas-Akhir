@@ -92,7 +92,7 @@ class AkomodasiRepository extends Repository
                 $result->biaya = $value['biaya'];
 
                 $golongan = new \stdClass();
-                $golongan->id_golongan_per = $value['id_golongan'];
+                $golongan->id_golongan_per = $value['id_golongan_per'];
                 $golongan->golongan_perjalanan = $value['golongan_perjalanan'];
 
                 $result->golongan_perjalanan = $golongan;

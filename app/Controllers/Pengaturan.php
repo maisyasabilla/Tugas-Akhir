@@ -72,7 +72,7 @@ class Pengaturan extends Controller
     public function data_wilayah()
     {
         $wilayahRepo = new WilayahRepository();
-        
+
         $param = [
             'wilayah' => $wilayahRepo->find(0, 0),
         ];
@@ -90,7 +90,7 @@ class Pengaturan extends Controller
     {
         $transportasiRepo = new TransportasiLokalRepository();
         $wilayahRepo = new WilayahRepository();
-        
+
         $param = [
             'transportasi' => $transportasiRepo->findTransportasiFormatted(),
             'wilayah' => $wilayahRepo->find(0,0),
