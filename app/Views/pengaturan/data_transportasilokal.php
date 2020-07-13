@@ -169,7 +169,7 @@
                 <div class="col-sm-8">
                 <input type="number" name="biaya" class="form-control" required>
                 </div>
-            </div>        
+            </div>
         </div>
 
         <!-- Modal footer -->

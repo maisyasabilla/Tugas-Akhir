@@ -99,7 +99,7 @@ class UangRepository extends Repository
                 $wilayah->wilayah = $value['wilayah'];
 
                 $golongan = new \stdClass();
-                $golongan->id_golongan_per = $value['id_golongan'];
+                $golongan->id_golongan_per = $value['id_golongan_per'];
                 $golongan->golongan_perjalanan = $value['golongan_perjalanan'];
 
                 $result->wilayah = $wilayah;
