@@ -45,7 +45,7 @@
 
                                         <!-- Modal Header -->
                                         <div class="modal-header bg-oranye p-20">
-                                                <h3 class="modal-title text-putih upper"><i class="icon-pencil"></i> Edit <b>Transportasi Lokal</b></h3>
+                                            <h3 class="modal-title text-putih upper"><i class="icon-pencil"></i> Edit <b>Transportasi Lokal</b></h3>
                                             <button type="button" class="close" data-dismiss="modal" data-target="#modal-id-<?= $item->id_lokal ?>">&times;</button>
                                         </div>
 
@@ -60,7 +60,7 @@
                                                     <?php foreach($wilayah as $item2): ?>
                                                         <option
                                                             value="<?= $item2->id_wilayah ?>"
-                                                            <?= $item->wilayah == $item2->wilayah ? 'selected' : '' ?>
+                                                            <?= $item->wilayah->id_wilayah == $item2->id_wilayah ? 'selected' : '' ?>
                                                         >
                                                             <?= $item2->wilayah ?>
                                                         </option>
