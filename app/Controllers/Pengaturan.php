@@ -10,6 +10,8 @@ use App\Repository\AkomodasiRepository;
 use App\Repository\WilayahRepository;
 use App\Repository\TransportasiLokalRepository;
 use App\Repository\UangRepository;
+use App\Repository\TransportasiRepository;
+use App\Repository\TransportasiDetailRepository;
 
 class Pengaturan extends Controller
 {
@@ -118,6 +120,27 @@ class Pengaturan extends Controller
         if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('pengaturan/data_uang', $param);
+            echo view ('layout/footer');
+        } else{
+            return redirect()->to(base_url('/perjalanan_dinas'));
+        }
+    }
+
+    public function transportasi()
+    {
+        $transportasiRepo = new TransportasiRepository();
+        $detailRepo = new TransportasiDetailRepository();
+        $golonganRepo = new GolonganPerjalananRepository();
+
+        $param = [
+            'detail' => $detailRepo->findTransportasiDetailFormatted(),
+            'transportasi' => $transportasiRepo->find(0, 0),
+            'golongan' => $golonganRepo->find(0,0)
+        ];
+
+        if(isset($_SESSION['username'])){
+            echo view ('layout/header');
+            echo view ('pengaturan/data_transportasi', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));

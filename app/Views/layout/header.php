@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('perjalanan_dinas/data');?>">
+                    <a href="<?php echo base_url('perjalanan_dinas/tambah_perjalanan');?>">
                     <i class="icon-location-pin"></i>
                     <p class="montserrat">Perjalanan Dinas</p>
                     </a>
@@ -62,9 +62,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('pengaturan/transportasi_lokal');?>">
+                    <a href="<?php echo base_url('pengaturan/transportasi');?>">
                     <i class="icon-plane"></i>
                     <p class="montserrat">Transportasi</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url('pengaturan/transportasi_lokal');?>">
+                    <i class="icon-plane"></i>
+                    <p class="montserrat">Transportasi Lokal</p>
                     </a>
                 </li>
                 <li>
