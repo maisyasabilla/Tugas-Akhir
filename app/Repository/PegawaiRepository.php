@@ -91,6 +91,14 @@ class PegawaiRepository extends Repository
         return count($employeeList) >= 1;
     }
 
+    public function jumlah() {
+        $model = new PegawaiModel();
+        $jumlahKaryawan = $model
+            ->findAll();
+
+        return count($jumlahKaryawan);
+    }
+
     /**
      * Find Employee Formatted
      * @return {mixed}

@@ -90,7 +90,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                         <p class="card-category">Jumlah</p>
-                        <p class="card-title">93
+                        <p class="card-title"><?php echo($jmlpegawai); ?>
                             <p>
                         </div>
                     </div>

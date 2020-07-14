@@ -4,8 +4,8 @@ namespace App\Repository;
 use Config\Database;
 use App\Helpers\ArrayHelper;
 use App\Models\PerjalananModel;
-use App\Entities\PerjalananEntities;
 use App\Repository\Repository;
+use App\Entities\PerjalananEntities;
 
 
 class PerjalananRepository extends Repository
@@ -36,11 +36,31 @@ class PerjalananRepository extends Repository
      * @param {array} $object - data array Perjalanan
      * @return {boolean}
      */
+
+    public function isExistTrip($id) {
+        $model = new PerjalananModel();
+        $tripList = $model
+            ->where('id_perjalanan', $id)
+            ->findAll();
+
+        return count($tripList) >= 1;
+    }
+
     public function insert($object) {
         $item = new PerjalananEntities();
+        $item->id_perjalanan = $object['id_perjalanan'];
+        $item->nip = $object['nip'];
+        $item->alat_angkut = $object['alat_angkut'];
+        $item->wilayah_asal= $object['wilayah_asal'];
+        $item->wilayah_tujuan= $object['wilayah_tujuan'];
+        $item->tujuan = $object['tujuan'];
+        $item->komando = $object['komando'];
+        $item->keterangan = $object['keterangan'];
 
         $model = new PerjalananModel();
-        return $model->insert($item);
+        if (!$this->isExistTrip($id)) {
+            $model->insert($item);
+        }
     }
 
     /**

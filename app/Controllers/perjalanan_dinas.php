@@ -10,6 +10,7 @@ use App\Repository\JenjangRepository;
 use App\Repository\GolonganPerjalananRepository;
 use App\Repository\WilayahRepository;
 use App\Repository\TransportasiRepository;
+use App\Repository\PerjalananRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
@@ -33,11 +34,14 @@ class Perjalanan_Dinas extends Controller
     public function dashboard()
     {
         if(isset($_SESSION['username'])){
-            //$this->selectCount('perjalanan');
-            //$res = $this->query("Select * from perjalanan");
-            //return $res->num_rows();
+            $pegawaiRepo = new PegawaiRepository();
+            
+            $param = [
+                'jmlpegawai' => $pegawaiRepo->jumlah(),
+            ];
+            
             echo view ('layout/header');
-            echo view ('home');
+            echo view ('home', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
@@ -109,19 +113,13 @@ class Perjalanan_Dinas extends Controller
         $pegawaiRepo = new PegawaiRepository();
         $wilayahRepo = new WilayahRepository();
         $transportasiRepo = new TransportasiRepository();
-/*        $jabatanRepo = new JabatanRepository();
-        $golonganRepo = new GolonganRepository();
 
-        $param = [
-            'jabatan' => $jabatanRepo->find(0, 0),
-            'golongan' => $golonganRepo->find(0, 0)
-        ];
-*/
         $param = [
             'pegawai' => $pegawaiRepo->find(0, 0),
             'wilayah' => $wilayahRepo->find(0, 0),
             'transportasi' => $transportasiRepo->find(0, 0)
         ];
+
         if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('perjalanan/tambah_perjalanan', $param);
