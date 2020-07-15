@@ -3,7 +3,7 @@ namespace App\Entities;
 
 use CodeIgniter\Entity;
 
-class PerjalananTanggal extends Entity
+class PerjalananTanggalEntities extends Entity
 {
     protected $attributes = [
         'id_perjalanan' => null,

@@ -28,6 +28,24 @@
                             </select>
                             </div>
                         </div>
+                        <!--<div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Tanggal SPPD</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" name="tgl_sppd"></input>
+                            </div>
+                        </div>-->
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Tanggal Berangkat</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" name="tgl_berangkat"></input>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Tanggal Pulang</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" name="tgl_pulang"></input>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Wilayah Asal</label>
                             <div class="col-sm-9">

@@ -11,6 +11,7 @@ use App\Repository\GolonganPerjalananRepository;
 use App\Repository\WilayahRepository;
 use App\Repository\TransportasiRepository;
 use App\Repository\PerjalananRepository;
+use App\Repository\PerjalananTanggalRepository;
 
 /*use App\Models\perjalanan_dinas_model;*/
 
@@ -35,9 +36,11 @@ class Perjalanan_Dinas extends Controller
     {
         if(isset($_SESSION['username'])){
             $pegawaiRepo = new PegawaiRepository();
+            $perjalananRepo = new perjalananRepository();
             
             $param = [
                 'jmlpegawai' => $pegawaiRepo->jumlah(),
+                'jmlperjalanan' => $perjalananRepo->perjalananAktif(),
             ];
             
             echo view ('layout/header');
@@ -128,6 +131,24 @@ class Perjalanan_Dinas extends Controller
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
     }
+
+    public function data_perjalanan()
+    {
+        $perjalananRepo = new PerjalananRepository();
+        
+        $param = [
+            'perjalanan' => $perjalananRepo->findPerjalananFormatted(),
+        ];
+
+        if(isset($_SESSION['username'])){
+            echo view ('layout/header');
+            echo view ('perjalanan/data_perjalanan', $param);
+            echo view ('layout/footer');
+        } else{
+            return redirect()->to(base_url('/perjalanan_dinas'));
+        }
+    }
+
 
 }
 

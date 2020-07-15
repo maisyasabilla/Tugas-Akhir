@@ -44,7 +44,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('perjalanan_dinas/tambah_perjalanan');?>">
+                    <a href="<?php echo base_url('perjalanan_dinas/data_perjalanan');?>">
                     <i class="icon-location-pin"></i>
                     <p class="montserrat">Perjalanan Dinas</p>
                     </a>

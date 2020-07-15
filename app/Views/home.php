@@ -12,7 +12,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                         <p class="card-category">Jumlah</p>
-                        <p class="card-title">2
+                        <p class="card-title"><?php echo($jmlperjalanan); ?>
                             <p>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                         <p class="card-category">Jumlah</p>
-                        <p class="card-title"> 1,345
+                        <p class="card-title"><?php echo($jmlperjalanan); ?>
                             <p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                         <p class="card-category">Jumlah</p>
-                        <p class="card-title">23
+                        <p class="card-title"><?php echo($jmlperjalanan); ?>
                             <p>
                         </div>
                     </div>

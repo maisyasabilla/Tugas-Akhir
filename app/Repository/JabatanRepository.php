@@ -46,6 +46,14 @@ class JabatanRepository extends Repository
         return $model->insert($item);
     }
 
+    public function jumlah() {
+        $model = new JabatanModel();
+        $jumlah = $model
+            ->findAll();
+
+        return count($jumlah);
+    }
+
     /**
      * Update Data Jabatan
      * @param {integer} $id - jabatan id

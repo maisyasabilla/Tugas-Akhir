@@ -3,6 +3,7 @@
 use CodeIgniter\Controller;
 use App\Helpers\ArrayHelper;
 use App\Repository\PerjalananRepository;
+use App\Repository\PerjalananTanggalRepository;
 
 class PerjalananControl extends Controller
 {
@@ -13,6 +14,8 @@ class PerjalananControl extends Controller
     public function tambah()
     {
         $perjalananRepo = new PerjalananRepository();
+        $tanggalRepo = new PerjalananTanggalRepository();
+        
         if ($this->request->getMethod() == 'post' && isset($_SESSION['username'])) {
             $isExist = ArrayHelper::arrayKeyExist(
                 $this->request->getPost(),
@@ -24,18 +27,21 @@ class PerjalananControl extends Controller
                     'wilayah_tujuan',
                     'tujuan',
                     'komando',
-                    'keterangan'
+                    'keterangan',
+                    'tgl_berangkat',
+                    'tgl_pulang'
                 ]
             );
             if ($isExist) {
-                echo("berhasil");
                 $perjalananRepo->insert($this->request->getPost());
-                
-                //return redirect()->to(base_url('/pengaturan/tambah_perjalanan'));
+                $tanggalRepo->insert($this->request->getPost());
+                echo"berhasil";
+                //$tanggalRepo->insert($this->request->getPost());
+                //return redirect()->to(base_url('/perjalanan_dinas/tambah_perjalanan'));
             }
         }
 
-        //return redirect()->to(base_url('/pengaturan/tambah_perjalanan'));
+        //return redirect()->to(base_url('/perjalanan_dinas/tambah_perjalanan'));
     }
 
    /* public function edit()

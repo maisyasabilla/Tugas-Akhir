@@ -6,6 +6,7 @@ use App\Helpers\ArrayHelper;
 use App\Models\PerjalananTanggalModel;
 use App\Entities\PerjalananTanggalEntities;
 use App\Repository\Repository;
+use CodeIgniter\I18n\Time;
 
 
 class PerjalananTanggalRepository extends Repository
@@ -38,16 +39,37 @@ class PerjalananTanggalRepository extends Repository
      */
     public function insert($object) {
         $item = new PerjalananTanggalEntities();
-        $item->nip = $object['nip'];
-        $item->alat_angkut = $object['alat_angkut'];
-        $item->wilayah_asal= $object['wilayah_asal'];
-        $item->wilayah_tujuan= $object['wilayah_tujuan'];
-        $item->tujuan = $object['tujuan'];
-        $item->komando = $object['komando'];
-        $item->keterangan = $object['keterangan'];
-
+        $mydate = getdate(date("U"));
+        
+        $item->id_perjalanan = $object['id_perjalanan'];
+        $item->tgl_sppd = "$mydate[year]-$mydate[mon]-$mydate[mday]";
+        $item->tgl_berangkat = $object['tgl_berangkat'];
+        $item->tgl_pulang = $object['tgl_pulang'];
+        
         $model = new PerjalananTanggalModel();
-        return $model->insert($item);
+        $model->insert($item);
+    }
+
+    public function perjalananBulan() {
+        $model = new PerjalananTanggalModel();
+        $jumlahBulan = $model
+            ->findAll();
+
+        return count($jumlahBulan);
+    }
+
+    /**
+     * Update Data Pegawai
+     * @param {integer} $id - nip
+     * @param {array} $object - data array pegawai
+     * @return {void}
+     */
+    public function update($id, $object) {
+        $model = new PerjalananTanggalModel();
+
+        if ($this->isExistTrip($id)) {
+            $model->update($id, $object);
+        }
     }
 
     /**
