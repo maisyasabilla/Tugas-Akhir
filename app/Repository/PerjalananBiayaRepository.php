@@ -39,19 +39,39 @@ class PerjalananBiayaRepository extends Repository
      * @return {boolean}
      */
     public function insert($object) {
-        $pegawaiRepo = new PegawaiRepository();
         $lokalRepo = new TransportasiLokalRepository();
-        
-        $param = [
-            'pegawai' => $pegawaiRepo->findPegawai($object['nip']),
-            'lokal' => $lokalRepo->findWilayah($object['wilayah_tujuan']),
-        ];
+        $pegawaiRepo = new PegawaiRepo();
+        $akomodasiRepo = new AkomodasiRepo();
+        $uangHarianRepo = new UangHarianRepo();
+
+        $lokal = $lokalRepo->findWilayah($object['wilayah_tujuan']);
+        $pegawai = $pegawaiRepo->findPegawai($object['nip']);
+        $akomodasi = $akomodasiRepo->findByGolonganPerjalanan($pegawai['golongan_perjalanan']);
+        $uangHarian = $uangHarianRepo->findByGolongan($pegawai['golongan_perjalanan'], $object['wilayah_tujuan']);
+
 
         $item = new PerjalananBiayaEntities();
-        
+
+        // 'id_perjalanan',
+        // 'nip',
+        // 'alat_angkut',
+        // 'wilayah_asal',
+        // 'wilayah_tujuan',  //done
+        // 'tujuan',
+        // 'komando',
+        // 'keterangan',
+        // 'tgl_berangkat',
+        // 'tgl_pulang'
+        // 'transportasi'
+        // 'biaya_transportasi'
+
         $item->id_perjalanan = $object['id_perjalanan'];
-        $item->uang_harian = $lokal['id_uang'];
-   
+        $item->transportasi_lokal = $lokal['id_lokal'];
+        $item->uang_harian = $uangHarian['id_uang']; // TODO . uang harian repo tbc
+        $item->transportasi = $object['transportasi']; // TODO . from HTML option from DB
+        $item->akomodasi = $akomodasi['id_akomodasi']; // TODO . akomodasi repo find by golongan perjalanan field
+        $item->biaya_transportasi = $object['biaya_transportasi']; // TODO . from HTML from edit text value
+
         $model->insert($item);
     }
 
