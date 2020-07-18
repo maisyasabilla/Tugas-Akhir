@@ -64,7 +64,7 @@ class PerjalananRepository extends Repository
     }
 
     public function perjalananAktif() {
-        $time = Time::parse('now', 'Asia/Singapore', 'en_US');
+        
         $model = new PerjalananModel();
         $jumlahaktif = $model
             ->findAll();

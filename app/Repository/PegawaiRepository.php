@@ -149,4 +149,61 @@ class PegawaiRepository extends Repository
             $response
         );
     }
+
+    /**
+     * Find Employee Formatted
+     * @return {mixed}
+     */
+    public function findPegawai($id) {
+        $db = Database::connect();
+        $field = ArrayHelper::objectToFieldQuery([
+            'pegawai.nip' => 'pegawai_nip',
+            'pegawai.jabatan' => 'pegawai_jabatan',
+            'jabatan.id_jabatan' => 'jabatan_id_jabatan',
+            'jabatan.jenjang_jabatan' => 'jabatan_jenjang_jabatan',
+            'jenjang_jabatan.jenjang_jabatan' => 'jenjang_jabatan',
+            'jenjang_jabatan.golongan_perjalanan' => 'jenjang_golongan',
+            'golongan_perjalanan.id_golongan_per' => 'id_golongan_per',
+            'golongan_perjalanan.golongan_perjalanan' => 'golongan_perjalanan',
+
+        ]);
+        $response = $db
+            ->table('pegawai')
+            ->select($field)
+            ->where('pegawai.nip', $id)
+            ->join('jabatan', 'jabatan.id_jabatan = pegawai.jabatan')
+            ->join('jenjang_jabatan', 'jenjang_jabatan.jenjang_jabatan = jabatan.jenjang_jabatan')
+            ->join('golongan_perjalanan', 'golongan_perjalanan.id_golongan_per = jenjang_jabatan.jenjang_golongan')
+            ->get()
+            ->getResultArray();        
+
+        return array_map(
+            function($value) {
+                $result = new \stdClass();
+                $result->nip = $value['pegawai_nip'];
+                $result->jabatan = $value['pegawai_jabatan'];
+
+                $jabatan = new \stdClass();
+                $jabatan->id_jabatan = $value['jabatan_id_jabatan'];
+                $jabatan->jenjang_jabatan = $value['jabatan_jenjang_jabatan'];
+                
+                $jenjang_jabatan = new \stdClass();
+                $jenjang_jabatan->jenjang_jabatan = $value['jenjang_jabatan'];
+                $jenjang_jabatan->golongan_perjalanan = $value['jenjang_golongan'];
+
+                $golongan_perjalanan = new \stdClass();
+                $golongan_perjalanan->id_golongan_per = $value['id_golongan_per'];
+                $golongan_perjalanan->golongan_perjalanan = $value['golongan_perjalanan'];
+                
+                $result->jabatan = $jabatan;
+                $result->jenjang_jabatan = $jenjang_jabatan;
+                $result->golongan_perjalanan = $golongan_perjalanan;
+
+                return $result;
+            },
+            $response
+        );
+    }
+
+    
 }

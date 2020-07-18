@@ -6,6 +6,8 @@ use App\Helpers\ArrayHelper;
 use App\Models\PerjalananBiayaModel;
 use App\Entities\PerjalananBiayaEntities;
 use App\Repository\Repository;
+use App\Repository\PegawaiRepository;
+use App\Repository\TransportasiLokalRepository;
 
 
 class PerjalananBiayaRepository extends Repository
@@ -37,11 +39,19 @@ class PerjalananBiayaRepository extends Repository
      * @return {boolean}
      */
     public function insert($object) {
+        $pegawaiRepo = new PegawaiRepository();
+        $lokalRepo = new TransportasiLokalRepository();
+        
+        $param = [
+            'pegawai' => $pegawaiRepo->findPegawai($object['nip']),
+            'lokal' => $lokalRepo->findWilayah($object['wilayah_tujuan']),
+        ];
+
         $item = new PerjalananBiayaEntities();
         
         $item->id_perjalanan = $object['id_perjalanan'];
-     
-        $model = new PerjalananBiayaModel();
+        $item->uang_harian = $lokal['id_uang'];
+   
         $model->insert($item);
     }
 

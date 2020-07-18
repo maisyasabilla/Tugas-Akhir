@@ -31,6 +31,14 @@ class TransportasiLokalRepository extends Repository
         return $model->find($id);
     }
 
+    public function findWilayah($id) {
+        $model = new TransportasiLokalModel();
+        return 
+        $lokalList = $model
+            ->where('wilayah_tujuan', $id)
+            ->findAll();
+    }
+
     /**
      * Entry Data TransportasiLokal
      * @param {array} $object - data array TransportasiLokal
