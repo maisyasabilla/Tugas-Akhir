@@ -14,10 +14,10 @@ class PerjalananControl extends Controller
 
     public function tambah()
     {
+        $biayaRepo = new PerjalananBiayaRepository();
         $perjalananRepo = new PerjalananRepository();
         $tanggalRepo = new PerjalananTanggalRepository();
-        $biayaRepo = new PerjalananBiayaRepository();
-        
+
         if ($this->request->getMethod() == 'post' && isset($_SESSION['username'])) {
             $isExist = ArrayHelper::arrayKeyExist(
                 $this->request->getPost(),
