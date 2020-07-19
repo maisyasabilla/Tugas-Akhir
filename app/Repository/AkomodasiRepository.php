@@ -102,4 +102,11 @@ class AkomodasiRepository extends Repository
             $response
         );
     }
+
+    public function findByGolonganPerjalanan($id) {
+        $model = new AkomodasiModel();
+        return $model
+            ->where('golongan_perjalanan', $id)
+            ->findAll();
+    }
 }

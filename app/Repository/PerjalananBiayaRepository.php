@@ -8,6 +8,8 @@ use App\Entities\PerjalananBiayaEntities;
 use App\Repository\Repository;
 use App\Repository\PegawaiRepository;
 use App\Repository\TransportasiLokalRepository;
+use App\Repository\AkomodasiRepository;
+use App\Repository\UangRepository;
 
 
 class PerjalananBiayaRepository extends Repository
@@ -40,38 +42,25 @@ class PerjalananBiayaRepository extends Repository
      */
     public function insert($object) {
         $lokalRepo = new TransportasiLokalRepository();
-        $pegawaiRepo = new PegawaiRepo();
-        $akomodasiRepo = new AkomodasiRepo();
-        $uangHarianRepo = new UangHarianRepo();
+        $pegawaiRepo = new PegawaiRepository();
+        $akomodasiRepo = new AkomodasiRepository();
+        $uangRepo = new UangRepository();
 
         $lokal = $lokalRepo->findWilayah($object['wilayah_tujuan']);
         $pegawai = $pegawaiRepo->findPegawai($object['nip']);
-        $akomodasi = $akomodasiRepo->findByGolonganPerjalanan($pegawai['golongan_perjalanan']);
-        $uangHarian = $uangHarianRepo->findByGolongan($pegawai['golongan_perjalanan'], $object['wilayah_tujuan']);
-
+        $akomodasi = $akomodasiRepo->findByGolonganPerjalanan($pegawai[0]->jenjang_jabatan->golongan_perjalanan);
+        $uangHarian = $uangRepo->findByGolonganWilayah($pegawai[0]->jenjang_jabatan->golongan_perjalanan, $object['wilayah_tujuan']);
 
         $item = new PerjalananBiayaEntities();
 
-        // 'id_perjalanan',
-        // 'nip',
-        // 'alat_angkut',
-        // 'wilayah_asal',
-        // 'wilayah_tujuan',  //done
-        // 'tujuan',
-        // 'komando',
-        // 'keterangan',
-        // 'tgl_berangkat',
-        // 'tgl_pulang'
-        // 'transportasi'
-        // 'biaya_transportasi'
-
         $item->id_perjalanan = $object['id_perjalanan'];
-        $item->transportasi_lokal = $lokal['id_lokal'];
-        $item->uang_harian = $uangHarian['id_uang']; // TODO . uang harian repo tbc
+        $item->uang_harian = $uangHarian[0]->id_uang; // TODO . uang harian repo tbc
         $item->transportasi = $object['transportasi']; // TODO . from HTML option from DB
-        $item->akomodasi = $akomodasi['id_akomodasi']; // TODO . akomodasi repo find by golongan perjalanan field
+        $item->akomodasi = $akomodasi[0]->id_akomodasi; // TODO . akomodasi repo find by golongan perjalanan field
+        $item->transportasi_lokal = $lokal[0]->id_lokal;
         $item->biaya_transportasi = $object['biaya_transportasi']; // TODO . from HTML from edit text value
-
+        
+        $model = new PerjalananBiayaModel();
         $model->insert($item);
     }
 

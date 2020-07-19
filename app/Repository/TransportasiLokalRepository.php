@@ -34,7 +34,7 @@ class TransportasiLokalRepository extends Repository
     public function findWilayah($id) {
         $model = new TransportasiLokalModel();
         return $model
-            ->where('wilayah_tujuan', $id)
+            ->where('wilayah', $id)
             ->findAll();
     }
 

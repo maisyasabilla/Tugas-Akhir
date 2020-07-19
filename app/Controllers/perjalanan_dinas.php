@@ -12,8 +12,7 @@ use App\Repository\WilayahRepository;
 use App\Repository\TransportasiRepository;
 use App\Repository\PerjalananRepository;
 use App\Repository\PerjalananTanggalRepository;
-
-/*use App\Models\perjalanan_dinas_model;*/
+use App\Repository\PerjalananBiayaRepository;
 
 class Perjalanan_Dinas extends Controller
 {
@@ -143,6 +142,51 @@ class Perjalanan_Dinas extends Controller
         if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('perjalanan/data_perjalanan', $param);
+            echo view ('layout/footer');
+        } else{
+            return redirect()->to(base_url('/perjalanan_dinas'));
+        }
+    }
+
+    public function detail_perjalanan($id)
+    {
+        $perjalananRepo = new PerjalananRepository();
+        $tanggalRepo = new PerjalananTanggalRepository();
+        $biayaRepo = new PerjalananBiayaRepository();
+        $pegawaiRepo = new PegawaiRepository();
+        $jabatanRepo = new JabatanRepository();
+        $jenjangRepo = new JenjangRepository();
+        $golonganRepo = new GolonganRepository();
+        $golonganPerjalananRepo = new GolonganPerjalananRepository();
+        $wilayahRepo = new WilayahRepository();
+
+        $model = $perjalananRepo->findById($id);
+        $pegawai = $pegawaiRepo->findById($model->nip);
+        $jabatan = $jabatanRepo->findById($pegawai->jabatan);
+        $jenjang = $jenjangRepo->findById($jabatan->jenjang_jabatan);
+        $golongan = $golonganRepo->findById($pegawai->golongan);
+        $golonganper = $golonganPerjalananRepo->findById($jenjang->golongan_perjalanan);
+        $tanggal = $tanggalRepo->findById($model->id_perjalanan);
+        $biaya = $biayaRepo->findById($model->id_perjalanan);
+        $asal = $wilayahRepo->findById($model->wilayah_asal);
+        $tujuan = $wilayahRepo->findById($model->wilayah_tujuan);
+        
+        $param = [
+            'model' => $model,
+            'tanggal' => $tanggal,
+            'biaya' => $biaya,
+            'pegawai' => $pegawai,
+            'jabatan' => $jabatan,
+            'jenjang' => $jenjang,
+            'golongan' => $golongan,
+            'golonganper' => $golonganper,
+            'asal' => $asal,
+            'tujuan' => $tujuan
+        ];
+
+        if(isset($_SESSION['username'])){
+            echo view ('layout/header');
+            echo view ('perjalanan/detail_perjalanan', $param);
             echo view ('layout/footer');
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));

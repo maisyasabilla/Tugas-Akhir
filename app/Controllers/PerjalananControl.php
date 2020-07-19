@@ -31,50 +31,21 @@ class PerjalananControl extends Controller
                     'komando',
                     'keterangan',
                     'tgl_berangkat',
-                    'tgl_pulang'
+                    'tgl_pulang',
+                    'biaya_transportasi',
+                    'transportasi'
                 ]
             );
             if ($isExist) {
-                //$perjalananRepo->insert($this->request->getPost());
-                //$tanggalRepo->insert($this->request->getPost());
+                $perjalananRepo->insert($this->request->getPost());
+                $tanggalRepo->insert($this->request->getPost());
                 $biayaRepo->insert($this->request->getPost());
-                echo"berhasil";
-                //return redirect()->to(base_url('/perjalanan_dinas/tambah_perjalanan'));
+                return redirect()->to(base_url('/perjalanan_dinas/data_perjalanan'));
             }
         }
 
-        //return redirect()->to(base_url('/perjalanan_dinas/tambah_perjalanan'));
+        return redirect()->to(base_url('/perjalanan_dinas/tambah_perjalanan'));
     }
-
-   /* public function edit()
-    {
-        $PerjalananRepo = new PerjalananRepository();
-
-        if ($this->request->getMethod() == 'post' && isset($_SESSION['username'])) {
-            $isExist = ArrayHelper::arrayKeyExist(
-                $this->request->getPost(),
-                [
-                    'id_Perjalanan',
-                    'golongan_perjalanan',
-                    'wilayah',
-                    'biaya'
-                ]
-            );
-
-            if ($isExist) {
-                $PerjalananRepo->update(
-                    $this->request->getPost('id_Perjalanan'),
-                    [
-                        'golongan_perjalanan' => $this->request->getPost('golongan_perjalanan'),
-                        'wilayah' => $this->request->getPost('wilayah'),
-                        'biaya' => $this->request->getPost('biaya'),
-                    ]
-                );
-            }
-        }
-
-        return redirect()->to(base_url('/pengaturan/Perjalanan_harian'));
-    }*/
 
     public function hapus($id)
     {

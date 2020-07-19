@@ -110,4 +110,12 @@ class UangRepository extends Repository
             $response
         );
     }
+
+    public function findByGolonganWilayah($id, $wilayah) {
+        $model = new UangModel();
+        return $model
+            ->where('golongan_perjalanan', $id)
+            ->where('wilayah', $wilayah)
+            ->findAll();
+    }
 }

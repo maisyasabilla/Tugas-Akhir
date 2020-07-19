@@ -36,7 +36,11 @@
                             <?php foreach($perjalanan as $item): ?>
                                 <tr>
                                     <td><?= $item->id_perjalanan ?></td>
-                                    <td><?= $item->perjalanan_tanggal->tgl_sppd ?></td>
+                                    <td>
+                                        <a href="<?= base_url("perjalanan_dinas/detail_perjalanan/$item->id_perjalanan") ?>">
+                                        <?= $item->perjalanan_tanggal->tgl_sppd ?>
+                                        </a>
+                                    </td>
                                     <td><?= $item->nip ?></td>
                                     <td><?= $item->pegawai->nama ?></td>
                                     <td><?= $item->jabatan->jabatan ?></td>

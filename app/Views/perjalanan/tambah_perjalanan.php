@@ -28,12 +28,6 @@
                             </select>
                             </div>
                         </div>
-                        <!--<div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Tanggal SPPD</label>
-                            <div class="col-sm-9">
-                                <input type="date" class="form-control" name="tgl_sppd"></input>
-                            </div>
-                        </div>-->
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Tanggal Berangkat</label>
                             <div class="col-sm-9">
@@ -83,12 +77,26 @@
                             </select>
                             </div>
                         </div>
-                        <!--<div class="form-group row">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Transportasi</label>
+                            <div class="col-sm-9">
+                            <select class="custom-select mr-sm-2" name="transportasi" required>
+                                <?php foreach($transportasi as $item): ?>
+                                <option
+                                    value="<?= $item->id_transportasi ?>"
+                                >
+                                    <?= $item->transportasi ?>
+                                </option>
+                                <?php endforeach ?>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Harga Tiket</label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" name="harga_tiket"></input>
+                                <input type="number" class="form-control" name="biaya_transportasi"></input>
                             </div>
-                        </div>-->
+                        </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Komando</label>
                             <div class="col-sm-9">
