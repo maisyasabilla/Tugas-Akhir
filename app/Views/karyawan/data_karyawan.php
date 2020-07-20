@@ -31,7 +31,7 @@
                             <tbody>
                                 <?php foreach($pegawai as $item): ?>
                                 <tr>
-                                    <td><?= $item->nama ?></td>
+                                    <td><a href="<?php echo base_url("perjalanan_dinas/detail_karyawan/$item->nip");?>"><?= $item->nama ?></a></td>
                                     <td><?= $item->nip ?></td>
                                     <td><?= $item->jabatan->jenjang_jabatan ?></td>
                                     <td><?= $item->golongan->golongan ?></td>

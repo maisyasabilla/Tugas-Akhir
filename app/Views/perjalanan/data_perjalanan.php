@@ -22,9 +22,9 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Tanggal SPPD</th>
-                                    <th>NIP</th>
                                     <th>Nama</th>
                                     <th>Jabatan</th>
+                                    <th>Wilayah Tujuan</th>
                                     <th>Tanggal Berangkat</th>
                                     <th>Tanggal Pulang</th>
                                     <th>Kendaraan</th>
@@ -41,9 +41,13 @@
                                         <?= $item->perjalanan_tanggal->tgl_sppd ?>
                                         </a>
                                     </td>
-                                    <td><?= $item->nip ?></td>
-                                    <td><?= $item->pegawai->nama ?></td>
+                                    <td>
+                                        <a href="<?= base_url("perjalanan_dinas/detail_karyawan/$item->nip") ?>">
+                                        <?= $item->pegawai->nama ?>
+                                        </a>
+                                    </td>
                                     <td><?= $item->jabatan->jabatan ?></td>
+                                    <td><?= $item->wilayah->wilayah ?></td>
                                     <td><?= $item->perjalanan_tanggal->tgl_berangkat ?></td>
                                     <td><?= $item->perjalanan_tanggal->tgl_pulang ?></td>
                                     <td><?= $item->alat_angkut ?></td>

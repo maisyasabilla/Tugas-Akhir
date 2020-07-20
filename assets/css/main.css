@@ -1708,6 +1708,10 @@ input[type=search] {
   font-size: 15px !important;
 }
 
+table a {
+  color: #f16923 !important;
+}
+
 @media screen and (max-width: 1024px) {
   body {
     background-size: 45%, 18%;

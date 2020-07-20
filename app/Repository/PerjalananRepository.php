@@ -32,6 +32,13 @@ class PerjalananRepository extends Repository
         return $model->find($id);
     }
 
+    public function findByPegawai($id) {
+        $model = new PerjalananModel();
+        return $model
+            ->where('nip', $id)
+            ->findAll();
+    }
+
     /**
      * Entry Data Perjalanan
      * @param {array} $object - data array Perjalanan
@@ -108,6 +115,8 @@ class PerjalananRepository extends Repository
             'perjalanan.tujuan' => 'tujuan',
             'perjalanan.komando' => 'komando',
             'perjalanan.keterangan' => 'keterangan',
+            'wilayah.id_wilayah' => 'id_wilayah',
+            'wilayah.wilayah' => 'wilayah',
             'perjalanan_tanggal.id_perjalanan'=> 'tanggal_id',
             'perjalanan_tanggal.tgl_sppd'=> 'tanggal_sppd',
             'perjalanan_tanggal.tgl_berangkat'=> 'tanggal_berangkat',
@@ -124,6 +133,7 @@ class PerjalananRepository extends Repository
             ->join('perjalanan_tanggal', 'perjalanan_tanggal.id_perjalanan = perjalanan.id_perjalanan')
             ->join('pegawai', 'pegawai.nip = perjalanan.nip')
             ->join('jabatan', 'jabatan.id_jabatan = pegawai.jabatan')
+            ->join('wilayah', 'wilayah.id_wilayah = perjalanan.wilayah_tujuan')
             ->get()
             ->getResultArray();
 
@@ -151,11 +161,72 @@ class PerjalananRepository extends Repository
                 $jabatan = new \stdClass();
                 $jabatan->id_jabatan = $value['id_jabatan'];
                 $jabatan->jabatan = $value['jabatan'];
+
+                $wilayah = new \stdClass();
+                $wilayah->id_wilayah = $value['id_wilayah'];
+                $wilayah->wilayah = $value['wilayah'];
                 
                 $result->perjalanan_tanggal = $perjalanan_tanggal;
                 $result->pegawai = $pegawai;
                 $result->jabatan = $jabatan;
+                $result->wilayah = $wilayah;
 
+                return $result;
+            },
+            $response
+        );
+    }
+
+    public function findPerjalananPegawai($id) {
+        $db = Database::connect();
+        $field = ArrayHelper::objectToFieldQuery([
+            'perjalanan.id_perjalanan' => 'id_perjalanan',
+            'perjalanan.nip' => 'perjalanan_nip',
+            'perjalanan.alat_angkut' => 'alat_angkut',
+            'perjalanan.wilayah_tujuan' => 'perjalanan_wilayah',
+            'perjalanan.tujuan' => 'tujuan',
+            'perjalanan.komando' => 'komando',
+            'perjalanan.keterangan' => 'keterangan',
+            'perjalanan_tanggal.id_perjalanan'=> 'tanggal_id',
+            'perjalanan_tanggal.tgl_sppd'=> 'tanggal_sppd',
+            'perjalanan_tanggal.tgl_berangkat'=> 'tanggal_berangkat',
+            'perjalanan_tanggal.tgl_pulang'=> 'tanggal_pulang',
+            'wilayah.id_wilayah' => 'id_wilayah',
+            'wilayah.wilayah' => 'wilayah',
+        ]);
+        $response = $db
+            ->table('perjalanan')
+            ->select($field)
+            ->where('nip',$id)
+            ->join('wilayah', 'wilayah.id_wilayah = perjalanan.wilayah_tujuan')
+            ->join('perjalanan_tanggal', 'perjalanan_tanggal.id_perjalanan = perjalanan.id_perjalanan')
+            ->get()
+            ->getResultArray();
+
+        return array_map(
+            function($value) {
+                $result = new \stdClass();
+                $result->id_perjalanan = $value['id_perjalanan'];
+                $result->nip = $value['perjalanan_nip'];
+                $result->alat_angkut = $value['alat_angkut'];
+                $result->tujuan = $value['tujuan'];
+                $result->komando = $value['komando'];
+                $result->keterangan = $value['keterangan'];
+                $result->wilayah_tujuan = $value['perjalanan_wilayah'];
+
+                $perjalanan_tanggal = new \stdClass();
+                $perjalanan_tanggal->id_perjalanan = $value['tanggal_id'];
+                $perjalanan_tanggal->tgl_sppd = $value['tanggal_sppd'];
+                $perjalanan_tanggal->tgl_berangkat = $value['tanggal_berangkat'];
+                $perjalanan_tanggal->tgl_pulang = $value['tanggal_pulang'];
+
+                $wilayah = new \stdClass();
+                $wilayah->id_wilayah = $value['id_wilayah'];
+                $wilayah->wilayah = $value['wilayah'];
+            
+                $result->perjalanan_tanggal = $perjalanan_tanggal;
+                $result->wilayah = $wilayah;
+        
                 return $result;
             },
             $response

@@ -10,9 +10,12 @@ use App\Repository\JenjangRepository;
 use App\Repository\GolonganPerjalananRepository;
 use App\Repository\WilayahRepository;
 use App\Repository\TransportasiRepository;
+use App\Repository\TransportasiDetailRepository;
+use App\Repository\TransportasiLokalRepository;
 use App\Repository\PerjalananRepository;
 use App\Repository\PerjalananTanggalRepository;
 use App\Repository\PerjalananBiayaRepository;
+use App\Repository\AkomodasiRepository;
 
 class Perjalanan_Dinas extends Controller
 {
@@ -35,7 +38,7 @@ class Perjalanan_Dinas extends Controller
     {
         if(isset($_SESSION['username'])){
             $pegawaiRepo = new PegawaiRepository();
-            $perjalananRepo = new perjalananRepository();
+            $perjalananRepo = new PerjalananTanggalRepository();
             
             $param = [
                 'jmlpegawai' => $pegawaiRepo->jumlah(),
@@ -159,6 +162,10 @@ class Perjalanan_Dinas extends Controller
         $golonganRepo = new GolonganRepository();
         $golonganPerjalananRepo = new GolonganPerjalananRepository();
         $wilayahRepo = new WilayahRepository();
+        $transportasiRepo = new TransportasiRepository();
+        $lokalRepo = new TransportasiLokalRepository();
+        $detailRepo = new TransportasiDetailRepository();
+        $akomodasiRepo = new AkomodasiRepository();
 
         $model = $perjalananRepo->findById($id);
         $pegawai = $pegawaiRepo->findById($model->nip);
@@ -170,6 +177,10 @@ class Perjalanan_Dinas extends Controller
         $biaya = $biayaRepo->findById($model->id_perjalanan);
         $asal = $wilayahRepo->findById($model->wilayah_asal);
         $tujuan = $wilayahRepo->findById($model->wilayah_tujuan);
+        $transportasi = $transportasiRepo->findById($biaya->transportasi);
+        $lokal = $lokalRepo->findById($biaya->transportasi_lokal);
+        $detail = $detailRepo->findByTransportGolongan($biaya->transportasi, $golonganper->id_golongan_per);
+        $akomodasi = $akomodasiRepo->findById($biaya->akomodasi);
         
         $param = [
             'model' => $model,
@@ -181,13 +192,55 @@ class Perjalanan_Dinas extends Controller
             'golongan' => $golongan,
             'golonganper' => $golonganper,
             'asal' => $asal,
-            'tujuan' => $tujuan
+            'tujuan' => $tujuan,
+            'transportasi' => $transportasi,
+            'detail' => $detail,
+            'lokal' => $lokal,
+            'akomodasi' => $akomodasi,
         ];
 
         if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('perjalanan/detail_perjalanan', $param);
             echo view ('layout/footer');
+            echo"<pre>";
+            print_r($detail[0]->antar_provinsi);
+        } else{
+            return redirect()->to(base_url('/perjalanan_dinas'));
+        }
+    }
+
+    public function detail_karyawan($id)
+    {
+        $pegawaiRepo = new PegawaiRepository();
+        $jabatanRepo = new JabatanRepository();
+        $jenjangRepo = new JenjangRepository();
+        $golonganRepo = new GolonganRepository();
+        $golonganPerjalananRepo = new GolonganPerjalananRepository();
+        $perjalananRepo = new PerjalananRepository();
+       
+        $pegawai = $pegawaiRepo->findById($id);
+        $jabatan = $jabatanRepo->findById($pegawai->jabatan);
+        $jenjang = $jenjangRepo->findById($jabatan->jenjang_jabatan);
+        $golongan = $golonganRepo->findById($pegawai->golongan);
+        $golonganper = $golonganPerjalananRepo->findById($jenjang->golongan_perjalanan);
+        $perjalanan = $perjalananRepo->findPerjalananPegawai($pegawai->nip);
+        
+        $param = [
+            'perjalanan' => $perjalanan,
+            'pegawai' => $pegawai,
+            'jabatan' => $jabatan,
+            'jenjang' => $jenjang,
+            'golongan' => $golongan,
+            'golonganper' => $golonganper,
+        ];
+
+        if(isset($_SESSION['username'])){
+            echo view ('layout/header');
+            echo view ('karyawan/detail_karyawan', $param);
+            echo view ('layout/footer');
+            echo"<pre>";
+            print_r($perjalanan);
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
         }

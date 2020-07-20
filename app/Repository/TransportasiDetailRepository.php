@@ -113,4 +113,12 @@ class TransportasiDetailRepository extends Repository
             $response
         );
     }
+
+    public function findByTransportGolongan($id, $golongan) {
+        $model = new TransportasiDetailModel();
+        return $model
+            ->where('id_transportasi', $id)
+            ->where('golongan_perjalanan', $golongan)
+            ->findAll();
+    }
 }

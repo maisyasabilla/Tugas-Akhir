@@ -21,7 +21,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                    <i class="fa fa-refresh"></i> Perjalanan Aktif
+                    <i class="fa fa-refresh"></i> Perjalanan Hari Ini
                     </div>
                 </div>
                 </div>

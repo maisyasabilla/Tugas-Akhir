@@ -32,6 +32,17 @@ class PerjalananTanggalRepository extends Repository
         return $model->find($id);
     }
 
+    public function perjalananAktif() {   
+        $model = new PerjalananTanggalModel();
+        $mydate = getdate(date("U"));
+
+        $jumlahaktif = $model
+            ->where('tgl_berangkat', '$mydate[year]-$mydate[mon]-$mydate[mday]')
+            ->findAll();
+
+        return count($jumlahaktif);
+    }
+
     /**
      * Entry Data PerjalananTanggal
      * @param {array} $object - data array PerjalananTanggal
