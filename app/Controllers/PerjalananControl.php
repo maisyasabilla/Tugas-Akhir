@@ -55,7 +55,7 @@ class PerjalananControl extends Controller
             $PerjalananRepo->delete($id);
         }
 
-        return redirect()->to(base_url('/pengaturan/Perjalanan_harian'));
+        return redirect()->to(base_url('/perjalanan_dinas/data_perjalanan'));
     }
 }
 

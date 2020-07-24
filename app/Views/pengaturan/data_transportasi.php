@@ -27,9 +27,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($detail as $item): ?>
+                            <?php foreach($detail as $item): 
+                                $i++?>
                             <tr>
-                                <td><?= $item->id_detail ?></td>
+                                <td><?= $i ?></td>
                                 <td><?= $item->transportasi->transportasi ?></td>
                                 <td><?= $item->golongan_perjalanan->golongan_perjalanan ?></td>
                                 <td><?= $item->antar_provinsi ?></td>

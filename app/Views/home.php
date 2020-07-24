@@ -38,7 +38,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                         <p class="card-category">Jumlah</p>
-                        <p class="card-title"><?php echo($jmlperjalanan); ?>
+                        <p class="card-title"><?php echo($perjalananbulan); ?>
                             <p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                         <p class="card-category">Jumlah</p>
-                        <p class="card-title"><?php echo($jmlperjalanan); ?>
+                        <p class="card-title"><?php echo($perjalanantahun); ?>
                             <p>
                         </div>
                     </div>
@@ -113,7 +113,9 @@
                     <p class="card-category">Januari-Desember 2020</p>
                 </div>
                 <div class="card-body ">
-                    <canvas id=chartHours width="400" height="100"></canvas>
+                    <div class="col-xs-10">
+                        <canvas id="bar-chart" width="400" height="150" class="pl-30 pr-30"></canvas>
+                    </div>
                 </div>
                 <div class="card-footer ">
                     <hr>
@@ -125,3 +127,36 @@
             </div>
         </div>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script>
+ // Bar chart
+ <?php foreach($bulan as $item): ?>
+    <?php 
+        $month_num = $item->bulan;
+        $month_name = date("F", mktime(0, 0, 0, $month_num, 10));
+       
+        $data_bulan[] = $month_name; 
+        $data_jumlah[] = $item->jumlah; 
+    ?>
+<?php endforeach ?>
+new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: <?php echo json_encode($data_bulan) ?>,
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#f16923", "#32be8f", "#c6c247", "#faca4a"],
+          data: <?php echo json_encode($data_jumlah) ?>,
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: ''
+      }
+    }
+});
+</script>

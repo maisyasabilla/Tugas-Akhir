@@ -25,9 +25,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($transportasi as $item): ?>
+                            <?php foreach($transportasi as $item): 
+                                $i++;    
+                            ?>
                             <tr>
-                                <td><?= $item->id_lokal ?></td>
+                                <td><?= $i ?></td>
                                 <td><?= $item->wilayah->wilayah ?></td>
                                 <td>Rp. <?= $item->biaya ?></td>
                                 <td style="width: 90px">

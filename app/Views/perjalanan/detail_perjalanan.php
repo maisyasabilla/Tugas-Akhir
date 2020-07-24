@@ -156,11 +156,16 @@
                     <td>Rp. <?= $lokal->biaya ?></td>
                 </tr>
                 <tr>
-                    <td>Uang Makan Harian (<?php echo"$perbedaan"; ?> kali)</td>
+                    <td>Uang Makan Harian (
+                        <?php
+                          $makan = 2 * $perbedaan;
+                          echo"$makan"; ?> 
+                        
+                        kali)</td>
                     <td>:</td>
                     <?php 
                         $uangmakan = $lokal->biaya;
-                        $totaluang = $perbedaan * $uangmakan;
+                        $totaluang = $makan * $uangmakan;
                     ?>
                     <td>Rp. <?php echo($totaluang); ?></td>
                 </tr>

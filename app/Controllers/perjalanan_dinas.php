@@ -25,31 +25,22 @@ class Perjalanan_Dinas extends Controller
 
     public function index()
     {
-        if(isset($_SESSION['username'])){
-            echo view ('layout/header');
-            echo view ('home');
-            echo view ('layout/footer');
-        } else{
-            echo view ('login');
-        }
-    }
-
-    public function dashboard()
-    {
-        if(isset($_SESSION['username'])){
+       if(isset($_SESSION['username'])){
             $pegawaiRepo = new PegawaiRepository();
             $perjalananRepo = new PerjalananTanggalRepository();
             
             $param = [
                 'jmlpegawai' => $pegawaiRepo->jumlah(),
+                'bulan' => $perjalananRepo->jumlahBulan(),
                 'jmlperjalanan' => $perjalananRepo->perjalananAktif(),
+                'perjalananbulan' => $perjalananRepo->perjalananBulan(),
+                'perjalanantahun' => $perjalananRepo->perjalananTahun(),
             ];
-            
             echo view ('layout/header');
             echo view ('home', $param);
             echo view ('layout/footer');
         } else{
-            return redirect()->to(base_url('/perjalanan_dinas'));
+            echo view ('login');
         }
     }
 

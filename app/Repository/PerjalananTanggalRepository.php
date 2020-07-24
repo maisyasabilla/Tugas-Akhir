@@ -32,12 +32,47 @@ class PerjalananTanggalRepository extends Repository
         return $model->find($id);
     }
 
+    public function jumlahBulan() {   
+        $model = new PerjalananTanggalModel();
+        $mydate = getdate(date("U"));
+      
+        return $model
+            ->select("month(tgl_berangkat) as `bulan`")
+            ->select("count(*) as `jumlah`")
+            ->where("year(tgl_berangkat)", "$mydate[year]")
+            ->groupBy("month(tgl_berangkat)")
+            ->findAll();
+    }
+
     public function perjalananAktif() {   
         $model = new PerjalananTanggalModel();
         $mydate = getdate(date("U"));
 
         $jumlahaktif = $model
-            ->where('tgl_berangkat', '$mydate[year]-$mydate[mon]-$mydate[mday]')
+            ->where("tgl_berangkat", "$mydate[year]-$mydate[mon]-$mydate[mday]")
+            ->findAll();
+
+        return count($jumlahaktif);
+    }
+
+    public function perjalananBulan() {   
+        $model = new PerjalananTanggalModel();
+        $mydate = getdate(date("U"));
+
+        $jumlahaktif = $model
+            ->where("month(tgl_berangkat)", "$mydate[mon]")
+            ->where("year(tgl_berangkat)", "$mydate[year]")
+            ->findAll();
+
+        return count($jumlahaktif);
+    }
+
+    public function perjalananTahun() {   
+        $model = new PerjalananTanggalModel();
+        $mydate = getdate(date("U"));
+
+        $jumlahaktif = $model
+            ->where("year(tgl_berangkat)", "$mydate[year]")
             ->findAll();
 
         return count($jumlahaktif);
@@ -59,14 +94,6 @@ class PerjalananTanggalRepository extends Repository
         
         $model = new PerjalananTanggalModel();
         $model->insert($item);
-    }
-
-    public function perjalananBulan() {
-        $model = new PerjalananTanggalModel();
-        $jumlahBulan = $model
-            ->findAll();
-
-        return count($jumlahBulan);
     }
 
     /**

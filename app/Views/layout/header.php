@@ -21,6 +21,7 @@
 
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
 </head>
 <body class="bg-putih montserrat">
     <div class="wrapper ">
@@ -38,7 +39,7 @@
             <div class="sidebar-wrapper">
                 <ul class="nav alignc">
                 <li class="active">
-                    <a href="<?php echo base_url('perjalanan_dinas/dashboard');?>">
+                    <a href="<?php echo base_url('perjalanan_dinas');?>">
                     <i class="icon-chart"></i>
                     <p class="montserrat">Dashboard</p>
                     </a>
