@@ -38,15 +38,14 @@ class PerjalananControl extends Controller
             );
 
             if ($isExist) {
-                //$perjalananRepo->insert($this->request->getPost());
-                //$tanggalRepo->insert($this->request->getPost());
+                $perjalananRepo->insert($this->request->getPost());
+                $tanggalRepo->insert($this->request->getPost());
                 $biayaRepo->insert($this->request->getPost());
-                die;
-                //return redirect()->to(base_url('/perjalanan_dinas/data_perjalanan'));
+                return redirect()->to(base_url('/perjalanan_dinas/data_perjalanan'));
             }
         }
 
-        //return redirect()->to(base_url('/perjalanan_dinas/tambah_perjalanan'));
+        return redirect()->to(base_url('/perjalanan_dinas/tambah_perjalanan'));
     }
 
     public function hapus($id)
