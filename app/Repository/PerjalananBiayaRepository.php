@@ -49,7 +49,7 @@ class PerjalananBiayaRepository extends Repository
         $lokal = $lokalRepo->findWilayah($object['wilayah_tujuan']);
         $pegawai = $pegawaiRepo->findPegawai($object['nip']);
         $akomodasi = $akomodasiRepo->findByGolonganPerjalanan($pegawai[0]->jenjang_jabatan->golongan_perjalanan);
-        $uangHarian = $uangRepo->findByGolonganWilayah($pegawai[0]->jenjang_jabatan->golongan_perjalanan, $object['wilayah_tujuan']);
+        $uangHarian = $uangRepo->findByWilayah($object['wilayah_tujuan']);
 
         $item = new PerjalananBiayaEntities();
 
@@ -59,7 +59,8 @@ class PerjalananBiayaRepository extends Repository
         $item->akomodasi = $akomodasi[0]->id_akomodasi; // TODO . akomodasi repo find by golongan perjalanan field
         $item->transportasi_lokal = $lokal[0]->id_lokal;
         $item->biaya_transportasi = $object['biaya_transportasi']; // TODO . from HTML from edit text value
-        
+        print_r($item);
+        die();       
         $model = new PerjalananBiayaModel();
         $model->insert($item);
     }

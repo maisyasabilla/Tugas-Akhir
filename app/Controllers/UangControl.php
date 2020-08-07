@@ -18,7 +18,6 @@ class UangControl extends Controller
             $isExist = ArrayHelper::arrayKeyExist(
                 $this->request->getPost(),
                 [
-                    'golongan_perjalanan',
                     'wilayah',
                     'biaya'
                 ]
@@ -42,7 +41,6 @@ class UangControl extends Controller
                 $this->request->getPost(),
                 [
                     'id_uang',
-                    'golongan_perjalanan',
                     'wilayah',
                     'biaya'
                 ]
@@ -52,7 +50,6 @@ class UangControl extends Controller
                 $uangRepo->update(
                     $this->request->getPost('id_uang'),
                     [
-                        'golongan_perjalanan' => $this->request->getPost('golongan_perjalanan'),
                         'wilayah' => $this->request->getPost('wilayah'),
                         'biaya' => $this->request->getPost('biaya'),
                     ]

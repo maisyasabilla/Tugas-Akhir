@@ -108,12 +108,10 @@ class Pengaturan extends Controller
     public function uang_harian()
     {
         $uangRepo = new UangRepository();
-        $golonganRepo = new GolonganPerjalananRepository();
         $wilayahRepo = new WilayahRepository();
 
         $param = [
             'uang' => $uangRepo->findUangFormatted(),
-            'golongan' => $golonganRepo->find(0, 0),
             'wilayah' => $wilayahRepo->find(0,0)
         ];
 

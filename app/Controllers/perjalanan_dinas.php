@@ -16,6 +16,7 @@ use App\Repository\PerjalananRepository;
 use App\Repository\PerjalananTanggalRepository;
 use App\Repository\PerjalananBiayaRepository;
 use App\Repository\AkomodasiRepository;
+use App\Repository\UangRepository;
 
 class Perjalanan_Dinas extends Controller
 {
@@ -157,6 +158,7 @@ class Perjalanan_Dinas extends Controller
         $lokalRepo = new TransportasiLokalRepository();
         $detailRepo = new TransportasiDetailRepository();
         $akomodasiRepo = new AkomodasiRepository();
+        $uangRepo = new UangRepository();
 
         $model = $perjalananRepo->findById($id);
         $pegawai = $pegawaiRepo->findById($model->nip);
@@ -172,6 +174,7 @@ class Perjalanan_Dinas extends Controller
         $lokal = $lokalRepo->findById($biaya->transportasi_lokal);
         $detail = $detailRepo->findByTransportGolongan($biaya->transportasi, $golonganper->id_golongan_per);
         $akomodasi = $akomodasiRepo->findById($biaya->akomodasi);
+        $uang = $uangRepo->findById($biaya->uang_harian);
         
         $param = [
             'model' => $model,
@@ -188,14 +191,13 @@ class Perjalanan_Dinas extends Controller
             'detail' => $detail,
             'lokal' => $lokal,
             'akomodasi' => $akomodasi,
+            'uang' => $uang
         ];
 
         if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('perjalanan/detail_perjalanan', $param);
             echo view ('layout/footer');
-            echo"<pre>";
-            print_r($detail[0]->antar_provinsi);
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
         }
@@ -230,8 +232,6 @@ class Perjalanan_Dinas extends Controller
             echo view ('layout/header');
             echo view ('karyawan/detail_karyawan', $param);
             echo view ('layout/footer');
-            echo"<pre>";
-            print_r($perjalanan);
         } else{
             return redirect()->to(base_url('/perjalanan_dinas'));
         }

@@ -8,7 +8,7 @@ class UangModel extends Model
     protected $table = 'uang_harian';
     protected $primaryKey = 'id_uang';
     protected $returnType = '\App\Entities\UangEntities';
-    protected $allowedFields = ['golongan_perjalanan','wilayah','biaya'];
+    protected $allowedFields = ['wilayah','biaya'];
 
     protected $useSoftDeletes = false;
     protected $skipValidation = true;

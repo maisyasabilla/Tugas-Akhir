@@ -70,19 +70,15 @@ class UangRepository extends Repository
         $db = Database::connect();
         $field = ArrayHelper::objectToFieldQuery([
             'uang_harian.id_uang' => 'id_uang',
-            'uang_harian.golongan_perjalanan' => 'uang_golongan',
             'uang_harian.wilayah' => 'uang_wilayah',
             'uang_harian.biaya' => 'biaya',
             'wilayah.id_wilayah' => 'id_wilayah',
             'wilayah.wilayah' => 'wilayah',
-            'golongan_perjalanan.id_golongan_per' => 'id_golongan_per',
-            'golongan_perjalanan.golongan_perjalanan' => 'golongan_perjalanan'
         ]);
         $response = $db
             ->table('uang_harian')
             ->select($field)
             ->join('wilayah', 'wilayah.id_wilayah = uang_harian.wilayah')
-            ->join('golongan_perjalanan', 'golongan_perjalanan.id_golongan_per = uang_harian.golongan_perjalanan')
             ->get()
             ->getResultArray();
 
@@ -91,31 +87,25 @@ class UangRepository extends Repository
                 $result = new \stdClass();
                 $result->id_uang = $value['id_uang'];
                 $result->wilayah = $value['uang_wilayah'];
-                $result->golongan_perjalanan = $value['uang_golongan'];
                 $result->biaya = $value['biaya'];
 
                 $wilayah = new \stdClass();
                 $wilayah->id_wilayah = $value['id_wilayah'];
                 $wilayah->wilayah = $value['wilayah'];
 
-                $golongan = new \stdClass();
-                $golongan->id_golongan_per = $value['id_golongan_per'];
-                $golongan->golongan_perjalanan = $value['golongan_perjalanan'];
-
                 $result->wilayah = $wilayah;
-                $result->golongan_perjalanan = $golongan;
-
+           
                 return $result;
             },
             $response
         );
     }
 
-    public function findByGolonganWilayah($id, $wilayah) {
+    public function findByWilayah($wilayah) {
         $model = new UangModel();
-        return $model
-            ->where('golongan_perjalanan', $id)
-            ->where('wilayah', $wilayah)
-            ->findAll();
+           return $model
+                ->where('wilayah', $wilayah)
+                ->findAll();
+        
     }
 }

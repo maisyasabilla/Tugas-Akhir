@@ -38,9 +38,8 @@
             </div>
           </div>
         </div>
-        <button class="col-sm-12 fs-10 ls-2 fw-600 bg-oranye btn-login no-br" style="height: 40px;" value="simpan"><i class="fa fa-check"></i> download sppd</button>
-        <button class="col-sm-12 fs-10 ls-2 fw-600 bg-oranye btn-login no-br" style="height: 40px;"><i class="fa fa-times"></i> download lembar pertanggungjawaban</button>
-        <button class="col-sm-12 fs-10 ls-2 fw-600 bg-hijau btn-login no-br" style="height: 40px;"><i class="fa fa-times"></i> download kuitansi pembayaran</button>
+        <a href="<?= base_url("report/sppd/$model->id_perjalanan") ?>"><button class="col-sm-12 fs-10 ls-2 fw-600 bg-oranye btn-login no-br" style="height: 40px;" value="simpan"><i class="fa fa-check"></i> download sppd</button></a>
+        <a href="<?= base_url("report/pertanggungjawaban/$model->id_perjalanan") ?>"><button class="col-sm-12 fs-10 ls-2 fw-600 bg-oranye btn-login no-br" style="height: 40px;"><i class="fa fa-times"></i> download lembar pertanggungjawaban</button></a>
       </div>
       <div class="col-md-8">
         <div class="card card-user p-30">
@@ -164,7 +163,7 @@
                         kali)</td>
                     <td>:</td>
                     <?php 
-                        $uangmakan = $lokal->biaya;
+                        $uangmakan = $uang->biaya;
                         $totaluang = $makan * $uangmakan;
                     ?>
                     <td>Rp. <?php echo($totaluang); ?></td>

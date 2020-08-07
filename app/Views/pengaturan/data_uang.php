@@ -18,7 +18,6 @@
                     <table id="example" class="table table-striped table-bordered w-100 alignc">
                         <thead>
                             <tr>
-                                <th>Golongan Perjalanan</th>
                                 <th>Wilayah</th>
                                 <th>Biaya</th>
                                 <th>#</th>
@@ -27,7 +26,6 @@
                         <tbody>
                             <?php foreach($uang as $item): ?>
                             <tr>
-                                <td><?= $item->golongan_perjalanan->golongan_perjalanan ?></td>
                                 <td><?= $item->wilayah->wilayah ?></td>
                                 <td>Rp. <?= $item->biaya ?></td>
                                 <td style="width: 90px">
@@ -54,19 +52,6 @@
                                             <form class="w-100" action="<?= base_url() ?>/uangcontrol/edit" method="post">
                                             <div class="form-group row">
                                                 <input type="hidden" name="id_uang" value="<?= $item->id_uang ?>" required>
-                                                <label class="col-sm-5 col-form-label">Golongan Perjalanan</label>
-                                                <div class="col-sm-7">
-                                                <select class="custom-select mr-sm-2" name="golongan_perjalanan" required>
-                                                    <?php foreach($golongan as $data): ?>
-                                                        <option
-                                                            value="<?= $data->id_golongan_per ?>"
-                                                            <?= $item->golongan_perjalanan->id_golongan_per == $data->id_golongan_per ? 'selected' : '' ?>
-                                                        >
-                                                            <?= $data->golongan_perjalanan ?>
-                                                        </option>
-                                                    <?php endforeach ?>
-                                                </select>
-                                                </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Wilayah</label>
@@ -164,21 +149,6 @@
         <!-- Modal body -->
         <div class="modal-body p-30 pt-40">
             <form class="w-100" action="<?= base_url() ?>/uangcontrol/tambah" method="post">
-            <div class="form-group row">
-                <label class="col-sm-5 col-form-label">Golongan Perjalanan</label>
-                <div class="col-sm-7">
-                <select class="custom-select mr-sm-2" name="golongan_perjalanan" required>
-                    <?php foreach($golongan as $item5): ?>
-                        <option
-                            value="<?= $item5->id_golongan_per ?>"
-                            <?= $item5->golongan_perjalanan->id_golongan_per ?>
-                        >
-                            <?= $item5->golongan_perjalanan ?>
-                        </option>
-                    <?php endforeach ?>
-                </select>
-                </div>
-            </div>
             <div class="form-group row">
                 <label class="col-sm-5 col-form-label">Wilayah</label>
                 <div class="col-sm-7">
