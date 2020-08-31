@@ -12,6 +12,7 @@ class PerjalananBiayaEntities extends Entity
         'akomodasi' => null,
         'transportasi_lokal' => null,
         'biaya_transportasi' => null,
+        'total_biaya' => null
     ];
 
     protected $casts = [
@@ -21,5 +22,6 @@ class PerjalananBiayaEntities extends Entity
         'akomodasi' => 'integer',
         'transportasi_lokal' => 'integer',
         'biaya_transportasi' => 'integer',
+        'total_biaya' => 'integer'
     ];
 }

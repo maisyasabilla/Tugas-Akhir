@@ -41,6 +41,8 @@ class PerjalananBiayaRepository extends Repository
      * @return {boolean}
      */
     public function insert($object) {
+        date_default_timezone_set("Asia/Bangkok");
+
         $lokalRepo = new TransportasiLokalRepository();
         $pegawaiRepo = new PegawaiRepository();
         $akomodasiRepo = new AkomodasiRepository();
@@ -53,12 +55,35 @@ class PerjalananBiayaRepository extends Repository
 
         $item = new PerjalananBiayaEntities();
 
+        //UANG MAKAN
+        $berangkat = $object['tgl_berangkat'];
+        $pulang = $object['tgl_pulang'];
+        $tanggal1 = new \DateTime($berangkat);
+        $tanggal2 = new \DateTime($pulang);
+        $perbedaan = $tanggal2->diff($tanggal1)->format("%a");
+        $jumlahhari = $perbedaan+1;
+        $makan = 2 * $jumlahhari;
+        $uangmakan = $uangHarian[0]->biaya;
+        $totaluang = $makan * $uangmakan;
+
+        //AKOMODASI
+        $biayahotel = $akomodasi[0]->biaya;
+        $jumlahako = $biayahotel * $perbedaan;
+
+        //TOTAL UANG
+        $tiket = $object['biaya_transportasi'];
+        $transport = $lokal[0]->biaya;
+        $ako = $jumlahako;
+        $total = $tiket + $ako + $transport + $totaluang;
+        echo $object['tgl_berangkat'];
+        
         $item->id_perjalanan = $object['id_perjalanan'];
         $item->uang_harian = $uangHarian[0]->id_uang; // TODO . uang harian repo tbc
         $item->transportasi = $object['transportasi']; // TODO . from HTML option from DB
         $item->akomodasi = $akomodasi[0]->id_akomodasi; // TODO . akomodasi repo find by golongan perjalanan field
         $item->transportasi_lokal = $lokal[0]->id_lokal;
         $item->biaya_transportasi = $object['biaya_transportasi']; // TODO . from HTML from edit text value
+        $item->total_biaya = $total;
         $model = new PerjalananBiayaModel();
         $model->insert($item);
     }

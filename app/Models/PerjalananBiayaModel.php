@@ -8,7 +8,7 @@ class PerjalananBiayaModel extends Model
     protected $table = 'perjalanan_biaya';
     protected $primaryKey = 'id_perjalanan';
     protected $returnType = '\App\Entities\PerjalananBiayaEntities';
-    protected $allowedFields = ['id_perjalanan', 'uang_harian', 'transportasi', 'akomodasi', 'transportasi_lokal', 'biaya_transportasi'];
+    protected $allowedFields = ['id_perjalanan', 'uang_harian', 'transportasi', 'akomodasi', 'transportasi_lokal', 'biaya_transportasi', 'total_biaya'];
 
     protected $useSoftDeletes = false;
     protected $skipValidation = true;
