@@ -145,7 +145,7 @@ new Chart(document.getElementById("bar-chart"), {
       labels: <?php echo json_encode($data_bulan) ?>,
       datasets: [
         {
-          label: "Population (millions)",
+          label: "Jumlah",
           backgroundColor: ["#f16923", "#32be8f", "#c6c247", "#faca4a"],
           data: <?php echo json_encode($data_jumlah) ?>,
         }

@@ -68,13 +68,14 @@
                         $tanggal1 = new DateTime($berangkat);
                         $tanggal2 = new DateTime($pulang);
                         $perbedaan = $tanggal2->diff($tanggal1)->format("%a");
+                        $jumlahhari = $perbedaan+1;
                     ?>
                     <td><?= $tanggal->tgl_berangkat ?> s/d <?= $tanggal->tgl_pulang ?></td>
                 </tr>
                 <tr>
                     <td>Jumlah Hari</td>
                     <td>:</td>
-                    <td><?= $perbedaan ?> hari</td>
+                    <td><?= $jumlahhari ?> hari</td>
                 </tr>
                 <tr>
                     <td>Wilayah Asal</td>
@@ -157,7 +158,7 @@
                 <tr>
                     <td>Uang Makan Harian (
                         <?php
-                          $makan = 2 * $perbedaan;
+                          $makan = 2 * $jumlahhari;
                           echo"$makan"; ?> 
                         
                         kali)</td>
@@ -171,7 +172,11 @@
                 <tr>
                     <td>Akomodasi</td>
                     <td>:</td>
-                    <td>Rp. <?= $akomodasi->biaya ?></td>
+                    <?php
+                      $biayahotel = $akomodasi->biaya;
+                      $jumlahako = $biayahotel*$perbedaan;
+                    ?>
+                    <td>Rp. <?= $jumlahako ?></td>
                 </tr>
                   <tr class="fs-17 fw-600 upper" style="border-top: 1px solid #ccc">
                     <td>Total Biaya</td>
@@ -180,7 +185,7 @@
                       <?php 
                         $tiket = $biaya->biaya_transportasi;
                         $transport = $lokal->biaya;
-                        $ako = $akomodasi->biaya;
+                        $ako = $jumlahako;
                         $total = $tiket + $ako + $transport + $totaluang;
                         echo "Rp. $total";
                       ?>

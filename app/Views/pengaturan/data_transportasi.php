@@ -50,7 +50,7 @@
 
                                             <!-- Modal Header -->
                                             <div class="modal-header bg-oranye p-20">
-                                                 <h3 class="modal-title text-putih upper"><i class="icon-trash"></i> Hapus <b>Jabatan</b></h3>
+                                                 <h3 class="modal-title text-putih upper"><i class="icon-trash"></i> Hapus <b>Transportasi</b></h3>
                                                 <button type="button" class="close" data-dismiss="modal" data-target="#modal-id-<?= $item->id_jabatan ?>">&times;</button>
                                             </div>
 

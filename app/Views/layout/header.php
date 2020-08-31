@@ -23,6 +23,7 @@
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
 </head>
+<?php date_default_timezone_set("Asia/Bangkok"); ?>
 <body class="bg-putih montserrat">
     <div class="wrapper ">
         <div class="sidebar" data-color="white" data-active-color="danger">
@@ -127,8 +128,6 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="<?= base_url() ?>/login/logout">Keluar</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
                     </ul>

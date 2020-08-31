@@ -271,8 +271,9 @@
                                                     $tanggal1 = new DateTime($berangkat);
                                                     $tanggal2 = new DateTime($pulang);
                                                     $perbedaan = $tanggal2->diff($tanggal1)->format("%a");
+                                                    $jumlahhari = $perbedaan+1;
                                                 ?>
-                                                <?= $perbedaan ?> hari
+                                                <?= $jumlahhari ?> hari
                                             </td>
                                         </tr>
 
@@ -312,10 +313,16 @@
                                                 width="217"
                                             >
                                                 <?php 
+                                                    $biayahotel = $akomodasi->biaya;
+                                                    $jumlahako = $biayahotel*$perbedaan;
+
+                                                    $makan = 2 * $jumlahhari;
+                                                    $uangmakan = $uang->biaya;
+                                                    $totaluang = $makan * $uangmakan;
+
                                                     $tiket = $biaya->biaya_transportasi;
                                                     $transport = $lokal->biaya;
-                                                    $ako = $akomodasi->biaya;
-                                                    $total = $tiket + $ako + $transport + $totaluang;
+                                                    $total = $tiket + $jumlahako + $transport + $totaluang;
                                                     
                                                     echo"Rp. $total"; 
                                                 ?>
@@ -578,10 +585,6 @@
                                                     width="217"
                                                 >
                                                 <?php 
-                                                    $makan = 2 * $perbedaan;
-                                                    $uangmakan = $uang->biaya;
-                                                    $totaluang = $makan * $uangmakan;
-                                                    
                                                     echo"$totaluang";
                                                 ?>
                                                 </td>
@@ -693,7 +696,8 @@
                                                         text-align: right;
                                                     "
                                                     width="128"
-                                                ></td>
+                                                >
+                                                </td>
                                                 <td
                                                     style="
                                                         font-size: 15px;
@@ -702,7 +706,11 @@
                                                         border-right: 1px solid #000;
                                                     "
                                                     width="217"
-                                                ></td>
+                                                >
+                                                <?php
+                                                    echo"$jumlahako";
+                                                ?>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -1229,7 +1237,11 @@
                                                         text-align: right;
                                                     "
                                                     width="128"
-                                                ></td>
+                                                >
+                                                <?php
+                                                    echo"$jumlahako";
+                                                ?>
+                                                </td>
                                                 <td
                                                     style="
                                                         font-size: 15px;
@@ -1238,7 +1250,14 @@
                                                         border-right: 1px solid #000;
                                                     "
                                                     width="217"
-                                                ></td>
+                                                >
+                                                <?php
+                                                    $biayahotel = $akomodasi->biaya;
+                                                    $jumlahako = $biayahotel*$perbedaan;
+
+                                                    echo"$jumlahako";
+                                                ?>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td

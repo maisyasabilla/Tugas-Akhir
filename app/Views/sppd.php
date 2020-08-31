@@ -332,8 +332,9 @@
                             $tanggal1 = new DateTime($berangkat);
                             $tanggal2 = new DateTime($pulang);
                             $perbedaan = $tanggal2->diff($tanggal1)->format("%a");
+                            $jumlahhari = $perbedaan+1;
                         ?>
-                        <p style="margin: 0;"><?= $perbedaan ?> hari</p>
+                        <p style="margin: 0;"><?= $jumlahhari ?> hari</p>
                         <p style="margin: 0;"><?= $tanggal->tgl_berangkat ?></p>
                         <p style="margin: 0;"><?= $tanggal->tgl_pulang ?></p>
                         <p style="margin: 0;">-</p>
