@@ -82,13 +82,6 @@ class PerjalananTanggalRepository extends Repository
         $price = 0;
         $db = Database::connect();
         $mydate = getdate(date("U"));
-        $field = ArrayHelper::objectToFieldQuery([
-            'perjalanan_tanggal.id_perjalanan' => 'id_perjalanan',
-            'perjalanan_tanggal.tgl_berangkat'=> 'tanggal_berangkat',
-            'perjalanan_tanggal.tgl_pulang'=> 'tanggal_pulang',
-            'perjalanan_biaya.id_perjalanan'=> 'biaya_id',
-            'perjalanan_biaya.total_biaya'=> 'biaya_total',
-        ]);
 
         $response = $db
             ->table('perjalanan_tanggal')
