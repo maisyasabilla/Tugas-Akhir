@@ -33,6 +33,7 @@ class Perjalanan_Dinas extends Controller
             $param = [
                 'jmlpegawai' => $pegawaiRepo->jumlah(),
                 'bulan' => $perjalananRepo->jumlahBulan(),
+                'jumlahbiaya' => $perjalananRepo->jumlahBiaya(),
                 'biaya' => $perjalananRepo->biayaBulan(),
                 'jmlperjalanan' => $perjalananRepo->perjalananAktif(),
                 'perjalananbulan' => $perjalananRepo->perjalananBulan(),

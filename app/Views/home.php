@@ -82,15 +82,15 @@
                 <div class="card card-stats">
                 <div class="card-body ">
                     <div class="row">
-                    <div class="col-5 col-md-4">
+                    <div class="col-2 col-md-2">
                         <div class="icon-big text-center icon-warning">
                         <i class="icon-people text-oranye"></i>
                         </div>
                     </div>
-                    <div class="col-7 col-md-8">
+                    <div class="col-10 col-md-10">
                         <div class="numbers">
                         <p class="card-category">Biaya</p>
-                        <p class="card-title"><?= $biaya ?>
+                        <p class="card-title fs-17 mt-5"><?= $biaya ?>
                             <p>
                         </div>
                     </div>

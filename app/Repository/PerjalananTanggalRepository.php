@@ -44,6 +44,10 @@ class PerjalananTanggalRepository extends Repository
             ->findAll();
     }
 
+    public function jumlahBiaya() {
+       //disini yaaa 
+    }
+
     public function perjalananAktif() {
         $model = new PerjalananTanggalModel();
         $mydate = getdate(date("U"));

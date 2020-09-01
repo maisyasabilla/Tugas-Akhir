@@ -49,6 +49,7 @@ class PerjalananBiayaRepository extends Repository
         $uangRepo = new UangRepository();
 
         $lokal = $lokalRepo->findWilayah($object['wilayah_tujuan']);
+        $asal = $lokalRepo->findWilayah($object['wilayah_asal']);
         $pegawai = $pegawaiRepo->findPegawai($object['nip']);
         $akomodasi = $akomodasiRepo->findByGolonganPerjalanan($pegawai[0]->jenjang_jabatan->golongan_perjalanan);
         $uangHarian = $uangRepo->findByWilayah($object['wilayah_tujuan']);
@@ -70,12 +71,16 @@ class PerjalananBiayaRepository extends Repository
         $biayahotel = $akomodasi[0]->biaya;
         $jumlahako = $biayahotel * $perbedaan;
 
+        //LOKAL
+        $lokaltujuan = $lokal[0]->biaya;
+        $lokalasal = $asal[0]->biaya;
+        $totallokal = $lokaltujuan + $lokalasal;
+
         //TOTAL UANG
         $tiket = $object['biaya_transportasi'];
-        $transport = $lokal[0]->biaya;
         $ako = $jumlahako;
-        $total = $tiket + $ako + $transport + $totaluang;
-        echo $object['tgl_berangkat'];
+        $total = $tiket + $ako + $totallokal + $totaluang;
+        echo $total;
         
         $item->id_perjalanan = $object['id_perjalanan'];
         $item->uang_harian = $uangHarian[0]->id_uang; // TODO . uang harian repo tbc
