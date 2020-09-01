@@ -130,13 +130,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script>
  // Bar chart
- <?php foreach($bulan as $item): ?>
+ <?php foreach($jumlahbiaya as $item): ?>
     <?php
-        $month_num = $item->bulan;
+        $month_num = $item['bulan'];
         $month_name = date("F", mktime(0, 0, 0, $month_num, 10));
 
         $data_bulan[] = $month_name;
-        $data_jumlah[] = $item->jumlah;
+        $data_jumlah[] = $item['total_biaya'];
     ?>
 <?php endforeach ?>
 new Chart(document.getElementById("bar-chart"), {

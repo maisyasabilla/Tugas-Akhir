@@ -45,7 +45,11 @@ class PerjalananTanggalRepository extends Repository
     }
 
     public function jumlahBiaya() {
-       //disini yaaa 
+        return PerjalananTanggalRepository::generateBiaya(
+            null,
+            null,
+            'month(tgl_berangkat)'
+        );
     }
 
     public function perjalananAktif() {
@@ -84,17 +88,13 @@ class PerjalananTanggalRepository extends Repository
 
     public function biayaBulan() {
         $price = 0;
-        $db = Database::connect();
         $mydate = getdate(date("U"));
 
-        $response = $db
-            ->table('perjalanan_tanggal')
-            ->selectSum('perjalanan_biaya.total_biaya')
-            ->join('perjalanan_biaya', 'perjalanan_tanggal.id_perjalanan = perjalanan_biaya.id_perjalanan')
-            ->where("month(perjalanan_tanggal.tgl_berangkat)", "$mydate[mon]")
-            ->where("year(perjalanan_tanggal.tgl_berangkat)", "$mydate[year]")
-            ->get()
-            ->getResultArray();
+        $response = PerjalananTanggalRepository::generateBiaya(
+            $mydate['mon'],
+            $mydate['year'],
+            null
+        );
 
         if (count($response) > 0 && isset($response[0]['total_biaya'])) {
             $price = $response[0]['total_biaya'];
@@ -102,6 +102,7 @@ class PerjalananTanggalRepository extends Repository
 
         return PerjalananTanggalRepository::generateRupiah($price);
     }
+
 
     /**
      * Entry Data PerjalananTanggal
@@ -142,6 +143,35 @@ class PerjalananTanggalRepository extends Repository
     public function delete($id) {
         $model = new PerjalananTanggalModel();
         $model->delete($id);
+    }
+
+    public static function generateBiaya($month, $year, $groupBy) {
+        $price = 0;
+        $db = Database::connect();
+
+        $response = $db
+            ->table('perjalanan_tanggal')
+            ->select('month(perjalanan_tanggal.tgl_berangkat) as bulan')
+            ->selectSum('perjalanan_biaya.total_biaya')
+            ->join('perjalanan_biaya', 'perjalanan_tanggal.id_perjalanan = perjalanan_biaya.id_perjalanan');
+
+        if (isset($month)) {
+            $response = $response->where("month(perjalanan_tanggal.tgl_berangkat)", "$month");
+        }
+
+        if (isset($year)) {
+            $response = $response->where("year(perjalanan_tanggal.tgl_berangkat)", "$year");
+        }
+
+        if (isset($groupBy)) {
+            $response = $response->groupBy($groupBy);
+        }
+
+        $response = $response
+            ->get()
+            ->getResultArray();
+
+        return $response;
     }
 
     /**
