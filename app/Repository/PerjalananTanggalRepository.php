@@ -32,10 +32,10 @@ class PerjalananTanggalRepository extends Repository
         return $model->find($id);
     }
 
-    public function jumlahBulan() {   
+    public function jumlahBulan() {
         $model = new PerjalananTanggalModel();
         $mydate = getdate(date("U"));
-      
+
         return $model
             ->select("month(tgl_berangkat) as `bulan`")
             ->select("count(*) as `jumlah`")
@@ -44,7 +44,7 @@ class PerjalananTanggalRepository extends Repository
             ->findAll();
     }
 
-    public function perjalananAktif() {   
+    public function perjalananAktif() {
         $model = new PerjalananTanggalModel();
         $mydate = getdate(date("U"));
 
@@ -55,7 +55,7 @@ class PerjalananTanggalRepository extends Repository
         return count($jumlahaktif);
     }
 
-    public function perjalananBulan() {   
+    public function perjalananBulan() {
         $model = new PerjalananTanggalModel();
         $mydate = getdate(date("U"));
 
@@ -67,7 +67,7 @@ class PerjalananTanggalRepository extends Repository
         return count($jumlahaktif);
     }
 
-    public function perjalananTahun() {   
+    public function perjalananTahun() {
         $model = new PerjalananTanggalModel();
         $mydate = getdate(date("U"));
 
@@ -78,42 +78,25 @@ class PerjalananTanggalRepository extends Repository
         return count($jumlahaktif);
     }
 
-    public function biayaBulan() {   
+    public function biayaBulan() {
+        $price = 0;
         $db = Database::connect();
         $mydate = getdate(date("U"));
-        $field = ArrayHelper::objectToFieldQuery([
-            'perjalanan_tanggal.id_perjalanan' => 'id_perjalanan',
-            'perjalanan_tanggal.tgl_berangkat'=> 'tanggal_berangkat',
-            'perjalanan_tanggal.tgl_pulang'=> 'tanggal_pulang',
-            'perjalanan_biaya.id_perjalanan'=> 'biaya_id',
-            'perjalanan_biaya.total_biaya'=> 'biaya_total',
-        ]);
+
         $response = $db
             ->table('perjalanan_tanggal')
-            ->selectSum('perjalanan_biaya.total_biaya as biaya')
+            ->selectSum('perjalanan_biaya.total_biaya')
             ->join('perjalanan_biaya', 'perjalanan_tanggal.id_perjalanan = perjalanan_biaya.id_perjalanan')
             ->where("month(perjalanan_tanggal.tgl_berangkat)", "$mydate[mon]")
             ->where("year(perjalanan_tanggal.tgl_berangkat)", "$mydate[year]")
             ->get()
             ->getResultArray();
-        
-        return array_map(
-            function($value) {
-                $result = new \stdClass();
-                $result->id_perjalanan = $value['id_perjalanan'];
-                $result->tgl_berangkat = $value['tanggal_berangkat'];
-                $result->tgl_pulang = $value['tanggal_pulang'];
-           
-                $perjalanan_biaya = new \stdClass();
-                $perjalanan_biaya->id_perjalanan = $value['biaya_id'];
-                $perjalanan_biaya->total_biaya = $value['biaya_total'];
-            
-                $result->perjalanan_biaya = $perjalanan_biaya;
-         
-                return $result;
-            },
-            $response
-        );
+
+        if (count($response) > 0 && isset($response[0]['total_biaya'])) {
+            $price = $response[0]['total_biaya'];
+        }
+
+        return PerjalananTanggalRepository::generateRupiah($price);
     }
 
     /**
@@ -124,12 +107,12 @@ class PerjalananTanggalRepository extends Repository
     public function insert($object) {
         $item = new PerjalananTanggalEntities();
         $mydate = getdate(date("U"));
-        
+
         $item->id_perjalanan = $object['id_perjalanan'];
         $item->tgl_sppd = "$mydate[year]-$mydate[mon]-$mydate[mday]";
         $item->tgl_berangkat = $object['tgl_berangkat'];
         $item->tgl_pulang = $object['tgl_pulang'];
-        
+
         $model = new PerjalananTanggalModel();
         $model->insert($item);
     }
@@ -155,6 +138,17 @@ class PerjalananTanggalRepository extends Repository
     public function delete($id) {
         $model = new PerjalananTanggalModel();
         $model->delete($id);
+    }
+
+    /**
+     * Generate Rupiah
+     * @param {integer} $price - price data
+     * @return {string}
+     */
+    public static function generateRupiah($price) {
+        $respose = "Rp " . number_format($price,0,',','.');
+        return $respose;
+
     }
 
 }

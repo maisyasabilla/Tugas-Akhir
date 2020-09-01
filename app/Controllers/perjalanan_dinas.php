@@ -29,7 +29,7 @@ class Perjalanan_Dinas extends Controller
        if(isset($_SESSION['username'])){
             $pegawaiRepo = new PegawaiRepository();
             $perjalananRepo = new PerjalananTanggalRepository();
-            
+
             $param = [
                 'jmlpegawai' => $pegawaiRepo->jumlah(),
                 'bulan' => $perjalananRepo->jumlahBulan(),
@@ -130,7 +130,7 @@ class Perjalanan_Dinas extends Controller
     public function data_perjalanan()
     {
         $perjalananRepo = new PerjalananRepository();
-        
+
         $param = [
             'perjalanan' => $perjalananRepo->findPerjalananFormatted(),
         ];
@@ -177,7 +177,7 @@ class Perjalanan_Dinas extends Controller
         $detail = $detailRepo->findByTransportGolongan($biaya->transportasi, $golonganper->id_golongan_per);
         $akomodasi = $akomodasiRepo->findById($biaya->akomodasi);
         $uang = $uangRepo->findById($biaya->uang_harian);
-        
+
         $param = [
             'model' => $model,
             'tanggal' => $tanggal,
@@ -213,14 +213,14 @@ class Perjalanan_Dinas extends Controller
         $golonganRepo = new GolonganRepository();
         $golonganPerjalananRepo = new GolonganPerjalananRepository();
         $perjalananRepo = new PerjalananRepository();
-       
+
         $pegawai = $pegawaiRepo->findById($id);
         $jabatan = $jabatanRepo->findById($pegawai->jabatan);
         $jenjang = $jenjangRepo->findById($jabatan->jenjang_jabatan);
         $golongan = $golonganRepo->findById($pegawai->golongan);
         $golonganper = $golonganPerjalananRepo->findById($jenjang->golongan_perjalanan);
         $perjalanan = $perjalananRepo->findPerjalananPegawai($pegawai->nip);
-        
+
         $param = [
             'perjalanan' => $perjalanan,
             'pegawai' => $pegawai,
