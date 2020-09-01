@@ -47,7 +47,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                    <i class="fa fa-calendar-o"></i> Perjalanan Bulan Ini 
+                    <i class="fa fa-calendar-o"></i> Perjalanan Bulan Ini
                     </div>
                 </div>
                 </div>
@@ -90,7 +90,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                         <p class="card-category">Biaya</p>
-                        <p class="card-title"><?= $biaya->perjalanan_biaya->biaya ?>
+                        <p class="card-title"><?= $biaya ?>
                             <p>
                         </div>
                     </div>
@@ -131,12 +131,12 @@
 <script>
  // Bar chart
  <?php foreach($bulan as $item): ?>
-    <?php 
+    <?php
         $month_num = $item->bulan;
         $month_name = date("F", mktime(0, 0, 0, $month_num, 10));
-       
-        $data_bulan[] = $month_name; 
-        $data_jumlah[] = $item->jumlah; 
+
+        $data_bulan[] = $month_name;
+        $data_jumlah[] = $item->jumlah;
     ?>
 <?php endforeach ?>
 new Chart(document.getElementById("bar-chart"), {
