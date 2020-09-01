@@ -139,7 +139,12 @@
                 <tr>
                     <td>Biaya Transportasi Dalam Kota</td>
                     <td>:</td>
-                    <td>Rp. <?= $lokal->biaya ?></td>
+                    <?php
+                        $lokaltujuan = $lokal->biaya;
+                        $lokalasal = $lokal_asal[0]->biaya;
+                        $transportlokal = $lokaltujuan + $lokalasal;
+                    ?>
+                    <td>Rp. <?php echo"$transportlokal"; ?></td>
                 </tr>
               </table>
             <hr class="border-title ml-0 mt-20">
@@ -153,7 +158,7 @@
                 <tr>
                     <td>Biaya Transportasi Dalam Kota</td>
                     <td>:</td>
-                    <td>Rp. <?= $lokal->biaya ?></td>
+                    <td>Rp. <?php echo"$transportlokal"; ?></td>
                 </tr>
                 <tr>
                     <td>Uang Makan Harian (
@@ -184,9 +189,8 @@
                     <td>
                       <?php 
                         $tiket = $biaya->biaya_transportasi;
-                        $transport = $lokal->biaya;
                         $ako = $jumlahako;
-                        $total = $tiket + $ako + $transport + $totaluang;
+                        $total = $tiket + $ako + $transportlokal + $totaluang;
                         echo "Rp. $total";
                       ?>
                     </td>

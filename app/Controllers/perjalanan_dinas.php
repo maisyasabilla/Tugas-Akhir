@@ -33,6 +33,7 @@ class Perjalanan_Dinas extends Controller
             $param = [
                 'jmlpegawai' => $pegawaiRepo->jumlah(),
                 'bulan' => $perjalananRepo->jumlahBulan(),
+                'biaya' => $perjalananRepo->biayaBulan(),
                 'jmlperjalanan' => $perjalananRepo->perjalananAktif(),
                 'perjalananbulan' => $perjalananRepo->perjalananBulan(),
                 'perjalanantahun' => $perjalananRepo->perjalananTahun(),
@@ -172,6 +173,7 @@ class Perjalanan_Dinas extends Controller
         $tujuan = $wilayahRepo->findById($model->wilayah_tujuan);
         $transportasi = $transportasiRepo->findById($biaya->transportasi);
         $lokal = $lokalRepo->findById($biaya->transportasi_lokal);
+        $lokal_asal = $lokalRepo->findWilayah($model->wilayah_asal);
         $detail = $detailRepo->findByTransportGolongan($biaya->transportasi, $golonganper->id_golongan_per);
         $akomodasi = $akomodasiRepo->findById($biaya->akomodasi);
         $uang = $uangRepo->findById($biaya->uang_harian);
@@ -190,10 +192,10 @@ class Perjalanan_Dinas extends Controller
             'transportasi' => $transportasi,
             'detail' => $detail,
             'lokal' => $lokal,
+            'lokal_asal' => $lokal_asal,
             'akomodasi' => $akomodasi,
             'uang' => $uang
         ];
-
         if(isset($_SESSION['username'])){
             echo view ('layout/header');
             echo view ('perjalanan/detail_perjalanan', $param);

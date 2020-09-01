@@ -313,16 +313,23 @@
                                                 width="217"
                                             >
                                                 <?php 
+                                                    //AKO
                                                     $biayahotel = $akomodasi->biaya;
                                                     $jumlahako = $biayahotel*$perbedaan;
-
+                                                    
+                                                    //UANG MAKAN
                                                     $makan = 2 * $jumlahhari;
                                                     $uangmakan = $uang->biaya;
                                                     $totaluang = $makan * $uangmakan;
 
+                                                    //TRANSPORT LOKAL
+                                                    $lokaltujuan = $lokal->biaya;
+                                                    $lokalasal = $lokal_asal[0]->biaya;
+                                                    $transportlokal = $lokaltujuan + $lokalasal;
+                                        
+                                                    //TOTAL
                                                     $tiket = $biaya->biaya_transportasi;
-                                                    $transport = $lokal->biaya;
-                                                    $total = $tiket + $jumlahako + $transport + $totaluang;
+                                                    $total = $tiket + $jumlahako + $transportlokal + $totaluang;
                                                     
                                                     echo"Rp. $total"; 
                                                 ?>
@@ -666,7 +673,7 @@
                                                     "
                                                     width="217"
                                                 >
-                                                    <?= $lokal->biaya ?>
+                                                    <?php echo"$transportlokal"; ?>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1161,7 +1168,7 @@
                                                     "
                                                     width="128"
                                                 >
-                                                    <b><?= $lokal->biaya ?></b>
+                                                    <b><?php echo"$transportlokal"; ?></b>
                                                 </td>
                                                 <td
                                                     style="
@@ -1172,7 +1179,7 @@
                                                     "
                                                     width="217"
                                                 >
-                                                    <b><?= $lokal->biaya ?></b>
+                                                    <b><?php echo"$transportlokal"; ?></b>
                                                 </td>
                                             </tr>
                                             <tr>

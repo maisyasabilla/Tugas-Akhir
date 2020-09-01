@@ -89,8 +89,8 @@
                     </div>
                     <div class="col-7 col-md-8">
                         <div class="numbers">
-                        <p class="card-category">Jumlah</p>
-                        <p class="card-title"><?php echo($jmlpegawai); ?>
+                        <p class="card-category">Biaya</p>
+                        <p class="card-title"><?= $biaya->perjalanan_biaya->biaya ?>
                             <p>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                    <i class="fa fa-refresh"></i> Karyawan
+                    <i class="fa fa-refresh"></i> Perjalanan Bulan Ini
                     </div>
                 </div>
                 </div>

@@ -49,6 +49,7 @@ class Report extends Controller
         $tujuan = $wilayahRepo->findById($model->wilayah_tujuan);
         $transportasi = $transportasiRepo->findById($biaya->transportasi);
         $lokal = $lokalRepo->findById($biaya->transportasi_lokal);
+        $lokal_asal = $lokalRepo->findWilayah($model->wilayah_asal);
         $detail = $detailRepo->findByTransportGolongan($biaya->transportasi, $golonganper->id_golongan_per);
         $akomodasi = $akomodasiRepo->findById($biaya->akomodasi);
         $uang = $uangRepo->findById($biaya->uang_harian);
@@ -67,6 +68,7 @@ class Report extends Controller
             'transportasi' => $transportasi,
             'detail' => $detail,
             'lokal' => $lokal,
+            'lokal_asal' => $lokal_asal,
             'akomodasi' => $akomodasi,
             'uang' => $uang,
         ];

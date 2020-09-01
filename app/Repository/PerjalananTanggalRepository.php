@@ -78,6 +78,44 @@ class PerjalananTanggalRepository extends Repository
         return count($jumlahaktif);
     }
 
+    public function biayaBulan() {   
+        $db = Database::connect();
+        $mydate = getdate(date("U"));
+        $field = ArrayHelper::objectToFieldQuery([
+            'perjalanan_tanggal.id_perjalanan' => 'id_perjalanan',
+            'perjalanan_tanggal.tgl_berangkat'=> 'tanggal_berangkat',
+            'perjalanan_tanggal.tgl_pulang'=> 'tanggal_pulang',
+            'perjalanan_biaya.id_perjalanan'=> 'biaya_id',
+            'perjalanan_biaya.total_biaya'=> 'biaya_total',
+        ]);
+        $response = $db
+            ->table('perjalanan_tanggal')
+            ->selectSum('perjalanan_biaya.total_biaya as biaya')
+            ->join('perjalanan_biaya', 'perjalanan_tanggal.id_perjalanan = perjalanan_biaya.id_perjalanan')
+            ->where("month(perjalanan_tanggal.tgl_berangkat)", "$mydate[mon]")
+            ->where("year(perjalanan_tanggal.tgl_berangkat)", "$mydate[year]")
+            ->get()
+            ->getResultArray();
+        
+        return array_map(
+            function($value) {
+                $result = new \stdClass();
+                $result->id_perjalanan = $value['id_perjalanan'];
+                $result->tgl_berangkat = $value['tanggal_berangkat'];
+                $result->tgl_pulang = $value['tanggal_pulang'];
+           
+                $perjalanan_biaya = new \stdClass();
+                $perjalanan_biaya->id_perjalanan = $value['biaya_id'];
+                $perjalanan_biaya->total_biaya = $value['biaya_total'];
+            
+                $result->perjalanan_biaya = $perjalanan_biaya;
+         
+                return $result;
+            },
+            $response
+        );
+    }
+
     /**
      * Entry Data PerjalananTanggal
      * @param {array} $object - data array PerjalananTanggal
