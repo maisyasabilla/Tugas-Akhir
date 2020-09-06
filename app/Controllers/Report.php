@@ -133,7 +133,7 @@ class Report extends Controller
 
         $mpdf = new Mpdf(['mode' => 'utf-8']);
         $mpdf->WriteHTML(view('sppd', $param));
-        return redirect()->to($mpdf->Output('SPPD.pdf', 'I'));
+        return $mpdf->Output('SPPD.pdf', 'D');
 
     }
 
