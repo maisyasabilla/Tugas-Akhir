@@ -53,7 +53,7 @@ class Report extends Controller
         $detail = $detailRepo->findByTransportGolongan($biaya->transportasi, $golonganper->id_golongan_per);
         $akomodasi = $akomodasiRepo->findById($biaya->akomodasi);
         $uang = $uangRepo->findById($biaya->uang_harian);
-        
+
         $param = [
             'model' => $model,
             'tanggal' => $tanggal,
@@ -77,7 +77,7 @@ class Report extends Controller
         $mpdf->WriteHTML(view('tanggung-jawab', $param));
         return redirect()->to($mpdf->Output('Laporan Pertanggungjawaban '.$pegawai->nama.'.pdf', 'I'));
 
-    } 
+    }
 
     public function sppd($id) {
 
@@ -111,7 +111,7 @@ class Report extends Controller
         $detail = $detailRepo->findByTransportGolongan($biaya->transportasi, $golonganper->id_golongan_per);
         $akomodasi = $akomodasiRepo->findById($biaya->akomodasi);
         $uang = $uangRepo->findById($biaya->uang_harian);
-        
+
         $param = [
             'model' => $model,
             'tanggal' => $tanggal,
@@ -129,11 +129,12 @@ class Report extends Controller
             'akomodasi' => $akomodasi,
             'uang' => $uang,
         ];
-        
+
+
         $mpdf = new Mpdf(['mode' => 'utf-8']);
         $mpdf->WriteHTML(view('sppd', $param));
         return redirect()->to($mpdf->Output('SPPD.pdf', 'I'));
-    
+
     }
 
 }

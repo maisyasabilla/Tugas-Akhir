@@ -10,9 +10,9 @@
                 font-size: 12px;
                 border: 1px solid #000;
                 padding: 2px;
-                width: 631px;
+                width: 700px;
                 height: 812px;
-                margin: 50px 20px;
+                margin: 50px 0;
             "
         >
             <img
@@ -38,13 +38,13 @@
                         >
                             <tr>
                                 <td>Nomor:</td>
-                                <td style="border-bottom: 1px dashed #000; font-weight: 600; width: 30px;"><?= $model->id_perjalanan ?></td>
+                                <td style="border-bottom: 1px dotted #000; font-weight: 600; width: 30px;"><?= $model->id_perjalanan ?></td>
                                 <td>/</td>
-                                <td style="border-bottom: 1px dashed #000; font-weight: 600; width: 40px;">SPPD</td>
+                                <td style="border-bottom: 1px dotted #000; font-weight: 600; width: 40px;">SPPD</td>
                                 <td>/</td>
-                                <td style="border-bottom: 1px dashed #000; font-weight: 600; width: 40px;">KBM</td>
+                                <td style="border-bottom: 1px dotted #000; font-weight: 600; width: 40px;">KBM</td>
                                 <td>/</td>
-                                <td style="border-bottom: 1px dashed #000; font-weight: 600; width: 80px;">
+                                <td style="border-bottom: 1px dotted #000; font-weight: 600; width: 80px;">
                                     Ecotourism
                                 </td>
                             </tr>
@@ -326,7 +326,7 @@
                             border-top: 1px solid;
                         "
                     >
-                        <?php 
+                        <?php
                             $berangkat = $tanggal->tgl_berangkat;
                             $pulang = $tanggal->tgl_pulang;
                             $tanggal1 = new DateTime($berangkat);
@@ -498,7 +498,1932 @@
                             vertical-align: top;
                         "
                     >
-                        <p style="margin: 30px 0 0; margin-top: 50px">Agus Mashudi,S.Hut</p>
+                        <p style="margin: 30px 0 0;">Agus Mashudi,S.Hut</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div
+            style="
+                font-size: 12px;
+                width: 700px;
+                margin: 50px 0px;
+            "
+        >
+            <table
+                cellpadding="0"
+                border="0"
+                vertical-algin
+                cellspacing="0"
+                align="center"
+                style="
+                    font-size: 12px;
+                    width: 701px;
+                    border: 1px solid #000;
+                    border-bottom: 0px;
+                "
+            >
+                <tr>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 5px 0;
+                            border-spacing: 0;
+                            width: 30px;
+                            min-width: 30px;
+                            max-width: 30px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        I.
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            vertical-align: top;
+                            border-bottom: 1px solid #000;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Berangkat Dari Tempat
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Kedudukan
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Ke
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0 3px 15px;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Kepala
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 5px 0;
+                            border-spacing: 0;
+                            width: 30px;
+                            min-width: 30px;
+                            max-width: 30px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        II.
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Tiba di
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Kepala
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 15px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            vertical-align: top;
+                            border-bottom: 1px solid #000;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Berangkat Dari Tempat
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Kedudukan
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Ke
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0 3px 15px;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Kepala
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 5px 0;
+                            border-spacing: 0;
+                            width: 30px;
+                            min-width: 30px;
+                            max-width: 30px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        III.
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Tiba di
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Kepala
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 15px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            vertical-align: top;
+                            border-bottom: 1px solid #000;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Berangkat Dari Tempat
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Kedudukan
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Ke
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0 3px 15px;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Kepala
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 5px 0;
+                            border-spacing: 0;
+                            width: 30px;
+                            min-width: 30px;
+                            max-width: 30px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        IV.
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Tiba di
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Kepala
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 15px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            vertical-align: top;
+                            border-bottom: 1px solid #000;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Berangkat Dari Tempat
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Kedudukan
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Ke
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0 3px 15px;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Kepala
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 5px 0;
+                            border-spacing: 0;
+                            width: 30px;
+                            min-width: 30px;
+                            max-width: 30px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        V.
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 10px;
+                                    "
+                                >
+                                    Tiba di
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    style="
+                                        width: 75px;
+                                        max-width: 75px;
+                                        min-width: 75px;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Pada Tanggal
+                                </td>
+                                <td
+                                    style="
+                                        width: 10px;
+                                        max-width: 10px;
+                                        min-width: 10px;
+                                        text-align: center;
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    :
+                                </td>
+                                <td
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        border-bottom: 1px dotted #000;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 15px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="1"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                                <td
+                                    colspan="2"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        text-align: center;
+                                    "
+                                >
+                                    Pejabat yang memberi perintah
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="2">
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            vertical-align: top;
+                            border-bottom: 1px solid #000;
+                        "
+                    >
+                    <table
+                            align="left"
+                            cellpadding="0"
+                            border="0"
+                            cellspacing="0"
+                            style="
+                                width: 100%;
+                                text-align: left;
+                            "
+                        >
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    Telah diperiksa, dengan keterangan bahwa perjalanan
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    tersebut di atas benar-benar dilakukan atas  perintahnya
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    dan semata-mata untuk keperluan jabatan dalam waktu
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                    yang sesingkat-singkatnya.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="1"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        width: 75px;
+                                        min-width: 75px;
+                                    "
+                                >
+                                </td>
+                                <td
+                                    colspan="2"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                        text-align: center;
+                                        width: 193px;
+                                        min-width: 193px;
+                                    "
+                                >
+                                    Pejabat yang memberi perintah
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                    colspan="3"
+                                    style="
+                                        padding: 3px 0;
+                                        min-height: 13px;
+                                        height: 13px;
+                                    "
+                                >
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td
+                                    colspan="2"
+                                    style="
+                                        width: 193px;
+                                        min-width: 193px;
+                                    "
+                                >
+                                    <table
+                                        style="width: 100%"
+                                    >
+                                        <tr>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                    text-align: right;
+                                                "
+                                            >
+                                                (
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 165px;
+                                                    min-width: 165px;
+                                                    border-bottom: 1px solid #000;
+                                                "
+                                            >
+                                            </td>
+                                            <td
+                                                style="
+                                                    width: 7px;
+                                                    min-width: 7px;
+                                                "
+                                            >
+                                                )
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 5px 0;
+                            border-spacing: 0;
+                            width: 30px;
+                            min-width: 30px;
+                            max-width: 30px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        VI.
+                    </td>
+                    <td
+                        style="
+                            text-align: left;
+                            padding: 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        Catatan lain-lain
+                    </td>
+                    <td
+                        style="
+                            text-align: left;
+                            padding: 2px 5px;
+                            border-spacing: 0;
+                            width: 350px;
+                            min-width: 350px;
+                            max-width: 350px;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="
+                            text-align: center;
+                            padding: 5px 0;
+                            border-spacing: 0;
+                            width: 30px;
+                            min-width: 30px;
+                            max-width: 30px;
+                            border-right: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        VII.
+                    </td>
+                    <td
+                        colspan="2"
+                        style="
+                            text-align: left;
+                            padding: 5px;
+                            border-spacing: 0;
+                            border-bottom: 1px solid #000;
+                            vertical-align: top;
+                        "
+                    >
+                        Pejabat yang bersangkutan memeberikan SPPD, pegawai yang melakukan perjalanan dinas para pejabat yang mengesahkan
+                        tanggal berangkat/tiba dan bendaharawan bertanggung jawab berdasarkan peraturan-peraturan keuangan negara
+                        apabila negara menderita rugi akibat kesalahan kelalaian dan kealpaannya.
+                        (Angka 8. Lampiran surat Menteri Keuangan Tanggal 30 April 1974 Nomor B.296/MK/174/1974)
                     </td>
                 </tr>
             </table>
