@@ -109,7 +109,7 @@
             <div class="col-md-12">
                 <div class="card ">
                 <div class="card-header ">
-                    <h3 class="card-title">Grafik Perjalanan Dinas</h3>
+                    <h3 class="card-title">Grafik Biaya Perjalanan Dinas</h3>
                     <p class="card-category">Januari-Desember 2020</p>
                 </div>
                 <div class="card-body ">
@@ -120,7 +120,6 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                    <i class="fa fa-history"></i> Updated 3 minutes ago
                     </div>
                 </div>
                 </div>
@@ -145,7 +144,7 @@ new Chart(document.getElementById("bar-chart"), {
       labels: <?php echo json_encode($data_bulan) ?>,
       datasets: [
         {
-          label: "Jumlah",
+          label: "Biaya Rp",
           backgroundColor: ["#f16923", "#32be8f", "#c6c247", "#faca4a"],
           data: <?php echo json_encode($data_jumlah) ?>,
         }

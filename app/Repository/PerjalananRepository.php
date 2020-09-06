@@ -117,6 +117,8 @@ class PerjalananRepository extends Repository
             'perjalanan.keterangan' => 'keterangan',
             'wilayah.id_wilayah' => 'id_wilayah',
             'wilayah.wilayah' => 'wilayah',
+            'perjalanan_biaya.id_perjalanan'=> 'biaya_id',
+            'perjalanan_biaya.total_biaya'=> 'biaya_total',
             'perjalanan_tanggal.id_perjalanan'=> 'tanggal_id',
             'perjalanan_tanggal.tgl_sppd'=> 'tanggal_sppd',
             'perjalanan_tanggal.tgl_berangkat'=> 'tanggal_berangkat',
@@ -131,6 +133,7 @@ class PerjalananRepository extends Repository
             ->table('perjalanan')
             ->select($field)
             ->join('perjalanan_tanggal', 'perjalanan_tanggal.id_perjalanan = perjalanan.id_perjalanan')
+            ->join('perjalanan_biaya', 'perjalanan_biaya.id_perjalanan = perjalanan.id_perjalanan')
             ->join('pegawai', 'pegawai.nip = perjalanan.nip')
             ->join('jabatan', 'jabatan.id_jabatan = pegawai.jabatan')
             ->join('wilayah', 'wilayah.id_wilayah = perjalanan.wilayah_tujuan')
@@ -153,6 +156,10 @@ class PerjalananRepository extends Repository
                 $perjalanan_tanggal->tgl_berangkat = $value['tanggal_berangkat'];
                 $perjalanan_tanggal->tgl_pulang = $value['tanggal_pulang'];
             
+                $perjalanan_biaya = new \stdClass();
+                $perjalanan_biaya->id_perjalanan = $value['biaya_id'];
+                $perjalanan_biaya->total_biaya = $value['biaya_total'];
+               
                 $pegawai = new \stdClass();
                 $pegawai->nip = $value['pegawai_nip'];
                 $pegawai->nama = $value['pegawai_nama'];
@@ -167,6 +174,7 @@ class PerjalananRepository extends Repository
                 $wilayah->wilayah = $value['wilayah'];
                 
                 $result->perjalanan_tanggal = $perjalanan_tanggal;
+                $result->perjalanan_biaya = $perjalanan_biaya;
                 $result->pegawai = $pegawai;
                 $result->jabatan = $jabatan;
                 $result->wilayah = $wilayah;

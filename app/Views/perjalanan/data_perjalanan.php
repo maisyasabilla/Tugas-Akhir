@@ -29,6 +29,7 @@
                                     <th>Tanggal Pulang</th>
                                     <th>Kendaraan</th>
                                     <th>Tujuan</th>
+                                    <th>Biaya</th>
                                     <th>#</th>
                                 </tr>
                             </thead>
@@ -52,6 +53,7 @@
                                     <td><?= $item->perjalanan_tanggal->tgl_pulang ?></td>
                                     <td><?= $item->alat_angkut ?></td>
                                     <td><?= $item->tujuan ?></td>
+                                    <td>Rp. <?= $item->perjalanan_biaya->total_biaya ?></td>
                                     <td style="width: 50px">
                                         <button class="btn-action bg-oranye" data-toggle="modal" data-target="#modalhapus-id-<?= $item->id_perjalanan ?>">
                                             <i class="icon-trash"></i>
